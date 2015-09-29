@@ -1,6 +1,6 @@
-# Diesel
+# Diesal
 
-Diesel is a library of ES2015 modules implementing common data structures and
+Diesal is a library of ES2015 modules implementing common data structures and
 algorithms. The goal is to wind up with clean, easy to understand, well-tested,
 well-documented code, that (with the right tools) can be minimally included into
 other projects.
@@ -24,7 +24,7 @@ Target: ESDoc for all methods. Docco generation for browsing code with comments.
 
 No transpilation and packaging into a monolithic library. `npm install` the
 package, then import the modules you want. If you are using tools that allow
-this, you should be able to minify your code with only the pieces of Diesel that
+this, you should be able to minify your code with only the pieces of Diesal that
 your app needs.
 
 # Running Tests/Coverage
