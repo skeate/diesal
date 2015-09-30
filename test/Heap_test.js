@@ -1,7 +1,7 @@
 import chai from 'chai';
 let should = chai.should();
 
-import Heap from '../Heap';
+import Heap from '../src/Heap';
 
 describe('Heap', () => {
   it('should be able to be instantiated', () => {
@@ -38,14 +38,18 @@ describe('Heap', () => {
     heap.pop().should.equal(7);
     heap.pop().should.equal(9);
     should.equal(heap.pop(), null);
-  });
 
-  it('should not take forever to construct a new heap', function() {
-    this.timeout(500);
     let nums = [];
     let i = 0;
-    const NUMS_LENGTH = 1000000;
+    const NUMS_LENGTH = 1000;
     while (i++ < NUMS_LENGTH) nums.push(Math.random());
     let h = new Heap(nums);
+    let a;
+    let b = h.pop();
+    while(h.length) {
+      a = b;
+      b = h.pop();
+      a.should.be.at.most(b);
+    }
   });
 });

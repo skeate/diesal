@@ -15,7 +15,8 @@ export default class Heap {
   constructor(list = [], cmp = (a, b) => a < b) {
     this._cmp = cmp;
     this.heap = list;
-    this._heapify();
+    for (let i = Math.floor(this.heap.length / 2) - 1; i >= 0; i--)
+      this._heapify(i);
   }
 
   get length() {
@@ -54,9 +55,11 @@ export default class Heap {
     if (typeof min === 'undefined') {
       return null;
     }
-    // put the last element into the root position
-    this.heap.unshift(this.heap.pop());
-    this._heapify();
+    if (this.heap.length) {
+      // put the last element into the root position
+      this.heap.unshift(this.heap.pop());
+      this._heapify();
+    }
     return min;
   }
 
@@ -67,34 +70,22 @@ export default class Heap {
    * @private
    * @returns {undefined}
    */
-  _heapify() {
+  _heapify(i = 0) {
     // if this breaks the heap property, fix it. rinse and repeat until heap
     // property is true.
-    let i = 0;
     const v = this.heap[i];
-    while (true) {
-      let children = this._getChildren(i);
-      if (children[0] >= this.heap.length) {
-        break;
-      }
-      let leftChild = this.heap[children[0]];
-      let rightChild, useLeftChild;
-      if (children[1] >= this.heap.length) {
-        useLeftChild = true;
-      }
-      else {
-        rightChild = this.heap[children[1]];
-        // we want to compare it to the min child, so find out what that is first
-        useLeftChild = this._cmp(leftChild, rightChild);
-      }
-      const needToSwap = this._cmp(useLeftChild ? leftChild : rightChild, v);
-      if (needToSwap) {
-        let swapChildIndex = children[useLeftChild ? 0 : 1];
-        this._swap(swapChildIndex, i);
-        i = swapChildIndex;
-      } else {
-        break;
-      }
+    let [left, right] = this._getChildren(i);
+    let len = this.heap.length;
+    let largest = i;
+    if (left < len && this._cmp(this.heap[left], this.heap[largest])) {
+      largest = left;
+    }
+    if (right < len && this._cmp(this.heap[right], this.heap[largest])) {
+      largest = right;
+    }
+    if (largest !== i) {
+      this._swap(largest, i);
+      this._heapify(largest);
     }
   }
 
