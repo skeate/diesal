@@ -171,4 +171,36 @@ export default class BinarySearchTree {
     if (node.right) arr = arr.concat(this.toArray(node.right));
     return arr;
   }
+
+  /**
+   * Finds the immediate predecessor of the given value
+   *
+   * @param {*} value The value to find the predecessor for
+   * @returns {*|null} Predecessor value, or null if value not found or min
+   */
+  getPredecessor(value) {
+    let foundNode = this.search(value);
+    if (!foundNode) return null;
+    if (foundNode.left) return foundNode.left.getRightmostDescendant().value;
+    while (foundNode.parent && foundNode.parent.left === foundNode)
+      foundNode = foundNode.parent;
+    if (!foundNode.parent) return null;
+    return foundNode.parent.value;
+  }
+
+  /**
+   * Finds the immediate successor of the given value
+   *
+   * @param {*} value The value to find the successor for
+   * @returns {*|null} Successor value, or null if value not found or max
+   */
+  getSuccessor(value) {
+    let foundNode = this.search(value);
+    if (!foundNode) return null;
+    if (foundNode.right) return foundNode.right.getLeftmostDescendant().value;
+    while (foundNode.parent && foundNode.parent.right === foundNode)
+      foundNode = foundNode.parent;
+    if (!foundNode.parent) return null;
+    return foundNode.parent.value;
+  }
 }

@@ -57,4 +57,26 @@ describe('BinarySearchTree', () => {
     should.not.equal(null, a.search(6));
     should.equal(null, a.search(2));
   });
+
+  it('should find predecessor values', () => {
+    let a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
+    should.equal(a.getPredecessor(1), null);
+    a.getPredecessor(3).should.equal(1);
+    a.getPredecessor(4).should.equal(3);
+    a.getPredecessor(5).should.equal(4);
+    a.getPredecessor(6).should.equal(5);
+    a.getPredecessor(7).should.equal(6);
+    a.getPredecessor(8).should.equal(7);
+  });
+
+  it('should find successor values', () => {
+    let a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
+    should.equal(a.getSuccessor(8), null);
+    a.getSuccessor(1).should.equal(3);
+    a.getSuccessor(3).should.equal(4);
+    a.getSuccessor(4).should.equal(5);
+    a.getSuccessor(5).should.equal(6);
+    a.getSuccessor(6).should.equal(7);
+    a.getSuccessor(7).should.equal(8);
+  });
 });
