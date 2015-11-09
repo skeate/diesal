@@ -34,7 +34,7 @@ export default class Heap {
     let check = true;
     while (check) {
       let parent = this._getParent(index);
-      if (this._cmp(value, this.heap[parent])) {
+      if (parent >= 0 && this._cmp(value, this.heap[parent])) {
         this._swap(index, parent);
         index = parent;
       } else {
@@ -61,6 +61,13 @@ export default class Heap {
       this._heapify();
     }
     return min;
+  }
+
+  /**
+   * Checks if the value is inside the collection
+   */
+  contains(value) {
+    return this.heap.indexOf(value);
   }
 
   /**
