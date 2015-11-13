@@ -1,7 +1,7 @@
 import chai from 'chai';
 let should = chai.should();
 
-import BinarySearchTree from '../src/BinarySearchTree';
+import BinarySearchTree from '../../src/ds/BinarySearchTree';
 
 describe('BinarySearchTree', () => {
   it('should be able to be instantiated', () => {

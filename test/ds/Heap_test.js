@@ -1,7 +1,9 @@
 import chai from 'chai';
 let should = chai.should();
 
-import Heap from '../src/Heap';
+import Heap from '../../src/ds/Heap';
+
+console.log(Heap.toString());
 
 describe('Heap', () => {
   it('should be able to be instantiated', () => {
