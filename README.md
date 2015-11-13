@@ -31,11 +31,11 @@ your app needs.
 
 `npm test`
 
-`npm coverage`
+`npm run coverage`
 
 or
 
-`npm coverage-html`
+`npm run coverage-html`
 
 for an HTML report (in `coverage/index.html`).
 
