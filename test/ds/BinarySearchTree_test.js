@@ -3,7 +3,7 @@ let should = chai.should();
 
 import BinarySearchTree from '../../src/ds/BinarySearchTree';
 
-describe('BinarySearchTree', () => {
+describe('DS - BinarySearchTree', () => {
   it('should be able to be instantiated', () => {
     (() => new BinarySearchTree()).should.not.throw();
     (() => new BinarySearchTree([1,2,3])).should.not.throw();

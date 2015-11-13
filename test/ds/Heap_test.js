@@ -3,9 +3,7 @@ let should = chai.should();
 
 import Heap from '../../src/ds/Heap';
 
-console.log(Heap.toString());
-
-describe('Heap', () => {
+describe('DS - Heap', () => {
   it('should be able to be instantiated', () => {
     (() => new Heap()).should.not.throw();
     (() => new Heap([1,2,3])).should.not.throw();
