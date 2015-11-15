@@ -1,7 +1,7 @@
 coverage
 node_modules
 lib
-doc
+docs
 
 .ackrc
 .vimproj
