@@ -21,6 +21,7 @@
   "repository": "http://github.com/skeate/diesal",
   "devDependencies": {
     "babel": "^5.8.34",
+    "babel-core": "^5.8.34",
     "chai": "^3.3.0",
     "documentation": "^3.0.4",
     "istanbul": "^0.4.0",
