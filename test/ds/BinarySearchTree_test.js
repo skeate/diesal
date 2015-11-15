@@ -50,6 +50,15 @@ describe('DS - BinarySearchTree', () => {
     // right only
     a.remove(5);
     a.toArray().should.deep.equal([6]);
+    a.remove(6);
+    a.toArray().should.deep.equal([]);
+    // check removal of non-existant element
+    a.remove(6);
+    a.toArray().should.deep.equal([]);
+    // needed to test a few fringe cases
+    a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 6.5, 8]);
+    a.remove(5);
+    a.toArray().should.deep.equal([1, 3, 4, 6, 6.5, 7, 8]);
   });
 
   it('should check for values being in the tree', () => {
@@ -61,6 +70,7 @@ describe('DS - BinarySearchTree', () => {
   it('should find predecessor values', () => {
     let a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
     should.equal(a.getPredecessor(1), null);
+    should.equal(a.getPredecessor(2), null);
     a.getPredecessor(3).should.equal(1);
     a.getPredecessor(4).should.equal(3);
     a.getPredecessor(5).should.equal(4);
@@ -72,11 +82,17 @@ describe('DS - BinarySearchTree', () => {
   it('should find successor values', () => {
     let a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
     should.equal(a.getSuccessor(8), null);
+    should.equal(a.getSuccessor(2), null);
     a.getSuccessor(1).should.equal(3);
     a.getSuccessor(3).should.equal(4);
     a.getSuccessor(4).should.equal(5);
     a.getSuccessor(5).should.equal(6);
     a.getSuccessor(6).should.equal(7);
     a.getSuccessor(7).should.equal(8);
+  });
+
+  it('should take a comparison function to determine sort order', () => {
+    let a = new BinarySearchTree([5, 3, 1, 7, 6, 9], (a, b) => a > b);
+    a.toArray().should.deep.equal([9, 7, 6, 5, 3, 1]);
   });
 });

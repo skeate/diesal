@@ -22,6 +22,12 @@ describe('DS - Heap', () => {
     h.push(99).should.equal(7);
   });
 
+  it('should check for existence of values', () => {
+    let heap = new Heap([5,3,1,7,6,9]);
+    heap.contains(6).should.equal(true);
+    heap.contains(2).should.equal(false);
+  })
+
   it('should find the min', () => {
     let heap = new Heap([5,3,1,7,6,9]);
     heap.findMin().should.equal(1);
@@ -50,5 +56,16 @@ describe('DS - Heap', () => {
       b = h.pop();
       a.should.be.at.most(b);
     }
+  });
+
+  it('should take a comparison function to determine sort order', () => {
+    let heap = new Heap([5,3,1,7,6,9], (a, b) => a > b);
+    heap.pop().should.equal(9);
+    heap.pop().should.equal(7);
+    heap.pop().should.equal(6);
+    heap.pop().should.equal(5);
+    heap.pop().should.equal(3);
+    heap.pop().should.equal(1);
+    should.equal(heap.pop(), null);
   });
 });

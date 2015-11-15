@@ -74,7 +74,7 @@ export default class Heap {
    * @returns {boolean}
    */
   contains(value) {
-    return this.heap.indexOf(value) === -1;
+    return this.heap.indexOf(value) !== -1;
   }
 
   /**

@@ -159,7 +159,7 @@ export default class BinarySearchTree {
       if (node.left) {
         node.parent[nodeSide] = node.left;
         // Don't forget to reset parents
-        if (node.left) node.left.parent = node.parent;
+        node.left.parent = node.parent;
       }
       else {
         node.parent[nodeSide] = node.right;
@@ -184,9 +184,11 @@ export default class BinarySearchTree {
     // right subtree.
     let node = arguments.length === 0 ? this.root : arguments[0];
     let arr = [];
-    if (node.left) arr = arr.concat(this.toArray(node.left));
-    arr = arr.concat(node.value);
-    if (node.right) arr = arr.concat(this.toArray(node.right));
+    if (node) {
+      if (node.left) arr = arr.concat(this.toArray(node.left));
+      arr = arr.concat(node.value);
+      if (node.right) arr = arr.concat(this.toArray(node.right));
+    }
     return arr;
   }
 
