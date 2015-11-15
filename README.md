@@ -1,3 +1,10 @@
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/diesal)
+[//]: <> ([![Bower](https://img.shields.io/bower/v/bootstrap.svg)]())
+[![Build Status](https://img.shields.io/travis/skeate/diesal.svg)](https://travis-ci.org/skeate/diesal)
+[![Code Climate](https://img.shields.io/codeclimate/github/skeate/diesal.svg)](https://codeclimate.com/github/skeate/diesal)
+[![Test Coverage](https://img.shields.io/codeclimate/coverage/github/skeate/diesal.svg)](https://codeclimate.com/github/skeate/diesal/coverage)
+[![devDependency Status](https://img.shields.io/david/dev/skeate/diesal.svg)](https://david-dm.org/skeate/diesal#info=devDependencies)
+
 # Diesal
 
 Diesal is a library of ES2015 modules implementing common data structures and
