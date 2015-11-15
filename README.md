@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/diesal)
+[![npm](https://img.shields.io/npm/v/diesal.svg)](https://www.npmjs.com/package/diesal)
 [![Build Status](https://img.shields.io/travis/skeate/diesal.svg)](https://travis-ci.org/skeate/diesal)
 [![Code Climate](https://img.shields.io/codeclimate/github/skeate/diesal.svg)](https://codeclimate.com/github/skeate/diesal)
 [![Test Coverage](https://img.shields.io/codeclimate/coverage/github/skeate/diesal.svg)](https://codeclimate.com/github/skeate/diesal/coverage)
