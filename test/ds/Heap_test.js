@@ -16,11 +16,10 @@ describe('DS - Heap', () => {
 
   it('should allow insertion of new elements', () => {
     let h = new Heap([1,2,3]);
-    h.push(7);
-    h.push(0);
-    h.push(4);
-    h.push(99);
-    h.length.should.equal(7);
+    h.push(7).should.equal(4);
+    h.push(0).should.equal(5);
+    h.push(4).should.equal(6);
+    h.push(99).should.equal(7);
   });
 
   it('should find the min', () => {

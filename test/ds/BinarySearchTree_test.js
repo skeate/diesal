@@ -52,10 +52,10 @@ describe('DS - BinarySearchTree', () => {
     a.toArray().should.deep.equal([6]);
   });
 
-  it('should search for values', () => {
+  it('should check for values being in the tree', () => {
     let a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
-    should.not.equal(null, a.search(6));
-    should.equal(null, a.search(2));
+    a.contains(6).should.equal(true);
+    a.contains(2).should.equal(false);
   });
 
   it('should find predecessor values', () => {

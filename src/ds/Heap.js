@@ -2,15 +2,13 @@
  * A binary heap implementation. Note that in all descriptions, where we use
  * "min", it really depends on what your comparison function is. The default is
  * a min function.
- *
- * @class Heap
  */
 export default class Heap {
   /**
-   * @constructor
-   * @param {Array} list A list of initial entries into the heap (default: `[]`)
-   * @param {Function} cmp A function to compare elements in the heap (default:
-   * `(a, b) => a < b`)
+   * Create a Heap.
+   *
+   * @param {*[]} [list] A list of initial entries into the heap
+   * @param {Function} [cmp] A function to compare elements in the heap
    */
   constructor(list = [], cmp = (a, b) => a < b) {
     this._cmp = cmp;
@@ -19,6 +17,11 @@ export default class Heap {
       this._heapify(i);
   }
 
+  /**
+   * The number of elements in the heap
+   *
+   * @type {Number}
+   */
   get length() {
     return this.heap.length;
   }
@@ -27,7 +30,7 @@ export default class Heap {
    * Insert a new element into the heap, maintaining the heap property.
    *
    * @param {*} value The value to insert
-   * @returns {undefined}
+   * @returns {Number} The new size of the heap
    */
   push(value) {
     let index = this.heap.push(value) - 1;
@@ -41,13 +44,14 @@ export default class Heap {
         check = false;
       }
     }
+    return this.length;
   }
 
   /**
    * Gets the min value and removes it from the heap, adjusting everything else
    * in the heap to maintain heap property, then returns the value.
    *
-   * @returns {*} the min value in the heap.
+   * @returns {*} The min value in the heap.
    */
   pop() {
     // remove and store lowest value
@@ -65,9 +69,12 @@ export default class Heap {
 
   /**
    * Checks if the value is inside the collection
+   *
+   * @param {*} value The value to find
+   * @returns {boolean}
    */
   contains(value) {
-    return this.heap.indexOf(value);
+    return this.heap.indexOf(value) === -1;
   }
 
   /**
@@ -125,7 +132,7 @@ export default class Heap {
    * @private
    * @param {Number} index  The index of the parent of which to find the
    * children.
-   * @returns {Array<Number>} an array of the children indexes
+   * @returns {Number[]} an array of the children indexes
    */
   _getChildren(index) {
     return [2 * index + 1, 2 * index + 2];

@@ -1,5 +1,7 @@
 /**
- * @class BSTNode
+ * A single node in the tree. Provides some useful computed properties.
+ *
+ * @private
  */
 export class BSTNode {
   constructor(value, parent = null) {
@@ -9,25 +11,28 @@ export class BSTNode {
     this.right = null;
   }
 
-  getLeftmostDescendant() {
-    return this.left ? this.left.getLeftmostDescendant() : this;
+  /**
+   * The node that contains the lowest value in this node's subtree.
+   */
+  get leftmostDescendant() {
+    return this.left ? this.left.leftmostDescendant : this;
   }
 
-  getRightmostDescendant() {
-    return this.right ? this.right.getRightmostDescendant() : this;
+  /**
+   * The node that contains the highest value in this node's subtree.
+   */
+  get rightmostDescendant() {
+    return this.right ? this.right.rightmostDescendant : this;
   }
 }
 
 /**
  * A binary search tree.
- *
- * @class BinarySearchTree
  */
 export default class BinarySearchTree {
   /**
-   * @constructor
-   * @param {Array} list A list of initial values to insert into the tree.
-   * @param {Function} cmp A comparison function taking two arguments and
+   * @param {Array} [list] A list of initial values to insert into the tree.
+   * @param {Function} [cmp] A comparison function taking two arguments and
    * returning a boolean. Defaults to `(a, b) => a < b`
    */
   constructor(list = [], cmp = (a, b) => a < b) {
@@ -43,7 +48,8 @@ export default class BinarySearchTree {
    * @param {*} value
    * @returns {number} The new size of the tree
    */
-  insert(value, parent = this.root) {
+  insert(value) {
+    let parent = arguments.length > 1 ? arguments[1] : this.root;
     // Our tree has no nodes, so regardless of the value, it must be the root.
     if (!this.root) {
       this.root = new BSTNode(value);
@@ -79,10 +85,11 @@ export default class BinarySearchTree {
   /**
    * Search for a value in the tree.
    *
+   * @private
    * @param {*} value Value for which to search
-   * @return {BSTNode|null} null if not found, otherwise the node
+   * @return {?BSTNode} null if not found, otherwise the node
    */
-  search(value, node = this.root) {
+  _search(value, node = this.root) {
     // There are four possibilities:
     // 1. `node` is `null`: The value we're looking for isn't in the tree.
     // 2. `node.value` is `value`: We've found the value.
@@ -93,11 +100,21 @@ export default class BinarySearchTree {
     // 3. `value` is less than `node.value`: Search again, this time looking at
     //    only the values that are less than `node.value` (by looking at its
     //    left subtree)
-    if (this.cmp(value, node.value)) return this.search(value, node.left);
+    if (this.cmp(value, node.value)) return this._search(value, node.left);
     // 4. `value` is greater than `node.value`: Search again, this time looking
     //    at only the values that are greater than `node.value` (by looking at
     //    its right subtree)
-    return this.search(value, node.right);
+    return this._search(value, node.right);
+  }
+
+  /**
+   * Checks if the given value is in the tree.
+   *
+   * @param {*} value The value to check for
+   * @returns {Boolean}
+   */
+  contains(value) {
+    return !!this._search(value);
   }
 
   /**
@@ -105,12 +122,12 @@ export default class BinarySearchTree {
    * it will remove the first one found.
    *
    * @param {*} value The value to remove.
-   * @return {number} The new length of the array (or null if no matching node
+   * @return {?Number} The new length of the array (or null if no matching node
    * found)
    */
   remove(value) {
     // First, find the node.
-    let node = this.search(value);
+    let node = this._search(value);
     // If it doesn't exist in the tree, we can exit.
     if (!node) {
       return null;
@@ -123,7 +140,7 @@ export default class BinarySearchTree {
     // Find the next higher value (the right subtree's leftmost descendant),
     // swap out the values, and remove the other node.
     if (node.left && node.right) {
-      let nextHigher = node.right.getLeftmostDescendant();
+      let nextHigher = node.right.leftmostDescendant;
       node.value = nextHigher.value;
       // If the nextHigher node is the right child of its parent, replace it
       // with its own right children (if any). This can only happen if we had
@@ -159,12 +176,13 @@ export default class BinarySearchTree {
    *
    * @returns {Array}
    */
-  toArray(node = this.root) {
+  toArray() {
     // An in-order traversal should (as you might expect) traverse the nodes in
     // value order. Since the tree is sorted so that smaller values go to the
     // left subtree, and larger values go to the right subtree, we want to visit
     // the left tree first, then include the current node itself, then all the
     // right subtree.
+    let node = arguments.length === 0 ? this.root : arguments[0];
     let arr = [];
     if (node.left) arr = arr.concat(this.toArray(node.left));
     arr = arr.concat(node.value);
@@ -176,12 +194,12 @@ export default class BinarySearchTree {
    * Finds the immediate predecessor of the given value
    *
    * @param {*} value The value to find the predecessor for
-   * @returns {*|null} Predecessor value, or null if value not found or min
+   * @returns {*} Predecessor value, or null if value not found or min
    */
   getPredecessor(value) {
-    let foundNode = this.search(value);
+    let foundNode = this._search(value);
     if (!foundNode) return null;
-    if (foundNode.left) return foundNode.left.getRightmostDescendant().value;
+    if (foundNode.left) return foundNode.left.rightmostDescendant.value;
     while (foundNode.parent && foundNode.parent.left === foundNode)
       foundNode = foundNode.parent;
     if (!foundNode.parent) return null;
@@ -192,12 +210,12 @@ export default class BinarySearchTree {
    * Finds the immediate successor of the given value
    *
    * @param {*} value The value to find the successor for
-   * @returns {*|null} Successor value, or null if value not found or max
+   * @returns {*} Successor value, or null if value not found or max
    */
   getSuccessor(value) {
-    let foundNode = this.search(value);
+    let foundNode = this._search(value);
     if (!foundNode) return null;
-    if (foundNode.right) return foundNode.right.getLeftmostDescendant().value;
+    if (foundNode.right) return foundNode.right.leftmostDescendant.value;
     while (foundNode.parent && foundNode.parent.right === foundNode)
       foundNode = foundNode.parent;
     if (!foundNode.parent) return null;
