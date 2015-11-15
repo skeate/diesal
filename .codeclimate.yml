@@ -1,0 +1,4 @@
+engines:
+  eslint: true
+exclude_paths:
+  - test/**/*
