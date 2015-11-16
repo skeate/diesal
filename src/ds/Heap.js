@@ -4,6 +4,7 @@
  * a min function.
  */
 export default class Heap {
+
   /**
    * Create a Heap.
    *
@@ -13,8 +14,9 @@ export default class Heap {
   constructor(list = [], cmp = (a, b) => a < b) {
     this._cmp = cmp;
     this.heap = list;
-    for (let i = Math.floor(this.heap.length / 2) - 1; i >= 0; i--)
+    for (let i = Math.floor(this.heap.length / 2) - 1; i >= 0; i--) {
       this._heapify(i);
+    }
   }
 
   /**
@@ -35,12 +37,15 @@ export default class Heap {
   push(value) {
     let index = this.heap.push(value) - 1;
     let check = true;
+
     while (check) {
-      let parent = this._getParent(index);
+      const parent = this._getParent(index);
+
       if (parent >= 0 && this._cmp(value, this.heap[parent])) {
         this._swap(index, parent);
         index = parent;
-      } else {
+      }
+      else {
         check = false;
       }
     }
@@ -56,6 +61,7 @@ export default class Heap {
   pop() {
     // remove and store lowest value
     const min = this.heap.shift();
+
     if (typeof min === 'undefined') {
       return null;
     }
@@ -71,10 +77,10 @@ export default class Heap {
    * Checks if the value is inside the collection
    *
    * @param {*} value The value to find
-   * @returns {boolean}
+   * @returns {boolean} Whether or not the value was found in the collection
    */
   contains(value) {
-    return this.heap.indexOf(value) !== -1;
+    return this.heap.indexOf(value) >= 0;
   }
 
   /**
@@ -82,15 +88,14 @@ export default class Heap {
    * correcting it if not.
    *
    * @private
-   * @returns {undefined}
    */
   _heapify(i = 0) {
     // if this breaks the heap property, fix it. rinse and repeat until heap
     // property is true.
-    const v = this.heap[i];
-    let [left, right] = this._getChildren(i);
-    let len = this.heap.length;
+    const [left, right] = this._getChildren(i);
+    const len = this.heap.length;
     let largest = i;
+
     if (left < len && this._cmp(this.heap[left], this.heap[largest])) {
       largest = left;
     }
@@ -109,7 +114,6 @@ export default class Heap {
    * @private
    * @param {Number} a First element to swap
    * @param {Number} b Second element to swap
-   * @returns {undefined}
    */
   _swap(a, b) {
     [this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]];

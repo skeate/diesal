@@ -1,16 +1,17 @@
+/* global describe, it */
 import chai from 'chai';
-let should = chai.should();
+const should = chai.should();
 
 import BinarySearchTree from '../../src/ds/BinarySearchTree';
 
 describe('DS - BinarySearchTree', () => {
   it('should be able to be instantiated', () => {
     (() => new BinarySearchTree()).should.not.throw();
-    (() => new BinarySearchTree([1,2,3])).should.not.throw();
+    (() => new BinarySearchTree([1, 2, 3])).should.not.throw();
   });
 
   it('should insert values', () => {
-    let a = new BinarySearchTree([1,2,3]);
+    const a = new BinarySearchTree([1, 2, 3]);
     a.length.should.equal(3);
     a.insert(0);
     a.length.should.equal(4);
@@ -19,7 +20,7 @@ describe('DS - BinarySearchTree', () => {
   });
 
   it('should convert into a sorted array', () => {
-    let a = new BinarySearchTree([1, 5, 7, 4, 3, 7]);
+    const a = new BinarySearchTree([1, 5, 7, 4, 3, 7]);
     a.toArray().should.deep.equal([1, 3, 4, 5, 7, 7]);
   });
 
@@ -62,13 +63,13 @@ describe('DS - BinarySearchTree', () => {
   });
 
   it('should check for values being in the tree', () => {
-    let a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
+    const a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
     a.contains(6).should.equal(true);
     a.contains(2).should.equal(false);
   });
 
   it('should find predecessor values', () => {
-    let a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
+    const a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
     should.equal(a.getPredecessor(1), null);
     should.equal(a.getPredecessor(2), null);
     a.getPredecessor(3).should.equal(1);
@@ -80,7 +81,7 @@ describe('DS - BinarySearchTree', () => {
   });
 
   it('should find successor values', () => {
-    let a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
+    const a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);
     should.equal(a.getSuccessor(8), null);
     should.equal(a.getSuccessor(2), null);
     a.getSuccessor(1).should.equal(3);
@@ -92,7 +93,7 @@ describe('DS - BinarySearchTree', () => {
   });
 
   it('should take a comparison function to determine sort order', () => {
-    let a = new BinarySearchTree([5, 3, 1, 7, 6, 9], (a, b) => a > b);
-    a.toArray().should.deep.equal([9, 7, 6, 5, 3, 1]);
+    const t = new BinarySearchTree([5, 3, 1, 7, 6, 9], (a, b) => a > b);
+    t.toArray().should.deep.equal([9, 7, 6, 5, 3, 1]);
   });
 });

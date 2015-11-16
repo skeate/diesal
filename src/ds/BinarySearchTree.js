@@ -30,6 +30,7 @@ export class BSTNode {
  * A binary search tree.
  */
 export default class BinarySearchTree {
+
   /**
    * @param {Array} [list] A list of initial values to insert into the tree.
    * @param {Function} [cmp] A comparison function taking two arguments and
@@ -39,17 +40,17 @@ export default class BinarySearchTree {
     this.root = null;
     this.cmp = cmp;
     this.length = 0;
-    list.forEach(item => this.insert(item));
+    list.forEach((item) => this.insert(item));
   }
 
   /**
    * Inserts a value into the tree.
    *
-   * @param {*} value
+   * @param {*} value The value to insert
    * @returns {number} The new size of the tree
    */
   insert(value) {
-    let parent = arguments.length > 1 ? arguments[1] : this.root;
+    const parent = arguments.length > 1 ? arguments[1] : this.root;
     // Our tree has no nodes, so regardless of the value, it must be the root.
     if (!this.root) {
       this.root = new BSTNode(value);
@@ -65,20 +66,16 @@ export default class BinarySearchTree {
         return ++this.length;
       }
       // Otherwise, recurse, with the left value as the new parent.
-      else {
-        this.insert(value, parent.left);
-      }
+      this.insert(value, parent.left);
     }
     // If it is greater than or equal to the value, then it should go on the
     // right side. Code is the same, but switch any 'left' with 'right'.
+    else if (parent.right === null) {
+      parent.right = new BSTNode(value, parent);
+      return ++this.length;
+    }
     else {
-      if (parent.right === null) {
-        parent.right = new BSTNode(value, parent);
-        return ++this.length;
-      }
-      else {
-        this.insert(value, parent.right);
-      }
+      this.insert(value, parent.right);
     }
   }
 
@@ -96,11 +93,15 @@ export default class BinarySearchTree {
     // In both of these cases, we can simply return `node` -- in case 1, this
     // means it returns `null`, which is what we want if the value doesn't exist
     // in the tree.
-    if (!node || node.value === value) return node;
+    if (!node || node.value === value) {
+      return node;
+    }
     // 3. `value` is less than `node.value`: Search again, this time looking at
     //    only the values that are less than `node.value` (by looking at its
     //    left subtree)
-    if (this.cmp(value, node.value)) return this._search(value, node.left);
+    if (this.cmp(value, node.value)) {
+      return this._search(value, node.left);
+    }
     // 4. `value` is greater than `node.value`: Search again, this time looking
     //    at only the values that are greater than `node.value` (by looking at
     //    its right subtree)
@@ -111,10 +112,10 @@ export default class BinarySearchTree {
    * Checks if the given value is in the tree.
    *
    * @param {*} value The value to check for
-   * @returns {Boolean}
+   * @returns {Boolean} Whether or not the value is in the collection
    */
   contains(value) {
-    return !!this._search(value);
+    return Boolean(this._search(value));
   }
 
   /**
@@ -127,12 +128,12 @@ export default class BinarySearchTree {
    */
   remove(value) {
     // First, find the node.
-    let node = this._search(value);
+    const node = this._search(value);
     // If it doesn't exist in the tree, we can exit.
     if (!node) {
       return null;
     }
-    let rootParent;
+    let rootParent = null;
     if (node === this.root) {
       rootParent = node.parent = {left: this.root};
     }
@@ -140,22 +141,24 @@ export default class BinarySearchTree {
     // Find the next higher value (the right subtree's leftmost descendant),
     // swap out the values, and remove the other node.
     if (node.left && node.right) {
-      let nextHigher = node.right.leftmostDescendant;
+      const nextHigher = node.right.leftmostDescendant;
       node.value = nextHigher.value;
       // If the nextHigher node is the right child of its parent, replace it
       // with its own right children (if any). This can only happen if we had
       // a chain of only right children (or the node we're deleting only had one
       // right descendant)
-      let nodeSide = nextHigher.parent.left === nextHigher ? 'left' : 'right';
+      const nodeSide = nextHigher.parent.left === nextHigher ? 'left' : 'right';
       nextHigher.parent[nodeSide] = nextHigher.right;
       // Don't forget to reset parents
-      if (nextHigher.right) nextHigher.right.parent = nextHigher.parent;
+      if (nextHigher.right) {
+        nextHigher.right.parent = nextHigher.parent;
+      }
     }
     else {
       // If it only has one child, then we just replace it with its own child.
       // If it has no children, we can just remove it. This condition is rolled
       // into the final else, since with no children, `node.right` is `null`.
-      let nodeSide = node.parent.left === node ? 'left' : 'right';
+      const nodeSide = node.parent.left === node ? 'left' : 'right';
       if (node.left) {
         node.parent[nodeSide] = node.left;
         // Don't forget to reset parents
@@ -164,17 +167,21 @@ export default class BinarySearchTree {
       else {
         node.parent[nodeSide] = node.right;
         // Don't forget to reset parents
-        if (node.right) node.right.parent = node.parent;
+        if (node.right) {
+          node.right.parent = node.parent;
+        }
       }
     }
-    if (rootParent) this.root = rootParent.left;
+    if (rootParent) {
+      this.root = rootParent.left;
+    }
     return --this.length;
   }
 
   /**
    * Converts the tree into an array using an in-order traversal of the tree.
    *
-   * @returns {Array}
+   * @returns {Array} The contents of the tree as a sorted array
    */
   toArray() {
     // An in-order traversal should (as you might expect) traverse the nodes in
@@ -182,12 +189,16 @@ export default class BinarySearchTree {
     // left subtree, and larger values go to the right subtree, we want to visit
     // the left tree first, then include the current node itself, then all the
     // right subtree.
-    let node = arguments.length === 0 ? this.root : arguments[0];
+    const node = arguments.length === 0 ? this.root : arguments[0];
     let arr = [];
     if (node) {
-      if (node.left) arr = arr.concat(this.toArray(node.left));
+      if (node.left) {
+        arr = arr.concat(this.toArray(node.left));
+      }
       arr = arr.concat(node.value);
-      if (node.right) arr = arr.concat(this.toArray(node.right));
+      if (node.right) {
+        arr = arr.concat(this.toArray(node.right));
+      }
     }
     return arr;
   }
@@ -200,11 +211,18 @@ export default class BinarySearchTree {
    */
   getPredecessor(value) {
     let foundNode = this._search(value);
-    if (!foundNode) return null;
-    if (foundNode.left) return foundNode.left.rightmostDescendant.value;
-    while (foundNode.parent && foundNode.parent.left === foundNode)
+    if (!foundNode) {
+      return null;
+    }
+    if (foundNode.left) {
+      return foundNode.left.rightmostDescendant.value;
+    }
+    while (foundNode.parent && foundNode.parent.left === foundNode) {
       foundNode = foundNode.parent;
-    if (!foundNode.parent) return null;
+    }
+    if (!foundNode.parent) {
+      return null;
+    }
     return foundNode.parent.value;
   }
 
@@ -216,11 +234,18 @@ export default class BinarySearchTree {
    */
   getSuccessor(value) {
     let foundNode = this._search(value);
-    if (!foundNode) return null;
-    if (foundNode.right) return foundNode.right.leftmostDescendant.value;
-    while (foundNode.parent && foundNode.parent.right === foundNode)
+    if (!foundNode) {
+      return null;
+    }
+    if (foundNode.right) {
+      return foundNode.right.leftmostDescendant.value;
+    }
+    while (foundNode.parent && foundNode.parent.right === foundNode) {
       foundNode = foundNode.parent;
-    if (!foundNode.parent) return null;
+    }
+    if (!foundNode.parent) {
+      return null;
+    }
     return foundNode.parent.value;
   }
 }
