@@ -4,6 +4,8 @@
 [![Test Coverage](https://img.shields.io/codeclimate/coverage/github/skeate/diesal.svg)](https://codeclimate.com/github/skeate/diesal/coverage)
 [![devDependency Status](https://img.shields.io/david/dev/skeate/diesal.svg)](https://david-dm.org/skeate/diesal#info=devDependencies)
 
+[![Join the chat at https://gitter.im/skeate/diesal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/skeate/diesal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 # Diesal
 
 Diesal is a library of ES2015 modules implementing common data structures and
