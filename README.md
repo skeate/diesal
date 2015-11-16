@@ -6,6 +6,8 @@
 
 # Diesal
 
+[![Join the chat at https://gitter.im/skeate/diesal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/skeate/diesal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Diesal is a library of ES2015 modules implementing common data structures and
 algorithms. The goal is to wind up with clean, easy to understand, well-tested,
 well-documented code, that (with the right tools) can be minimally included into
