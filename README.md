@@ -42,15 +42,7 @@ without all the extra cruft.
 
 # Running Tests/Coverage
 
-`npm test`
-
-`npm run coverage`
-
-or
-
-`npm run coverage-html`
-
-for an HTML report (in `coverage/index.html`).
+`npm test` will run tests with Mocha, providing coverage info via Istanbul.
 
 # Contributing
 
