@@ -1,4 +1,7 @@
 {
+  "env": {
+    "mocha": true
+  },
   "rules": {
     "no-magic-numbers": 0,
     "lines-around-comment": 0
