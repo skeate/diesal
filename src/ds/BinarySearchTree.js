@@ -210,20 +210,7 @@ export default class BinarySearchTree {
    * @returns {*} Predecessor value, or null if value not found or min
    */
   getPredecessor(value) {
-    let foundNode = this._search(value);
-    if (!foundNode) {
-      return null;
-    }
-    if (foundNode.left) {
-      return foundNode.left.rightmostDescendant.value;
-    }
-    while (foundNode.parent && foundNode.parent.left === foundNode) {
-      foundNode = foundNode.parent;
-    }
-    if (!foundNode.parent) {
-      return null;
-    }
-    return foundNode.parent.value;
+    return this._getNeighbor(value, true);
   }
 
   /**
@@ -233,14 +220,36 @@ export default class BinarySearchTree {
    * @returns {*} Successor value, or null if value not found or max
    */
   getSuccessor(value) {
+    return this._getNeighbor(value, false);
+  }
+
+  /**
+   * Finds the immediate predecessor or successor of the given value
+   *
+   * @private
+   * @param {*} value The value to find the predecessor or successor for
+   * @param {Boolean} findPredecessor Whether to find predecessor (true) or
+   * successor (false)
+   * @returns {*} The predecessor or successor
+   */
+  _getNeighbor(value, findPredecessor) {
     let foundNode = this._search(value);
     if (!foundNode) {
       return null;
     }
-    if (foundNode.right) {
-      return foundNode.right.leftmostDescendant.value;
+    let sideToCheck, descendant;
+    if (findPredecessor) {
+      sideToCheck = 'left';
+      descendant = 'rightmostDescendant';
     }
-    while (foundNode.parent && foundNode.parent.right === foundNode) {
+    else {
+      sideToCheck = 'right';
+      descendant = 'leftmostDescendant';
+    }
+    if (foundNode[sideToCheck]) {
+      return foundNode[sideToCheck][descendant].value;
+    }
+    while (foundNode.parent && foundNode.parent[sideToCheck] === foundNode) {
       foundNode = foundNode.parent;
     }
     if (!foundNode.parent) {
