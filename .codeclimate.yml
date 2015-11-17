@@ -1,4 +1,17 @@
+---
 engines:
-  eslint: true
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        javascript:
+ratings:
+  paths:
+  - "**.js"
+  - "**.jsx"
 exclude_paths:
-  - test/**/*
+- test/**/*
