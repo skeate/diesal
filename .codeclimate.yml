@@ -15,3 +15,4 @@ ratings:
   - "**.jsx"
 exclude_paths:
 - test/**/*
+- ".codeclimate.yml"
