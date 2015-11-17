@@ -37,10 +37,8 @@ export default class Heap {
   push(value) {
     let index = this.heap.push(value) - 1;
     let check = true;
-
     while (check) {
       const parent = this._getParent(index);
-
       if (parent >= 0 && this._cmp(value, this.heap[parent])) {
         this._swap(index, parent);
         index = parent;
@@ -61,7 +59,6 @@ export default class Heap {
   pop() {
     // remove and store lowest value
     const min = this.heap.shift();
-
     if (typeof min === 'undefined') {
       return null;
     }
@@ -92,16 +89,13 @@ export default class Heap {
   _heapify(i = 0) {
     // if this breaks the heap property, fix it. rinse and repeat until heap
     // property is true.
-    const [left, right] = this._getChildren(i);
     const len = this.heap.length;
     let largest = i;
-
-    if (left < len && this._cmp(this.heap[left], this.heap[largest])) {
-      largest = left;
-    }
-    if (right < len && this._cmp(this.heap[right], this.heap[largest])) {
-      largest = right;
-    }
+    this._getChildren(i).forEach((child) => {
+      if (child < len && this._cmp(this.heap[child], this.heap[largest])) {
+        largest = child;
+      }
+    });
     if (largest !== i) {
       this._swap(largest, i);
       this._heapify(largest);
