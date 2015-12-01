@@ -1,6 +1,6 @@
 {
   "name": "diesal",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Data structures and algorithms in ES2015 modules",
   "main": "index.js",
   "scripts": {
