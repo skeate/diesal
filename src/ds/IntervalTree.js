@@ -108,4 +108,29 @@ export default class IntervalTree {
     }
     return overlaps;
   }
+
+  /**
+   * Find all intervals that overlap a certain interval.
+   *
+   * @param {Number} begin The start of the valid interval
+   * @param {Number} end The end of the valid interval
+   * @returns {*[]} An array of all values that overlap the given interval.
+   */
+  overlap(begin, end) {
+    const overlaps = [];
+    let node = this._root;
+    if (arguments.length === 3) {
+      node = arguments[2];
+    }
+    if (!(begin > node.high || node.low > end)) {
+      overlaps.push(node.data);
+    }
+    if (node.left && node.left.max > begin) {
+      overlaps.push(...this.overlap(begin, end, node.left));
+    }
+    else if (node.right) {
+      overlaps.push(...this.overlap(begin, end, node.right));
+    }
+    return overlaps;
+  }
 }
