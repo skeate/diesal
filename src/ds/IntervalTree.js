@@ -122,14 +122,15 @@ export default class IntervalTree {
     if (arguments.length === 3) {
       node = arguments[2];
     }
-    if (node === null || node.max < begin) {
-      return overlaps;
-    }
-    overlaps.push(...this.overlap(begin, end, node.left));
     if (!(begin > node.high || node.low > end)) {
       overlaps.push(node.data);
     }
-    overlaps.push(...this.overlap(begin, end, node.right));
+    if (node.left && node.left.max > begin) {
+      overlaps.push(...this.overlap(begin, end, node.left));
+    }
+    else if (node.right) {
+      overlaps.push(...this.overlap(begin, end, node.right));
+    }
     return overlaps;
   }
 }
