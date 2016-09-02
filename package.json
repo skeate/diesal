@@ -8,7 +8,7 @@
     "compile": "babel -d lib/ src/",
     "update-docs": "documentation src/**/*.js -o docs -f html",
     "test-watch": "mocha --compilers js:babel-core/register --recursive -w",
-    "coverage": "babel-node node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --recursive",
+    "coverage": "babel-node node_modules/.bin/isparta cover --root src/ node_modules/.bin/_mocha -- --recursive",
     "lint": "eslint src",
     "test": "npm run lint && npm run coverage"
   },
