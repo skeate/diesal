@@ -29,7 +29,7 @@ describe('DS - IntervalTree', () => {
     intervalTree.lookup(8).should.deep.equal(['d']);
   });
 
-  it ('should find overlapping intervals', () => {
+  it('should find overlapping intervals', () => {
     const intervalTree = new IntervalTree();
     intervalTree.insert(2, 4, 'a');
     intervalTree.insert(2, 5, 'b');
@@ -44,5 +44,17 @@ describe('DS - IntervalTree', () => {
     intervalTree.overlap(7, 8).should.deep.equal([]);
     intervalTree.overlap(2, 6).should.deep.equal(['a', 'b', 'c']);
     intervalTree.overlap(0, 8).should.deep.equal(['a', 'b', 'c']);
-  })
+
+    const intervalTreeB = new IntervalTree();
+    intervalTreeB.insert(2, 4, 'a');
+    intervalTreeB.insert(2, 3, 'b');
+    intervalTreeB.overlap(0, 2).should.deep.equal(['a', 'b']);
+
+    const intervalTreeC = new IntervalTree();
+    intervalTreeC.insert(2, 5, 'a');
+    intervalTreeC.insert(2, 3, 'b');
+    intervalTreeC.insert(4, 6, 'c');
+    intervalTreeC.overlap(0, 5).should.deep.equal(['a', 'b', 'c']);
+    intervalTreeC.overlap(3, 5).should.deep.equal(['a', 'b', 'c']);
+  });
 });
