@@ -128,7 +128,7 @@ export default class IntervalTree {
     if (node.left && node.left.max > begin) {
       overlaps.push(...this.overlap(begin, end, node.left));
     }
-    else if (node.right) {
+    if (node.right && node.right.max > begin) {
       overlaps.push(...this.overlap(begin, end, node.right));
     }
     return overlaps;
