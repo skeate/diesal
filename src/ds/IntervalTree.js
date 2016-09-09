@@ -4,6 +4,8 @@
  *
  * @property {Number} low Start of the interval
  * @property {Number} high End of the interval
+ * @property {Number} min The lowest endpoint of this node's interval or any of
+ * its children.
  * @property {Number} max The greatest endpoint of this node's interval or any
  * of its children.
  * @property {*} data The value of the interval
@@ -16,6 +18,7 @@ class IntervalTreeNode {
   constructor(low, high, data, parent) {
     this.low = low;
     this.high = high;
+    this.min = low;
     this.max = high;
     this.data = data;
     this.left = null;
@@ -68,6 +71,7 @@ export default class IntervalTree {
         : 'right';
       newNode = this._insert(begin, end, value, node[side], node, side);
       node.max = Math.max(node.max, newNode.max);
+      node.min = Math.min(node.min, newNode.min);
     }
     return newNode;
   }
@@ -128,7 +132,7 @@ export default class IntervalTree {
     if (node.left && node.left.max >= begin) {
       overlaps.push(...this.overlap(begin, end, node.left));
     }
-    if (node.right && node.right.low <= end) {
+    if (node.right && node.right.min <= end) {
       overlaps.push(...this.overlap(begin, end, node.right));
     }
     return overlaps;
