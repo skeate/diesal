@@ -85,6 +85,7 @@ export default class Heap {
    * correcting it if not.
    *
    * @private
+   * @param {Number} i The index of what should be the largest node of a subtree
    */
   _heapify(i = 0) {
     // if this breaks the heap property, fix it. rinse and repeat until heap

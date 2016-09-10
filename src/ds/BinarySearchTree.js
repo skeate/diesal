@@ -66,7 +66,7 @@ export default class BinarySearchTree {
         return ++this.length;
       }
       // Otherwise, recurse, with the left value as the new parent.
-      this.insert(value, parent.left);
+      return this.insert(value, parent.left);
     }
     // If it is greater than or equal to the value, then it should go on the
     // right side. Code is the same, but switch any 'left' with 'right'.
@@ -74,9 +74,7 @@ export default class BinarySearchTree {
       parent.right = new BSTNode(value, parent);
       return ++this.length;
     }
-    else {
-      this.insert(value, parent.right);
-    }
+    return this.insert(value, parent.right);
   }
 
   /**
@@ -84,6 +82,7 @@ export default class BinarySearchTree {
    *
    * @private
    * @param {*} value Value for which to search
+   * @param {BSTNode} node The current search root
    * @return {?BSTNode} null if not found, otherwise the node
    */
   _search(value, node = this.root) {
