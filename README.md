@@ -8,6 +8,8 @@
 
 # Diesal
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/skeate/diesal.svg)](https://greenkeeper.io/)
+
 Diesal is a library of ES2015 modules implementing common data structures and
 algorithms. The goal is to wind up with clean, easy to understand, well-tested,
 well-documented code, that (with the right tools) can be minimally included into
