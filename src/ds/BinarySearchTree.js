@@ -40,7 +40,7 @@ export default class BinarySearchTree {
     this.root = null;
     this.cmp = cmp;
     this.length = 0;
-    list.forEach((item) => this.insert(item));
+    list.forEach(item => this.insert(item));
   }
 
   /**
@@ -49,8 +49,7 @@ export default class BinarySearchTree {
    * @param {*} value The value to insert
    * @returns {number} The new size of the tree
    */
-  insert(value) {
-    const parent = arguments.length > 1 ? arguments[1] : this.root;
+  insert(value, parent = this.root) {
     // Our tree has no nodes, so regardless of the value, it must be the root.
     if (!this.root) {
       this.root = new BSTNode(value);
@@ -67,10 +66,9 @@ export default class BinarySearchTree {
       }
       // Otherwise, recurse, with the left value as the new parent.
       return this.insert(value, parent.left);
-    }
-    // If it is greater than or equal to the value, then it should go on the
-    // right side. Code is the same, but switch any 'left' with 'right'.
-    else if (parent.right === null) {
+    } else if (parent.right === null) {
+      // If it is greater than or equal to the value, then it should go on the
+      // right side. Code is the same, but switch any 'left' with 'right'.
       parent.right = new BSTNode(value, parent);
       return ++this.length;
     }
@@ -111,7 +109,7 @@ export default class BinarySearchTree {
    * Checks if the given value is in the tree.
    *
    * @param {*} value The value to check for
-   * @returns {Boolean} Whether or not the value is in the collection
+   * @returns {boolean} Whether or not the value is in the collection
    */
   contains(value) {
     return Boolean(this._search(value));
@@ -122,7 +120,7 @@ export default class BinarySearchTree {
    * it will remove the first one found.
    *
    * @param {*} value The value to remove.
-   * @return {?Number} The new length of the array (or null if no matching node
+   * @return {?number} The new length of the array (or null if no matching node
    * found)
    */
   remove(value) {
@@ -134,7 +132,8 @@ export default class BinarySearchTree {
     }
     let rootParent = null;
     if (node === this.root) {
-      rootParent = node.parent = {left: this.root};
+      node.parent = { left: this.root };
+      rootParent = node.parent;
     }
     // If it has both left and right children, we need to do some extra work.
     // Find the next higher value (the right subtree's leftmost descendant),
@@ -152,8 +151,7 @@ export default class BinarySearchTree {
       if (nextHigher.right) {
         nextHigher.right.parent = nextHigher.parent;
       }
-    }
-    else {
+    } else {
       // If it only has one child, then we just replace it with its own child.
       // If it has no children, we can just remove it. This condition is rolled
       // into the final else, since with no children, `node.right` is `null`.
@@ -162,8 +160,7 @@ export default class BinarySearchTree {
         node.parent[nodeSide] = node.left;
         // Don't forget to reset parents
         node.left.parent = node.parent;
-      }
-      else {
+      } else {
         node.parent[nodeSide] = node.right;
         // Don't forget to reset parents
         if (node.right) {
@@ -182,13 +179,12 @@ export default class BinarySearchTree {
    *
    * @returns {Array} The contents of the tree as a sorted array
    */
-  toArray() {
+  toArray(node = this.root) {
     // An in-order traversal should (as you might expect) traverse the nodes in
     // value order. Since the tree is sorted so that smaller values go to the
     // left subtree, and larger values go to the right subtree, we want to visit
     // the left tree first, then include the current node itself, then all the
     // right subtree.
-    const node = arguments.length === 0 ? this.root : arguments[0];
     let arr = [];
     if (node) {
       if (node.left) {
@@ -227,7 +223,7 @@ export default class BinarySearchTree {
    *
    * @private
    * @param {*} value The value to find the predecessor or successor for
-   * @param {Boolean} findPredecessor Whether to find predecessor (true) or
+   * @param {boolean} findPredecessor Whether to find predecessor (true) or
    * successor (false)
    * @returns {*} The predecessor or successor
    */
@@ -236,12 +232,12 @@ export default class BinarySearchTree {
     if (!foundNode) {
       return null;
     }
-    let sideToCheck, descendant;
+    let sideToCheck;
+    let descendant;
     if (findPredecessor) {
       sideToCheck = 'left';
       descendant = 'rightmostDescendant';
-    }
-    else {
+    } else {
       sideToCheck = 'right';
       descendant = 'leftmostDescendant';
     }

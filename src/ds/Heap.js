@@ -1,4 +1,27 @@
 /**
+ * Gets the index of the parent of the given index in the heap-array.
+ *
+ * @private
+ * @param {number} index  The index of the child of which to find the parent.
+ * @returns {number} the parent index
+ */
+function getParent(index) {
+  return Math.floor((index - 1) / 2);
+}
+
+/**
+ * Gets the indexes of the children of the node at the given index.
+ *
+ * @private
+ * @param {number} index  The index of the parent of which to find the
+ * children.
+ * @returns {number[]} an array of the children indexes
+ */
+function getChildren(index) {
+  return [2 * index + 1, 2 * index + 2];
+}
+
+/**
  * A binary heap implementation. Note that in all descriptions, where we use
  * "min", it really depends on what your comparison function is. The default is
  * a min function.
@@ -22,7 +45,7 @@ export default class Heap {
   /**
    * The number of elements in the heap
    *
-   * @type {Number}
+   * @type {number}
    */
   get length() {
     return this.heap.length;
@@ -32,18 +55,17 @@ export default class Heap {
    * Insert a new element into the heap, maintaining the heap property.
    *
    * @param {*} value The value to insert
-   * @returns {Number} The new size of the heap
+   * @returns {number} The new size of the heap
    */
   push(value) {
     let index = this.heap.push(value) - 1;
     let check = true;
     while (check) {
-      const parent = this._getParent(index);
+      const parent = getParent(index);
       if (parent >= 0 && this._cmp(value, this.heap[parent])) {
         this._swap(index, parent);
         index = parent;
-      }
-      else {
+      } else {
         check = false;
       }
     }
@@ -85,14 +107,14 @@ export default class Heap {
    * correcting it if not.
    *
    * @private
-   * @param {Number} i The index of what should be the largest node of a subtree
+   * @param {number} i The index of what should be the largest node of a subtree
    */
   _heapify(i = 0) {
     // if this breaks the heap property, fix it. rinse and repeat until heap
     // property is true.
     const len = this.heap.length;
     let largest = i;
-    this._getChildren(i).forEach((child) => {
+    getChildren(i).forEach((child) => {
       if (child < len && this._cmp(this.heap[child], this.heap[largest])) {
         largest = child;
       }
@@ -107,36 +129,12 @@ export default class Heap {
    * Swaps two indexes in the heap.
    *
    * @private
-   * @param {Number} a First element to swap
-   * @param {Number} b Second element to swap
+   * @param {number} a First element to swap
+   * @param {number} b Second element to swap
    */
   _swap(a, b) {
     [this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]];
   }
-
-  /**
-   * Gets the index of the parent of the given index in the heap-array.
-   *
-   * @private
-   * @param {Number} index  The index of the child of which to find the parent.
-   * @returns {Number} the parent index
-   */
-  _getParent(index) {
-    return Math.floor((index - 1) / 2);
-  }
-
-  /**
-   * Gets the indexes of the children of the node at the given index.
-   *
-   * @private
-   * @param {Number} index  The index of the parent of which to find the
-   * children.
-   * @returns {Number[]} an array of the children indexes
-   */
-  _getChildren(index) {
-    return [2 * index + 1, 2 * index + 2];
-  }
-
   /**
    * Gets the min value of the heap (if your cmp function is a less-than
    * comparison).
