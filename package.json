@@ -6,7 +6,7 @@
   "scripts": {
     "prepublish": "npm run compile",
     "compile": "babel -d lib/ src/",
-    "update-docs": "documentation build src/** -o docs -f html",
+    "update-docs": "documentation build --document-exported src/** -o docs -f html",
     "test-single-run": "mocha --require babel-register --recursive",
     "test-watch": "npm run test-single-run -- -w",
     "coverage": "cross-env NODE_ENV=test nyc npm run test-single-run",

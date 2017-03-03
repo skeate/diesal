@@ -43,7 +43,6 @@ class Point {
  * whether this is the left point, a reference to the other point's SweepEvent,
  * whether it's part of the "clipping" polygon, etc.
  *
- * @private
  * @property {Point} p The point
  * @property {boolean} left Whether this is the "left" point in the pairing
  */
@@ -132,7 +131,6 @@ class SweepEvent {
  * Represents a chain of SweepEvents. Useful to efficiently combine all the
  * outer edges of the polygons.
  *
- * @private
  * @property {boolean} closed Whether or not the chain is closed
  * @property {Point} start The start of the chain
  * @property {Point} end The end of the chain
@@ -239,8 +237,6 @@ class Chain {
 
 /**
  * Stores a collection of chains. Simplifies adding edges and merging chains.
- *
- * @private
  */
 class ChainCollection {
   constructor() {
@@ -322,7 +318,6 @@ class ChainCollection {
  * Sets flags on a SweepEvent to help determine whether it is inside or outside
  * of the combined polygon.
  *
- * @private
  * @param {SweepEvent} eventA The `SweepEvent` on which to set flags. NOTE: Will
  * be modified!
  * @param {SweepEvent} eventB A `SweepEvent` which is used as a reference to
@@ -345,7 +340,6 @@ const _setInsideFlag = (eventA, eventB) => {
 /**
  * Sorts SweepEvents by X coordinate ascending, then by Y coordinate ascending.
  *
- * @private
  * @param {SweepEvent[]} points A list of SweepEvents
  * @return {SweepEvent[]} Sorted list of SweepEvents
  */
@@ -368,7 +362,6 @@ const sort = points => points.slice().sort((a, b) => {
 /**
  * Breaks a shape down into edges, in the form of SweepEvents.
  *
- * @private
  * @param {Point[]} shape The shape to decompose
  * @param {boolean} isClipping Whether this shape is the "clipping" polygon
  * @returns {SweepEvent[]} a list of SweepEvents
@@ -507,7 +500,6 @@ const _handleIntersection = (intersection, eventA, eventB, q) => {
  * 2. `eventA` is left of `eventA.other`. We're assuming this is in a sweep line
  *    algorithm, so we should've already dealt with the left point of the line.
  *
- * @private
  * @param {SweepEvent} eventA The next SweepEvent in the priority queue
  * @param {SweepEvent} eventB Another SweepEvent that could possibly intersect
  *                            `eventA`.
