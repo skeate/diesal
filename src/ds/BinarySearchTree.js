@@ -1,9 +1,18 @@
 /**
  * A single node in the tree. Provides some useful computed properties.
  *
- * @private
+ * @property {*} value The value of the node
+ * @property {?Node} parent The parent of the node
+ * @property {?Node} left The left child of the node
+ * @property {?Node} right The right child of the node
  */
-export class BSTNode {
+class Node {
+  /**
+   * Create a node.
+   *
+   * @param {*} value The value of the node
+   * @param {?Node} parent The parent of the node
+   */
   constructor(value, parent = null) {
     this.value = value;
     this.parent = parent;
@@ -13,6 +22,8 @@ export class BSTNode {
 
   /**
    * The node that contains the lowest value in this node's subtree.
+   *
+   * @returns {Node}
    */
   get leftmostDescendant() {
     return this.left ? this.left.leftmostDescendant : this;
@@ -20,6 +31,8 @@ export class BSTNode {
 
   /**
    * The node that contains the highest value in this node's subtree.
+   *
+   * @returns {Node}
    */
   get rightmostDescendant() {
     return this.right ? this.right.rightmostDescendant : this;
@@ -52,7 +65,7 @@ export default class BinarySearchTree {
   insert(value, parent = this.root) {
     // Our tree has no nodes, so regardless of the value, it must be the root.
     if (!this.root) {
-      this.root = new BSTNode(value);
+      this.root = new Node(value);
       return ++this.length;
     }
     // Compare the value to the current parent's value. If it is lower, then it
@@ -61,7 +74,7 @@ export default class BinarySearchTree {
       // If the parent node doesn't have a left child, then we should put the
       // value there.
       if (parent.left === null) {
-        parent.left = new BSTNode(value, parent);
+        parent.left = new Node(value, parent);
         return ++this.length;
       }
       // Otherwise, recurse, with the left value as the new parent.
@@ -69,7 +82,7 @@ export default class BinarySearchTree {
     } else if (parent.right === null) {
       // If it is greater than or equal to the value, then it should go on the
       // right side. Code is the same, but switch any 'left' with 'right'.
-      parent.right = new BSTNode(value, parent);
+      parent.right = new Node(value, parent);
       return ++this.length;
     }
     return this.insert(value, parent.right);
@@ -80,8 +93,8 @@ export default class BinarySearchTree {
    *
    * @private
    * @param {*} value Value for which to search
-   * @param {BSTNode} node The current search root
-   * @return {?BSTNode} null if not found, otherwise the node
+   * @param {Node} node The current search root
+   * @return {?Node} null if not found, otherwise the node
    */
   _search(value, node = this.root) {
     // There are four possibilities:

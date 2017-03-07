@@ -48,16 +48,10 @@ const getIntersection = (a1, a2, b1, b2) => {
   const vb = { x: b2.x - b1.x, y: b2.y - b1.y };
   // We also define a function to convert back to regular point form:
 
-  /* eslint-disable arrow-body-style */
-
-  const toPoint = (p, s, d) => {
-    return {
-      x: p.x + s * d.x,
-      y: p.y + s * d.y,
-    };
-  };
-
-  /* eslint-enable arrow-body-style */
+  const toPoint = (p, s, d) => ({
+    x: p.x + s * d.x,
+    y: p.y + s * d.y,
+  });
 
   // The rest is pretty much a straight port of the algorithm.
   const e = {
