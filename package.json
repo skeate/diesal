@@ -10,7 +10,7 @@
     "test-single-run": "mocha --require babel-register --recursive",
     "test-watch": "npm run test-single-run -- -w",
     "coverage": "cross-env NODE_ENV=test nyc npm run test-single-run",
-    "lint": "eslint src && documentation lint src/**",
+    "lint": "eslint src",
     "test": "npm run lint && npm run coverage"
   },
   "keywords": [
