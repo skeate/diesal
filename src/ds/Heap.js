@@ -36,8 +36,8 @@ export default class Heap {
    */
   constructor(list = [], cmp = (a, b) => a < b) {
     this._cmp = cmp;
-    this.heap = list;
-    for (let i = Math.floor(this.heap.length / 2) - 1; i >= 0; i--) {
+    this._heap = list;
+    for (let i = Math.floor(this._heap.length / 2) - 1; i >= 0; i--) {
       this._heapify(i);
     }
   }
@@ -48,7 +48,7 @@ export default class Heap {
    * @type {number}
    */
   get length() {
-    return this.heap.length;
+    return this._heap.length;
   }
 
   /**
@@ -58,11 +58,11 @@ export default class Heap {
    * @returns {number} The new size of the heap
    */
   push(value) {
-    let index = this.heap.push(value) - 1;
+    let index = this._heap.push(value) - 1;
     let check = true;
     while (check) {
       const parent = getParent(index);
-      if (parent >= 0 && this._cmp(value, this.heap[parent])) {
+      if (parent >= 0 && this._cmp(value, this._heap[parent])) {
         this._swap(index, parent);
         index = parent;
       } else {
@@ -80,13 +80,13 @@ export default class Heap {
    */
   pop() {
     // remove and store lowest value
-    const min = this.heap.shift();
+    const min = this._heap.shift();
     if (typeof min === 'undefined') {
       return null;
     }
-    if (this.heap.length) {
+    if (this._heap.length) {
       // put the last element into the root position
-      this.heap.unshift(this.heap.pop());
+      this._heap.unshift(this._heap.pop());
       this._heapify();
     }
     return min;
@@ -99,7 +99,7 @@ export default class Heap {
    * @returns {boolean} Whether or not the value was found in the collection
    */
   contains(value) {
-    return this.heap.indexOf(value) >= 0;
+    return this._heap.indexOf(value) >= 0;
   }
 
   /**
@@ -112,10 +112,10 @@ export default class Heap {
   _heapify(i = 0) {
     // if this breaks the heap property, fix it. rinse and repeat until heap
     // property is true.
-    const len = this.heap.length;
+    const len = this._heap.length;
     let largest = i;
     getChildren(i).forEach((child) => {
-      if (child < len && this._cmp(this.heap[child], this.heap[largest])) {
+      if (child < len && this._cmp(this._heap[child], this._heap[largest])) {
         largest = child;
       }
     });
@@ -133,7 +133,7 @@ export default class Heap {
    * @param {number} b Second element to swap
    */
   _swap(a, b) {
-    [this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]];
+    [this._heap[a], this._heap[b]] = [this._heap[b], this._heap[a]];
   }
   /**
    * Gets the min value of the heap (if your cmp function is a less-than
@@ -142,7 +142,7 @@ export default class Heap {
    * @returns {*} The min value
    */
   findMin() {
-    return this.heap[0];
+    return this._heap[0];
   }
 
   /**
@@ -153,6 +153,6 @@ export default class Heap {
    * @returns {*} The max value
    */
   findMax() {
-    return this.heap[0];
+    return this._heap[0];
   }
 }

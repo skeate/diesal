@@ -33,12 +33,14 @@ class IntervalTreeNode {
  *
  * It allows you to find all intervals which contain a specific point, or
  * overlap with a given interval.
- *
- * @property {number} size The number of intervals in the tree
  */
 export default class IntervalTree {
+  /**
+   * Constructs an empty interval tree.
+   */
   constructor() {
     this._root = null;
+    /** @type {number} */
     this.size = 0;
   }
 
@@ -95,23 +97,41 @@ export default class IntervalTree {
     this.size++;
   }
 
+  _lookup(point, node = this._root) {
+    const overlaps = [];
+    if (node === null || node.max < point) {
+      return overlaps;
+    }
+    overlaps.push(...this._lookup(point, node.left));
+    if (node.low <= point) {
+      if (node.high >= point) {
+        overlaps.push(node.data);
+      }
+      overlaps.push(...this._lookup(point, node.right));
+    }
+    return overlaps;
+  }
+
   /**
    * Find all intervals that cover a certain point.
    *
    * @param {number} point The sought point
    * @returns {*[]} An array of all values that are valid at the given point.
    */
-  lookup(point, node = this._root) {
+  lookup(point) {
+    return this._lookup(point);
+  }
+
+  _overlap(begin, end, node = this._root) {
     const overlaps = [];
-    if (node === null || node.max < point) {
-      return overlaps;
+    if (!(begin > node.high || node.low > end)) {
+      overlaps.push(node.data);
     }
-    overlaps.push(...this.lookup(point, node.left));
-    if (node.low <= point) {
-      if (node.high >= point) {
-        overlaps.push(node.data);
-      }
-      overlaps.push(...this.lookup(point, node.right));
+    if (node.left && node.left.max >= begin) {
+      overlaps.push(...this._overlap(begin, end, node.left));
+    }
+    if (node.right && node.right.min <= end) {
+      overlaps.push(...this._overlap(begin, end, node.right));
     }
     return overlaps;
   }
@@ -123,17 +143,7 @@ export default class IntervalTree {
    * @param {number} end The end of the valid interval
    * @returns {*[]} An array of all values that overlap the given interval.
    */
-  overlap(begin, end, node = this._root) {
-    const overlaps = [];
-    if (!(begin > node.high || node.low > end)) {
-      overlaps.push(node.data);
-    }
-    if (node.left && node.left.max >= begin) {
-      overlaps.push(...this.overlap(begin, end, node.left));
-    }
-    if (node.right && node.right.min <= end) {
-      overlaps.push(...this.overlap(begin, end, node.right));
-    }
-    return overlaps;
+  overlap(begin, end) {
+    return this._overlap(begin, end);
   }
 }
