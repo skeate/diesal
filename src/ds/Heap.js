@@ -22,9 +22,27 @@ function getChildren(index) {
 }
 
 /**
- * A binary heap implementation. Note that in all descriptions, where we use
- * "min", it really depends on what your comparison function is. The default is
- * a min function.
+ * A Heap is a data structure that satisfies the *heap property*: if A is
+ * a parent node of B, then the value of node A is ordered with respect to the
+ * value of B, with the same ordering applying across all nodes. Heaps are an
+ * implementation of a Priority Queue, providing fast (O(1)) access to the min,
+ * and reasonable (O(logn) or better, depending on variant) performance for
+ * insert and delete.
+ *
+ * This particular implementation is of a binary heap, where each node has 0-2
+ * children.
+ *
+ * For more information:
+ *
+ * [Heaps][Heap]
+ *
+ * [Binary Heaps][BinHeap]
+ *
+ * Note that in all descriptions, where we use "min", it really depends on what
+ * your comparison function is. The default is a min function.
+ *
+ * [Heap]: https://en.wikipedia.org/wiki/Heap_(data_structure)
+ * [BinHeap]: https://en.wikipedia.org/wiki/Binary_heap
  */
 export default class Heap {
 
