@@ -1,9 +1,5 @@
 coverage
 node_modules
 lib
-docs
-
-.ackrc
-.vimproj
+out
 .nyc_output
-.tern-port
