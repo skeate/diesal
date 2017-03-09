@@ -4,6 +4,7 @@
 [![Test Coverage][cv-badge]][cv]
 [![devDependency Status][david-badge]][david]
 [![Greenkeeper badge][greenkeeper-badge]][greenkeeper]
+[![Inline docs][inch-ci-badge]][inch-ci]
 
 [![gitter][gitter-badge]][gitter]
 
@@ -54,6 +55,8 @@ ISC
 [david-badge]: https://img.shields.io/david/dev/skeate/diesal.svg
 [gitter]: https://gitter.im/skeate/diesal
 [gitter-badge]: https://badges.gitter.im/Join%20Chat.svg
-[docs]: http://skeate.github.io/diesal/docs
+[docs]: http://skeate.github.io/diesal
 [greenkeeper]: http://greenkeeper.io/
 [greenkeeper-badge]: https://badges.greenkeeper.io/skeate/diesal.svg
+[inch-ci-badge]: http://inch-ci.org/github/skeate/diesal.svg?branch=develop&style=shields
+[inch-ci]: http://inch-ci.org/github/skeate/diesal
