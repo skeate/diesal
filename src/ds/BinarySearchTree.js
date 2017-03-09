@@ -198,12 +198,7 @@ export default class BinarySearchTree {
     return --this.length;
   }
 
-  /**
-   * Converts the tree into an array using an in-order traversal of the tree.
-   *
-   * @returns {Array} The contents of the tree as a sorted array
-   */
-  toArray(node = this._root) {
+  _toArray(node = this._root) {
     // An in-order traversal should (as you might expect) traverse the nodes in
     // value order. Since the tree is sorted so that smaller values go to the
     // left subtree, and larger values go to the right subtree, we want to visit
@@ -220,6 +215,15 @@ export default class BinarySearchTree {
       }
     }
     return arr;
+  }
+
+  /**
+   * Converts the tree into an array using an in-order traversal of the tree.
+   *
+   * @returns {Array} The contents of the tree as a sorted array
+   */
+  toArray() {
+    return this._toArray();
   }
 
   /**
