@@ -207,11 +207,11 @@ export default class BinarySearchTree {
     let arr = [];
     if (node) {
       if (node.left) {
-        arr = arr.concat(this.toArray(node.left));
+        arr = arr.concat(this._toArray(node.left));
       }
       arr = arr.concat(node.value);
       if (node.right) {
-        arr = arr.concat(this.toArray(node.right));
+        arr = arr.concat(this._toArray(node.right));
       }
     }
     return arr;
