@@ -10,7 +10,7 @@
     "test-single-run": "mocha --require babel-register --recursive",
     "test-watch": "npm run test-single-run -- -w",
     "coverage": "cross-env NODE_ENV=test nyc npm run test-single-run",
-    "lint": "eslint src",
+    "lint": "eslint src && eslint test",
     "test": "npm run lint && npm run coverage"
   },
   "keywords": [
@@ -37,6 +37,7 @@
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-mocha": "^4.8.0",
     "eslint-plugin-react": "^6.10.0",
     "mocha": "^3.2.0",
     "nyc": "^10.1.2"
@@ -45,7 +46,11 @@
     "extends": [
       "airbnb"
     ],
+    "plugins": [
+      "mocha"
+    ],
     "rules": {
+      "mocha/max-top-level-suites": "error",
       "no-mixed-operators": "off",
       "no-underscore-dangle": "off",
       "no-plusplus": "off",

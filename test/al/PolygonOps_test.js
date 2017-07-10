@@ -1,6 +1,4 @@
 import chai from 'chai';
-chai.should();
-
 import {
   combineShapes,
   union,
@@ -8,17 +6,19 @@ import {
   difference,
 } from '../../src/al/PolygonOps';
 
+chai.should();
+
 describe('AL - Polygon boolean operations', () => {
   const eq = (a, b) => a.x === b.x && a.y === b.y;
-  const toString = (p) => `(${p.x}, ${p.y})`;
+  const toString = p => `(${p.x}, ${p.y})`;
   const shapesMatch = (actualShapes, expectedShapes) => {
     if (actualShapes.length !== expectedShapes.length) {
-      const actualPolygons = actualShapes.map((s) => `[${s.map(toString)}]`);
+      const actualPolygons = actualShapes.map(s => `[${s.map(toString)}]`);
       throw new Error(
         `Number of polygons do not match:
         actual   = ${actualShapes.length},
         expected = ${expectedShapes.length}
-        actual polygons: ${actualPolygons}`
+        actual polygons: ${actualPolygons}`,
       );
     }
     actualShapes.forEach((actualShape, i) => {
@@ -28,7 +28,7 @@ describe('AL - Polygon boolean operations', () => {
           `Number of points in ${i + 1}th polygon does not match:
           actual   = ${actualShape.length},
           expected = ${expectedShape.length}
-          actual points: ${actualShape.map(toString)}`
+          actual points: ${actualShape.map(toString)}`,
         );
       }
       let counter = actualShape.length;
@@ -37,7 +37,7 @@ describe('AL - Polygon boolean operations', () => {
       }
       if (counter === -1) {
         throw new Error(
-          `Expected point not found: ${toString(expectedShape[0])}`
+          `Expected point not found: ${toString(expectedShape[0])}`,
         );
       }
       actualShape.forEach((p, j) => {
@@ -46,40 +46,40 @@ describe('AL - Polygon boolean operations', () => {
     });
   };
   const square = [
-    {x: 0, y: 0},
-    {x: 2, y: 0},
-    {x: 2, y: 2},
-    {x: 0, y: 2},
+    { x: 0, y: 0 },
+    { x: 2, y: 0 },
+    { x: 2, y: 2 },
+    { x: 0, y: 2 },
   ];
   const shiftedSquare = [
-    {x: 1, y: 1},
-    {x: 3, y: 1},
-    {x: 3, y: 3},
-    {x: 1, y: 3},
+    { x: 1, y: 1 },
+    { x: 3, y: 1 },
+    { x: 3, y: 3 },
+    { x: 1, y: 3 },
   ];
   const smallSquare = [
-    {x: 0, y: 0},
-    {x: 1, y: 0},
-    {x: 1, y: 1},
-    {x: 0, y: 1},
+    { x: 0, y: 0 },
+    { x: 1, y: 0 },
+    { x: 1, y: 1 },
+    { x: 0, y: 1 },
   ];
   const smallShiftedSquare = [
-    {x: 1, y: 1},
-    {x: 2, y: 1},
-    {x: 2, y: 2},
-    {x: 1, y: 2},
+    { x: 1, y: 1 },
+    { x: 2, y: 1 },
+    { x: 2, y: 2 },
+    { x: 1, y: 2 },
   ];
   const rectangle = [
-    {x: 0, y: 1},
-    {x: 1, y: 1},
-    {x: 1, y: 3},
-    {x: 0, y: 3},
+    { x: 0, y: 1 },
+    { x: 1, y: 1 },
+    { x: 1, y: 3 },
+    { x: 0, y: 3 },
   ];
   const shiftedRectangle = [
-    {x: 1, y: 1},
-    {x: 2, y: 1},
-    {x: 2, y: 3},
-    {x: 1, y: 3},
+    { x: 1, y: 1 },
+    { x: 2, y: 1 },
+    { x: 2, y: 3 },
+    { x: 1, y: 3 },
   ];
 
   describe('on Euclidean geometry', () => {
@@ -99,32 +99,32 @@ describe('AL - Polygon boolean operations', () => {
       const combinations = combineShapes(square, shiftedSquare);
       it('should find union', () => {
         shapesMatch(combinations.union, [[
-          {x: 3, y: 3},
-          {x: 3, y: 1},
-          {x: 2, y: 1},
-          {x: 2, y: 0},
-          {x: 0, y: 0},
-          {x: 0, y: 2},
-          {x: 1, y: 2},
-          {x: 1, y: 3},
+          { x: 3, y: 3 },
+          { x: 3, y: 1 },
+          { x: 2, y: 1 },
+          { x: 2, y: 0 },
+          { x: 0, y: 0 },
+          { x: 0, y: 2 },
+          { x: 1, y: 2 },
+          { x: 1, y: 3 },
         ]]);
       });
       it('should find intersection', () => {
         shapesMatch(combinations.intersection, [[
-          {x: 1, y: 1},
-          {x: 1, y: 2},
-          {x: 2, y: 2},
-          {x: 2, y: 1},
+          { x: 1, y: 1 },
+          { x: 1, y: 2 },
+          { x: 2, y: 2 },
+          { x: 2, y: 1 },
         ]]);
       });
       it('should find difference', () => {
         shapesMatch(combinations.difference, [[
-          {x: 0, y: 0},
-          {x: 0, y: 2},
-          {x: 1, y: 2},
-          {x: 1, y: 1},
-          {x: 2, y: 1},
-          {x: 2, y: 0},
+          { x: 0, y: 0 },
+          { x: 0, y: 2 },
+          { x: 1, y: 2 },
+          { x: 1, y: 1 },
+          { x: 2, y: 1 },
+          { x: 2, y: 0 },
         ]]);
       });
     });
@@ -145,30 +145,30 @@ describe('AL - Polygon boolean operations', () => {
       const combinations = combineShapes(square, shiftedRectangle);
       it('should find union', () => {
         shapesMatch(combinations.union, [[
-          {x: 2, y: 3},
-          {x: 2, y: 0},
-          {x: 0, y: 0},
-          {x: 0, y: 2},
-          {x: 1, y: 2},
-          {x: 1, y: 3},
+          { x: 2, y: 3 },
+          { x: 2, y: 0 },
+          { x: 0, y: 0 },
+          { x: 0, y: 2 },
+          { x: 1, y: 2 },
+          { x: 1, y: 3 },
         ]]);
       });
       it('should find intersection', () => {
         shapesMatch(combinations.intersection, [[
-          {x: 1, y: 1},
-          {x: 1, y: 2},
-          {x: 2, y: 2},
-          {x: 2, y: 1},
+          { x: 1, y: 1 },
+          { x: 1, y: 2 },
+          { x: 2, y: 2 },
+          { x: 2, y: 1 },
         ]]);
       });
       it('should find difference', () => {
         shapesMatch(combinations.difference, [[
-          {x: 0, y: 0},
-          {x: 0, y: 2},
-          {x: 1, y: 2},
-          {x: 1, y: 1},
-          {x: 2, y: 1},
-          {x: 2, y: 0},
+          { x: 0, y: 0 },
+          { x: 0, y: 2 },
+          { x: 1, y: 2 },
+          { x: 1, y: 1 },
+          { x: 2, y: 1 },
+          { x: 2, y: 0 },
         ]]);
       });
     });
@@ -187,28 +187,28 @@ describe('AL - Polygon boolean operations', () => {
       const combinations = combineShapes(square, smallSquare);
       it('should find union', () => {
         shapesMatch(combinations.union, [[
-          {x: 2, y: 2},
-          {x: 2, y: 0},
-          {x: 0, y: 0},
-          {x: 0, y: 2},
+          { x: 2, y: 2 },
+          { x: 2, y: 0 },
+          { x: 0, y: 0 },
+          { x: 0, y: 2 },
         ]]);
       });
       it('should find intersection', () => {
         shapesMatch(combinations.intersection, [[
-          {x: 0, y: 0},
-          {x: 0, y: 1},
-          {x: 1, y: 1},
-          {x: 1, y: 0},
+          { x: 0, y: 0 },
+          { x: 0, y: 1 },
+          { x: 1, y: 1 },
+          { x: 1, y: 0 },
         ]]);
       });
       it('should find difference', () => {
         shapesMatch(combinations.difference, [[
-          {x: 0, y: 2},
-          {x: 2, y: 2},
-          {x: 2, y: 0},
-          {x: 1, y: 0},
-          {x: 1, y: 1},
-          {x: 0, y: 1},
+          { x: 0, y: 2 },
+          { x: 2, y: 2 },
+          { x: 2, y: 0 },
+          { x: 1, y: 0 },
+          { x: 1, y: 1 },
+          { x: 0, y: 1 },
         ]]);
       });
     });
@@ -227,28 +227,28 @@ describe('AL - Polygon boolean operations', () => {
       const combinations = combineShapes(square, smallShiftedSquare);
       it('should find union', () => {
         shapesMatch(combinations.union, [[
-          {x: 2, y: 2},
-          {x: 2, y: 0},
-          {x: 0, y: 0},
-          {x: 0, y: 2},
+          { x: 2, y: 2 },
+          { x: 2, y: 0 },
+          { x: 0, y: 0 },
+          { x: 0, y: 2 },
         ]]);
       });
       it('should find intersection', () => {
         shapesMatch(combinations.intersection, [[
-          {x: 1, y: 1},
-          {x: 1, y: 2},
-          {x: 2, y: 2},
-          {x: 2, y: 1},
+          { x: 1, y: 1 },
+          { x: 1, y: 2 },
+          { x: 2, y: 2 },
+          { x: 2, y: 1 },
         ]]);
       });
       it('should find difference', () => {
         shapesMatch(combinations.difference, [[
-          {x: 0, y: 0},
-          {x: 0, y: 2},
-          {x: 1, y: 2},
-          {x: 1, y: 1},
-          {x: 2, y: 1},
-          {x: 2, y: 0},
+          { x: 0, y: 0 },
+          { x: 0, y: 2 },
+          { x: 1, y: 2 },
+          { x: 1, y: 1 },
+          { x: 2, y: 1 },
+          { x: 2, y: 0 },
         ]]);
       });
     });
@@ -267,12 +267,12 @@ describe('AL - Polygon boolean operations', () => {
       const combinations = combineShapes(rectangle, smallShiftedSquare);
       it('should find union', () => {
         shapesMatch(combinations.union, [[
-          {x: 0, y: 1},
-          {x: 0, y: 3},
-          {x: 1, y: 3},
-          {x: 1, y: 2},
-          {x: 2, y: 2},
-          {x: 2, y: 1},
+          { x: 0, y: 1 },
+          { x: 0, y: 3 },
+          { x: 1, y: 3 },
+          { x: 1, y: 2 },
+          { x: 2, y: 2 },
+          { x: 2, y: 1 },
         ]]);
       });
       it('should find intersection', () => {
@@ -280,10 +280,10 @@ describe('AL - Polygon boolean operations', () => {
       });
       it('should find difference', () => {
         shapesMatch(combinations.difference, [[
-          {x: 0, y: 1},
-          {x: 0, y: 3},
-          {x: 1, y: 3},
-          {x: 1, y: 1},
+          { x: 0, y: 1 },
+          { x: 0, y: 3 },
+          { x: 1, y: 3 },
+          { x: 1, y: 1 },
         ]]);
       });
     });
@@ -296,24 +296,24 @@ describe('AL - Polygon boolean operations', () => {
        * split.
        */
       const triangleA = [
-        {x: 0, y: 0},
-        {x: 2, y: 0},
-        {x: 2, y: 2},
+        { x: 0, y: 0 },
+        { x: 2, y: 0 },
+        { x: 2, y: 2 },
       ];
       const triangleB = [
-        {x: 1, y: 1},
-        {x: 1, y: 3},
-        {x: 3, y: 3},
+        { x: 1, y: 1 },
+        { x: 1, y: 3 },
+        { x: 3, y: 3 },
       ];
       const combinations = combineShapes(triangleA, triangleB);
       it('should find union', () => {
         shapesMatch(combinations.union, [[
-          {x: 0, y: 0},
-          {x: 1, y: 1},
-          {x: 1, y: 3},
-          {x: 3, y: 3},
-          {x: 2, y: 2},
-          {x: 2, y: 0},
+          { x: 0, y: 0 },
+          { x: 1, y: 1 },
+          { x: 1, y: 3 },
+          { x: 3, y: 3 },
+          { x: 2, y: 2 },
+          { x: 2, y: 0 },
         ]]);
       });
       it('should find intersection', () => {
@@ -321,9 +321,9 @@ describe('AL - Polygon boolean operations', () => {
       });
       it('should find difference', () => {
         shapesMatch(combinations.difference, [[
-          {x: 0, y: 0},
-          {x: 2, y: 2},
-          {x: 2, y: 0},
+          { x: 0, y: 0 },
+          { x: 2, y: 2 },
+          { x: 2, y: 0 },
         ]]);
       });
     });
@@ -336,24 +336,24 @@ describe('AL - Polygon boolean operations', () => {
        * split.
        */
       const triangleB = [
-        {x: 0, y: 0},
-        {x: 2, y: 2},
-        {x: 2, y: 0},
+        { x: 0, y: 0 },
+        { x: 2, y: 2 },
+        { x: 2, y: 0 },
       ];
       const triangleA = [
-        {x: 1, y: 1},
-        {x: 3, y: 3},
-        {x: 1, y: 3},
+        { x: 1, y: 1 },
+        { x: 3, y: 3 },
+        { x: 1, y: 3 },
       ];
       const combinations = combineShapes(triangleA, triangleB);
       it('should find union', () => {
         shapesMatch(combinations.union, [[
-          {x: 0, y: 0},
-          {x: 1, y: 1},
-          {x: 1, y: 3},
-          {x: 3, y: 3},
-          {x: 2, y: 2},
-          {x: 2, y: 0},
+          { x: 0, y: 0 },
+          { x: 1, y: 1 },
+          { x: 1, y: 3 },
+          { x: 3, y: 3 },
+          { x: 2, y: 2 },
+          { x: 2, y: 0 },
         ]]);
       });
       it('should find intersection', () => {
@@ -361,9 +361,9 @@ describe('AL - Polygon boolean operations', () => {
       });
       it('should find difference', () => {
         shapesMatch(combinations.difference, [[
-          {x: 1, y: 1},
-          {x: 1, y: 3},
-          {x: 3, y: 3},
+          { x: 1, y: 1 },
+          { x: 1, y: 3 },
+          { x: 3, y: 3 },
         ]]);
       });
     });
@@ -372,34 +372,34 @@ describe('AL - Polygon boolean operations', () => {
   describe('Utility functions', () => {
     it('should have union()', () => {
       shapesMatch(union(square, shiftedSquare), [[
-        {x: 3, y: 3},
-        {x: 3, y: 1},
-        {x: 2, y: 1},
-        {x: 2, y: 0},
-        {x: 0, y: 0},
-        {x: 0, y: 2},
-        {x: 1, y: 2},
-        {x: 1, y: 3},
+        { x: 3, y: 3 },
+        { x: 3, y: 1 },
+        { x: 2, y: 1 },
+        { x: 2, y: 0 },
+        { x: 0, y: 0 },
+        { x: 0, y: 2 },
+        { x: 1, y: 2 },
+        { x: 1, y: 3 },
       ]]);
     });
 
     it('should have intersection()', () => {
       shapesMatch(intersection(square, shiftedSquare), [[
-        {x: 1, y: 1},
-        {x: 1, y: 2},
-        {x: 2, y: 2},
-        {x: 2, y: 1},
+        { x: 1, y: 1 },
+        { x: 1, y: 2 },
+        { x: 2, y: 2 },
+        { x: 2, y: 1 },
       ]]);
     });
 
     it('should have difference()', () => {
       shapesMatch(difference(square, shiftedSquare), [[
-        {x: 0, y: 0},
-        {x: 0, y: 2},
-        {x: 1, y: 2},
-        {x: 1, y: 1},
-        {x: 2, y: 1},
-        {x: 2, y: 0},
+        { x: 0, y: 0 },
+        { x: 0, y: 2 },
+        { x: 1, y: 2 },
+        { x: 1, y: 1 },
+        { x: 2, y: 1 },
+        { x: 2, y: 0 },
       ]]);
     });
   });

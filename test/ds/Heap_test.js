@@ -1,7 +1,7 @@
 import chai from 'chai';
-const should = chai.should();
-
 import Heap from '../../src/ds/Heap';
+
+const should = chai.should();
 
 describe('DS - Heap', () => {
   it('should be able to be instantiated', () => {

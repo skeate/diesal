@@ -1,7 +1,7 @@
 import chai from 'chai';
-const should = chai.should();
-
 import BinarySearchTree from '../../src/ds/BinarySearchTree';
+
+const should = chai.should();
 
 describe('DS - BinarySearchTree', () => {
   it('should be able to be instantiated', () => {

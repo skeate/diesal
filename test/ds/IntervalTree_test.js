@@ -1,7 +1,7 @@
 import chai from 'chai';
-chai.should();
-
 import IntervalTree from '../../src/ds/IntervalTree';
+
+chai.should();
 
 describe('DS - IntervalTree', () => {
   it('should be able to be instantiated', () => {
