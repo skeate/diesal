@@ -448,22 +448,19 @@ const handleOverlap = (intersection, eventA, eventB, q) => {
   // If they were the same edge, then there would be no overlap, other than
   // perhaps a point -- which we are already ignoring.
   const firstLine = splitLine(sorted[0], intersection[0]);
-  firstLine.forEach((s) => {
+  const pushNonSame = (s) => {
     if (!s.p.eq(s.other.p)) {
       q.push(s);
     }
-  });
+  };
+  firstLine.forEach(pushNonSame);
   if (firstLine.length) {
     firstLine[1].setType('N');
   } else {
     sorted[0].setType('N');
   }
   const secondLine = splitLine(sorted[1], intersection[1]);
-  secondLine.forEach((s) => {
-    if (!s.p.eq(s.other.p)) {
-      q.push(s);
-    }
-  });
+  secondLine.forEach(pushNonSame);
   if (sorted[1].type === 'R') {
     sorted[1].setType(sorted[0].inOut === sorted[1].inOut ? 'S' : 'D');
   }

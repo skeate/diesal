@@ -44,8 +44,9 @@ const getIntersection = (a1, a2, b1, b2) => {
   // vector, then, could be thought of as the distance (in x and y components)
   // from the first point to the second point.
   // So first, let's make our vectors:
-  const va = { x: a2.x - a1.x, y: a2.y - a1.y };
-  const vb = { x: b2.x - b1.x, y: b2.y - b1.y };
+  const delta = (a, b) => ({ x: a.x - b.x, y: a.y - b.y });
+  const va = delta(a2, a1);
+  const vb = delta(b2, b1);
   // We also define a function to convert back to regular point form:
 
   const toPoint = (p, s, d) => ({
@@ -54,10 +55,7 @@ const getIntersection = (a1, a2, b1, b2) => {
   });
 
   // The rest is pretty much a straight port of the algorithm.
-  const e = {
-    x: b1.x - a1.x,
-    y: b1.y - a1.y,
-  };
+  const e = delta(b1, a1);
   let kross = krossProduct(va, vb);
   let sqrKross = kross * kross;
   const sqrLenA = dotProduct(va, va);
