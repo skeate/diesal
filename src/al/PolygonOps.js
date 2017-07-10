@@ -38,6 +38,7 @@ class Point {
    *
    * @returns {string}
    */
+  /* istanbul ignore next */
   toString() {
     return `(${this.x}, ${this.y})`;
   }
@@ -449,6 +450,7 @@ const handleOverlap = (intersection, eventA, eventB, q) => {
   // perhaps a point -- which we are already ignoring.
   const firstLine = splitLine(sorted[0], intersection[0]);
   const pushNonSame = (s) => {
+    /* istanbul ignore else */
     if (!s.p.eq(s.other.p)) {
       q.push(s);
     }
@@ -461,6 +463,7 @@ const handleOverlap = (intersection, eventA, eventB, q) => {
   }
   const secondLine = splitLine(sorted[1], intersection[1]);
   secondLine.forEach(pushNonSame);
+  /* istanbul ignore else */
   if (sorted[1].type === 'R') {
     sorted[1].setType(sorted[0].inOut === sorted[1].inOut ? 'S' : 'D');
   }
@@ -520,6 +523,7 @@ const handleIntersection = (intersection, eventA, eventB, q) => {
 const possibleIntersection = (eventA, eventB, q, geometry = 'euclidean') => {
   const intersection = geometry === 'euclidean'
     ? lineIntersection(eventA.p, eventA.other.p, eventB.p, eventB.other.p)
+  /* istanbul ignore next */
     : null;
     // : arcIntersection(eventA.p, event.other.p, eventB.p, eventB.other.p);
   if (!intersection) {
