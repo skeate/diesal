@@ -4,6 +4,9 @@ import Heap from '../ds/Heap';
 
 /**
  * A point
+ *
+ * @property {number} x
+ * @property {number} y
  */
 class Point {
   constructor(x, y) {
@@ -30,11 +33,14 @@ class Point {
     return this.x === p.x && this.y === p.y;
   }
 
-  /* useful for debugging
+  /**
+   * Represent the point as "(x, y)"
+   *
+   * @returns {string}
+   */
   toString() {
     return `(${this.x}, ${this.y})`;
   }
-  */
 }
 
 
@@ -43,9 +49,14 @@ class Point {
  * whether this is the left point, a reference to the other point's SweepEvent,
  * whether it's part of the "clipping" polygon, etc.
  *
- * @private
  * @property {Point} p The point
- * @property {Boolean} left Whether this is the "left" point in the pairing
+ * @property {boolean} left Whether this is the "left" point in the pairing
+ * @property {number} slope The slope of the line that intersects this and its
+ * other
+ * @property {boolean} inOut Indicates if the edge determines an inside-outside
+ * transition into the polygon
+ * @property {boolean} inside Indicates if the edge is inside the other polygon
+ * @property {string} type The type of the edge (see `setType` for details)
  */
 class SweepEvent {
   /**
@@ -111,7 +122,7 @@ class SweepEvent {
    * - 'D': Different transition; needed in difference, not in others
    * - 'R': Required (the default type)
    *
-   * @param {String} type The type to set
+   * @param {string} type The type to set
    */
   setType(type) {
     this.type = type;
@@ -132,8 +143,7 @@ class SweepEvent {
  * Represents a chain of SweepEvents. Useful to efficiently combine all the
  * outer edges of the polygons.
  *
- * @private
- * @property {Boolean} closed Whether or not the chain is closed
+ * @property {boolean} closed Whether or not the chain is closed
  * @property {Point} start The start of the chain
  * @property {Point} end The end of the chain
  * @property {Point[]} points All the points in the chain
@@ -176,22 +186,15 @@ class Chain {
       // the new edge's points match the current chains' endpoints
       // i.e., it closes the chain
       this.closed = true;
-    }
-    else if (pEqualsStart) {
+    } else if (pEqualsStart) {
       this.points.unshift(sweepEvent.other.p);
-    }
-    else if (pEqualsEnd) {
+    } else if (pEqualsEnd) {
       this.points.push(sweepEvent.other.p);
-    }
-    else if (opEqualsStart) {
+    } else if (opEqualsStart) {
       this.points.unshift(sweepEvent.p);
-    }
-
-    /* istanbul ignore else */
-    else if (opEqualsEnd) {
+    } else if (opEqualsEnd) {
       this.points.push(sweepEvent.p);
-    }
-    else {
+    } else {
       return false;
     }
     return true;
@@ -209,7 +212,7 @@ class Chain {
    *
    * @param {SweepEvent} edge The connecting edge
    * @param {Chain} chain The chain to add
-   * @returns {Boolean} Whether the merge happened or not
+   * @returns {boolean} Whether the merge happened or not
    */
   merge(edge, chain) {
     /* istanbul ignore if */
@@ -226,8 +229,7 @@ class Chain {
       this.points = toChainEnd
         ? chain.points.concat(this.points.slice(2))
         : chain.points.reverse().concat(this.points.slice(2));
-    }
-    else {
+    } else {
       this.points = toChainEnd
         ? this.points.concat(chain.points.reverse().slice(2))
         /* istanbul ignore next */
@@ -247,8 +249,6 @@ class Chain {
 
 /**
  * Stores a collection of chains. Simplifies adding edges and merging chains.
- *
- * @private
  */
 class ChainCollection {
   constructor() {
@@ -259,11 +259,15 @@ class ChainCollection {
     const simplify = (points) => {
       const slope = (a, b) => (b.y - a.y) / (b.x - a.x);
       const simple = [];
-      let i, len;
+      let i;
+      let len;
       for (i = 0, len = points.length; i < len;) {
         const a = points[i];
         simple.push(a);
-        let b, c, slopeAB, slopeAC;
+        let b;
+        let c;
+        let slopeAB;
+        let slopeAC;
         do {
           b = points[(i + 1) % len];
           c = points[(i + 2) % len];
@@ -278,7 +282,7 @@ class ChainCollection {
       }
       return simple;
     };
-    return this.chains.map((chain) => simplify(chain.points));
+    return this.chains.map(chain => simplify(chain.points));
   }
 
   /**
@@ -326,22 +330,20 @@ class ChainCollection {
  * Sets flags on a SweepEvent to help determine whether it is inside or outside
  * of the combined polygon.
  *
- * @private
  * @param {SweepEvent} eventA The `SweepEvent` on which to set flags. NOTE: Will
  * be modified!
  * @param {SweepEvent} eventB A `SweepEvent` which is used as a reference to
  * determine inside/outsideness of `eventA`
  */
-const _setInsideFlag = (eventA, eventB) => {
+const setInsideFlag = (eventA, eventB) => {
   if (eventB === null) {
-    eventA.inside = eventA.inOut = false;
-  }
-  else if (eventA.isClipping === eventB.isClipping) {
+    eventA.inOut = false;
+    eventA.inside = false;
+  } else if (eventA.isClipping === eventB.isClipping) {
     // same polygon
     eventA.inside = eventB.inside;
     eventA.inOut = !eventB.inOut;
-  }
-  else {
+  } else {
     eventA.inside = !eventB.inOut;
     eventA.inOut = eventB.inside;
   }
@@ -350,11 +352,10 @@ const _setInsideFlag = (eventA, eventB) => {
 /**
  * Sorts SweepEvents by X coordinate ascending, then by Y coordinate ascending.
  *
- * @private
  * @param {SweepEvent[]} points A list of SweepEvents
  * @return {SweepEvent[]} Sorted list of SweepEvents
  */
-const sort = (points) => points.slice().sort((a, b) => {
+const sort = points => points.slice().sort((a, b) => {
   if (a.p.lt(b.p)) {
     return -1;
   }
@@ -373,9 +374,8 @@ const sort = (points) => points.slice().sort((a, b) => {
 /**
  * Breaks a shape down into edges, in the form of SweepEvents.
  *
- * @private
  * @param {Point[]} shape The shape to decompose
- * @param {Boolean} isClipping Whether this shape is the "clipping" polygon
+ * @param {boolean} isClipping Whether this shape is the "clipping" polygon
  * @returns {SweepEvent[]} a list of SweepEvents
  */
 const decomposeShape = (shape, isClipping) => {
@@ -391,8 +391,7 @@ const decomposeShape = (shape, isClipping) => {
     if (eventA.left) {
       sweepEvents.push(eventA);
       sweepEvents.push(eventB);
-    }
-    else {
+    } else {
       sweepEvents.push(eventB);
       sweepEvents.push(eventA);
     }
@@ -435,7 +434,7 @@ const splitLine = (line, intersection) => {
  * @param {Heap<SweepEvent>} q The queue into which to insert any new
  *                             SweepEvents created by intersections.
  */
-const _handleOverlap = (intersection, eventA, eventB, q) => {
+const handleOverlap = (intersection, eventA, eventB, q) => {
   // The lines are the same and overlap at some point, so handle this special
   // First, we want to sort these points so that deciding which should connect
   // to what is easier.
@@ -456,8 +455,7 @@ const _handleOverlap = (intersection, eventA, eventB, q) => {
   });
   if (firstLine.length) {
     firstLine[1].setType('N');
-  }
-  else {
+  } else {
     sorted[0].setType('N');
   }
   const secondLine = splitLine(sorted[1], intersection[1]);
@@ -482,7 +480,7 @@ const _handleOverlap = (intersection, eventA, eventB, q) => {
  * @param {Heap<SweepEvent>} q The queue into which to insert any new
  *                             SweepEvents created by intersections.
  */
-const _handleIntersection = (intersection, eventA, eventB, q) => {
+const handleIntersection = (intersection, eventA, eventB, q) => {
   const endsOnPoint = (l, p) => l.p.eq(p) || l.other.p.eq(p);
   const aEndsOnIntersection = endsOnPoint(eventA, intersection);
   const bEndsOnIntersection = endsOnPoint(eventB, intersection);
@@ -495,10 +493,10 @@ const _handleIntersection = (intersection, eventA, eventB, q) => {
   // edge. If the intersection is in the middle of both edges, then we split
   // them both up.
   if (!aEndsOnIntersection) {
-    splitLine(eventA, intersection).forEach((s) => q.push(s));
+    splitLine(eventA, intersection).forEach(s => q.push(s));
   }
   if (!bEndsOnIntersection) {
-    splitLine(eventB, intersection).forEach((s) => q.push(s));
+    splitLine(eventB, intersection).forEach(s => q.push(s));
   }
 };
 
@@ -514,16 +512,15 @@ const _handleIntersection = (intersection, eventA, eventB, q) => {
  * 2. `eventA` is left of `eventA.other`. We're assuming this is in a sweep line
  *    algorithm, so we should've already dealt with the left point of the line.
  *
- * @private
  * @param {SweepEvent} eventA The next SweepEvent in the priority queue
  * @param {SweepEvent} eventB Another SweepEvent that could possibly intersect
  *                            `eventA`.
  * @param {Heap<SweepEvent>} q The queue into which to insert any new
  *                             SweepEvents created by intersections.
- * @param {String} [geometry] The type of geometry these lines are on (either
+ * @param {string} [geometry] The type of geometry these lines are on (either
  * `"euclidean"` or `"spherical"`).
  */
-const _possibleIntersection = (eventA, eventB, q, geometry = 'euclidean') => {
+const possibleIntersection = (eventA, eventB, q, geometry = 'euclidean') => {
   const intersection = geometry === 'euclidean'
     ? lineIntersection(eventA.p, eventA.other.p, eventB.p, eventB.other.p)
     : null;
@@ -532,15 +529,23 @@ const _possibleIntersection = (eventA, eventB, q, geometry = 'euclidean') => {
     return;
   }
   if (intersection instanceof Array) {
-    const intPoints = intersection.map((i) => new Point(i.x, i.y));
-    _handleOverlap(intPoints, eventA, eventB, q);
-  }
-  else {
+    const intPoints = intersection.map(i => new Point(i.x, i.y));
+    handleOverlap(intPoints, eventA, eventB, q);
+  } else {
     const intPoint = new Point(intersection.x, intersection.y);
-    _handleIntersection(intPoint, eventA, eventB, q);
+    handleIntersection(intPoint, eventA, eventB, q);
   }
 };
 
+/**
+ * This is a utility function to determine which sets a given `SweepEvent`
+ * belongs to, and push it into those sets.
+ *
+ * @param {SweepEvent} event The event to categorize
+ * @param {Array[]} union The set of points in the union
+ * @param {Array[]} intersection The set of points in the intersection
+ * @param {Array[]} difference The set of points in the difference
+ */
 const pushToSets = (event, union, intersection, difference) => {
   switch (event.type) {
     case 'R':
@@ -549,8 +554,7 @@ const pushToSets = (event, union, intersection, difference) => {
       }
       if (event.inside) {
         intersection.push(event.other);
-      }
-      else {
+      } else {
         union.push(event.other);
       }
       break;
@@ -572,7 +576,7 @@ const pushToSets = (event, union, intersection, difference) => {
  *
  * This is an implementation of an algorithm developed by
  * Martinez, Rueda, and Feito
- * http:// www.cs.ucr.edu/~vbz/cs230papers/martinez_boolean.pdf
+ * http://www.cs.ucr.edu/~vbz/cs230papers/martinez_boolean.pdf
  *
  * @param {Object[]} shapeA A shape representated as an array of points `{x, y}`
  * @param {Object[]} shapeB A shape representated as an array of points `{x, y}`
@@ -581,8 +585,8 @@ const pushToSets = (event, union, intersection, difference) => {
  * particular, could be a disjoint set of polygons).
  */
 export const combineShapes = (shapeA, shapeB) => {
-  const pointsA = shapeA.map((p) => new Point(p.x, p.y));
-  const pointsB = shapeB.map((p) => new Point(p.x, p.y));
+  const pointsA = shapeA.map(p => new Point(p.x, p.y));
+  const pointsB = shapeB.map(p => new Point(p.x, p.y));
   const edges = decomposeShape(pointsA, true)
     .concat(decomposeShape(pointsB, false));
   const s = new BinarySearchTree([], (a, b) => a.p.y < b.p.y);
@@ -614,35 +618,34 @@ export const combineShapes = (shapeA, shapeB) => {
       }
       const before = s.getPredecessor(event);
       const after = s.getSuccessor(event);
-      _setInsideFlag(event, before);
+      setInsideFlag(event, before);
       if (before) {
-        _possibleIntersection(event, before, q);
+        possibleIntersection(event, before, q);
       }
       if (after) {
-        _possibleIntersection(event, after, q);
+        possibleIntersection(event, after, q);
       }
-    }
-    else {
+    } else {
       const before = s.getPredecessor(event.other);
       const after = s.getSuccessor(event.other);
       pushToSets(
         event,
         unionEdges,
         intersectionEdges,
-        differenceEdges
+        differenceEdges,
       );
       s.remove(event.other);
       if (before && after) {
-        _possibleIntersection(before, after, q);
+        possibleIntersection(before, after, q);
       }
     }
   }
   const union = new ChainCollection();
   const intersection = new ChainCollection();
   const difference = new ChainCollection();
-  unionEdges.forEach((edge) => union.addEdge(edge));
-  intersectionEdges.forEach((edge) => intersection.addEdge(edge));
-  differenceEdges.forEach((edge) => difference.addEdge(edge));
+  unionEdges.forEach(edge => union.addEdge(edge));
+  intersectionEdges.forEach(edge => intersection.addEdge(edge));
+  differenceEdges.forEach(edge => difference.addEdge(edge));
   return {
     union: union.simplified,
     intersection: intersection.simplified,

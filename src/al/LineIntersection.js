@@ -7,7 +7,7 @@ const EPSILON = 0.01;
  * @param {Object} a First vector (with `x` and `y` properties)
  * @param {Object} b Second vector (with `x` and `y` properties)
  * @private
- * @returns {Number} The magnitude of the cross product
+ * @returns {number} The magnitude of the cross product
  */
 const krossProduct = (a, b) => a.x * b.y - a.y * b.x;
 
@@ -17,7 +17,7 @@ const krossProduct = (a, b) => a.x * b.y - a.y * b.x;
  * @param {Object} a First vector (with `x` and `y` properties)
  * @param {Object} b Second vector (with `x` and `y` properties)
  * @private
- * @returns {Number} The dot product
+ * @returns {number} The dot product
  */
 const dotProduct = (a, b) => a.x * b.x + a.y * b.y;
 
@@ -44,20 +44,14 @@ const getIntersection = (a1, a2, b1, b2) => {
   // vector, then, could be thought of as the distance (in x and y components)
   // from the first point to the second point.
   // So first, let's make our vectors:
-  const va = {x: a2.x - a1.x, y: a2.y - a1.y};
-  const vb = {x: b2.x - b1.x, y: b2.y - b1.y};
+  const va = { x: a2.x - a1.x, y: a2.y - a1.y };
+  const vb = { x: b2.x - b1.x, y: b2.y - b1.y };
   // We also define a function to convert back to regular point form:
 
-  /* eslint-disable arrow-body-style */
-
-  const toPoint = (p, s, d) => {
-    return {
-      x: p.x + s * d.x,
-      y: p.y + s * d.y,
-    };
-  };
-
-  /* eslint-enable arrow-body-style */
+  const toPoint = (p, s, d) => ({
+    x: p.x + s * d.x,
+    y: p.y + s * d.y,
+  });
 
   // The rest is pretty much a straight port of the algorithm.
   const e = {
