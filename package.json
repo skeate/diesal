@@ -23,7 +23,6 @@
   "license": "ISC",
   "repository": "http://github.com/skeate/diesal",
   "devDependencies": {
-    "babel": "^6.1.18",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
     "babel-plugin-istanbul": "^4.0.0",
