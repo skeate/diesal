@@ -33,7 +33,7 @@
     "cross-env": "^3.2.4",
     "esdoc": "^0.5.2",
     "eslint": "^4.2.0",
-    "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-mocha": "^4.11.0",
