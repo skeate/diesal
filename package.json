@@ -7,9 +7,9 @@
     "prepublishOnly": "npm run build",
     "build": "babel -d lib/ src/",
     "update-docs": "esdoc",
-    "test-single-run": "mocha --require babel-register --recursive",
-    "test-watch": "npm run test-single-run -- -w",
-    "coverage": "cross-env NODE_ENV=test nyc npm run test-single-run",
+    "test-once": "jest",
+    "test-watch": "jest --watchAll",
+    "coverage": "jest --coverage",
     "lint": "eslint src && eslint test",
     "test": "npm run lint && npm run coverage"
   },
@@ -28,28 +28,32 @@
     "babel-plugin-istanbul": "^4.1.4",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.24.1",
-    "chai": "^4.0.0",
-    "codeclimate-test-reporter": "^0.4.0",
-    "cross-env": "^3.2.4",
-    "esdoc": "^0.5.2",
+    "codeclimate-test-reporter": "^0.5.0",
+    "esdoc": "^1.0.1",
+    "esdoc-standard-plugin": "^1.0.0",
     "eslint": "^4.2.0",
-    "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-mocha": "^4.11.0",
-    "eslint-plugin-react": "^6.10.3",
-    "mocha": "^3.4.2",
-    "nyc": "^10.3.2"
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "jest": "^20.0.4"
+  },
+  "jest": {
+    "coverageDirectory": "coverage"
   },
   "eslintConfig": {
     "extends": [
       "airbnb"
     ],
-    "plugins": [
-      "mocha"
-    ],
+    "overrides": {
+      "files": [
+        "**/*.spec.js"
+      ],
+      "env": {
+        "jest": true
+      }
+    },
     "rules": {
-      "mocha/max-top-level-suites": "error",
       "no-mixed-operators": "off",
       "no-underscore-dangle": "off",
       "no-plusplus": "off",
@@ -83,20 +87,5 @@
   "esdoc": {
     "source": "./src",
     "destination": "./out"
-  },
-  "nyc": {
-    "all": true,
-    "include": [
-      "src/**/*.js"
-    ],
-    "reporter": [
-      "lcov",
-      "text-summary"
-    ],
-    "require": [
-      "babel-register"
-    ],
-    "sourceMap": false,
-    "instrument": false
   }
 }

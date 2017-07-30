@@ -47,7 +47,6 @@ class Node {
  * deletion, for only O(n) space.
  */
 export default class BinarySearchTree {
-
   /**
    * @param {Array} [list] A list of initial values to insert into the tree.
    * @param {Function} [cmp] A comparison function taking two arguments and

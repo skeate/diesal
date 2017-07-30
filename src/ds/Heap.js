@@ -45,7 +45,6 @@ function getChildren(index) {
  * [BinHeap]: https://en.wikipedia.org/wiki/Binary_heap
  */
 export default class Heap {
-
   /**
    * Create a Heap.
    *
