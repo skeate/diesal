@@ -1,0 +1,47 @@
+{
+  "coverage": "61.4%",
+  "expectCount": 57,
+  "actualCount": 35,
+  "files": {
+    "src/ds/BinarySearchTree.js": {
+      "expectCount": 23,
+      "actualCount": 15,
+      "undocumentLines": [
+        17,
+        18,
+        19,
+        20,
+        56,
+        57,
+        65,
+        200
+      ]
+    },
+    "src/ds/Heap.js": {
+      "expectCount": 14,
+      "actualCount": 12,
+      "undocumentLines": [
+        55,
+        56
+      ]
+    },
+    "src/ds/IntervalTree.js": {
+      "expectCount": 20,
+      "actualCount": 8,
+      "undocumentLines": [
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        42,
+        100,
+        125
+      ]
+    }
+  }
+}

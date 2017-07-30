@@ -1,10 +1,19 @@
 import IntervalTree from '../IntervalTree';
 
+/** @test {IntervalTree} */
 describe('DS - IntervalTree', () => {
+  /** @test {IntervalTree#constructor} */
   it('should be able to be instantiated', () => {
     expect(() => new IntervalTree()).not.toThrow();
   });
 
+  /** @test {IntervalTree#size} */
+  it('should have a size property', () => {
+    const h = new IntervalTree();
+    expect(h.size).toBe(0);
+  });
+
+  /** @test {IntervalTree#insert} */
   it('should allow insertion of new intervals', () => {
     const intervalTree = new IntervalTree();
     intervalTree.insert(0, 3, 'a');
@@ -13,6 +22,7 @@ describe('DS - IntervalTree', () => {
     expect(intervalTree.size).toEqual(3);
   });
 
+  /** @test {IntervalTree#lookup} */
   it('should find matching intervals', () => {
     const intervalTree = new IntervalTree();
     intervalTree.insert(0, 3, 'a');
@@ -26,6 +36,7 @@ describe('DS - IntervalTree', () => {
     expect(intervalTree.lookup(8)).toEqual(['d']);
   });
 
+  /** @test {IntervalTree#overlap} */
   it('should find overlapping intervals', () => {
     const intervalTree = new IntervalTree();
     intervalTree.insert(2, 4, 'a');

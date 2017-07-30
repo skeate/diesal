@@ -41,6 +41,24 @@
   "jest": {
     "coverageDirectory": "coverage"
   },
+  "esdoc": {
+    "source": "./src",
+    "destination": "./docs",
+    "excludes": ["\\.spec\\.js$"],
+    "plugins": [
+      {
+        "name": "esdoc-standard-plugin",
+        "option": {
+          "accessor": { "access": ["public", "protected"] },
+          "test": {
+            "source": "./src",
+            "interfaces": ["describe", "it"],
+            "includes": ["spec.js$"]
+          }
+        }
+      }
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "airbnb"
@@ -83,9 +101,5 @@
         ]
       }
     }
-  },
-  "esdoc": {
-    "source": "./src",
-    "destination": "./out"
   }
 }

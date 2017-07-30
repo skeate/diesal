@@ -1,4 +1,43 @@
-/**
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/ds/BinarySearchTree.js | diesal</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Data structures and algorithms in ES2015 modules"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="diesal"><meta property="twitter:description" content="Data structures and algorithms in ES2015 modules"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a href="http://github.com/skeate/diesal">Repository</a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#ds">ds</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ds/BinarySearchTree.js~BinarySearchTree.html">BinarySearchTree</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ds/Heap.js~Heap.html">Heap</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ds/IntervalTree.js~IntervalTree.html">IntervalTree</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/ds/BinarySearchTree.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
  * A single node in the tree. Provides some useful computed properties.
  *
  * @property {*} value The value of the node
@@ -21,7 +60,7 @@ class Node {
   }
 
   /**
-   * The node that contains the lowest value in this node's subtree.
+   * The node that contains the lowest value in this node&apos;s subtree.
    *
    * @returns {Node}
    */
@@ -30,7 +69,7 @@ class Node {
   }
 
   /**
-   * The node that contains the highest value in this node's subtree.
+   * The node that contains the highest value in this node&apos;s subtree.
    *
    * @returns {Node}
    */
@@ -50,40 +89,40 @@ export default class BinarySearchTree {
   /**
    * @param {Array} [list] A list of initial values to insert into the tree.
    * @param {Function} [cmp] A comparison function taking two arguments and
-   * returning a boolean. Defaults to `(a, b) => a < b`
+   * returning a boolean. Defaults to `(a, b) =&gt; a &lt; b`
    */
-  constructor(list = [], cmp = (a, b) => a < b) {
+  constructor(list = [], cmp = (a, b) =&gt; a &lt; b) {
     this._root = null;
     this._cmp = cmp;
     /**
      * @type {number}
      */
-    this.size = 0;
-    list.forEach(item => this.insert(item));
+    this.length = 0;
+    list.forEach(item =&gt; this.insert(item));
   }
 
   _insert(value, parent = this._root) {
     // Our tree has no nodes, so regardless of the value, it must be the _root.
     if (!this._root) {
       this._root = new Node(value);
-      return ++this.size;
+      return ++this.length;
     }
-    // Compare the value to the current parent's value. If it is lower, then it
+    // Compare the value to the current parent&apos;s value. If it is lower, then it
     // should go on the left side.
     if (this._cmp(value, parent.value)) {
-      // If the parent node doesn't have a left child, then we should put the
+      // If the parent node doesn&apos;t have a left child, then we should put the
       // value there.
       if (parent.left === null) {
         parent.left = new Node(value, parent);
-        return ++this.size;
+        return ++this.length;
       }
       // Otherwise, recurse, with the left value as the new parent.
       return this._insert(value, parent.left);
     } else if (parent.right === null) {
       // If it is greater than or equal to the value, then it should go on the
-      // right side. Code is the same, but switch any 'left' with 'right'.
+      // right side. Code is the same, but switch any &apos;left&apos; with &apos;right&apos;.
       parent.right = new Node(value, parent);
-      return ++this.size;
+      return ++this.length;
     }
     return this._insert(value, parent.right);
   }
@@ -108,10 +147,10 @@ export default class BinarySearchTree {
    */
   _search(value, node = this._root) {
     // There are four possibilities:
-    // 1. `node` is `null`: The value we're looking for isn't in the tree.
-    // 2. `node.value` is `value`: We've found the value.
+    // 1. `node` is `null`: The value we&apos;re looking for isn&apos;t in the tree.
+    // 2. `node.value` is `value`: We&apos;ve found the value.
     // In both of these cases, we can simply return `node` -- in case 1, this
-    // means it returns `null`, which is what we want if the value doesn't exist
+    // means it returns `null`, which is what we want if the value doesn&apos;t exist
     // in the tree.
     if (!node || node.value === value) {
       return node;
@@ -149,7 +188,7 @@ export default class BinarySearchTree {
   remove(value) {
     // First, find the node.
     const node = this._search(value);
-    // If it doesn't exist in the tree, we can exit.
+    // If it doesn&apos;t exist in the tree, we can exit.
     if (!node) {
       return null;
     }
@@ -159,18 +198,18 @@ export default class BinarySearchTree {
       _rootParent = node.parent;
     }
     // If it has both left and right children, we need to do some extra work.
-    // Find the next higher value (the right subtree's leftmost descendant),
+    // Find the next higher value (the right subtree&apos;s leftmost descendant),
     // swap out the values, and remove the other node.
-    if (node.left && node.right) {
+    if (node.left &amp;&amp; node.right) {
       const nextHigher = node.right.leftmostDescendant;
       node.value = nextHigher.value;
       // If the nextHigher node is the right child of its parent, replace it
       // with its own right children (if any). This can only happen if we had
-      // a chain of only right children (or the node we're deleting only had one
+      // a chain of only right children (or the node we&apos;re deleting only had one
       // right descendant)
-      const nodeSide = nextHigher.parent.left === nextHigher ? 'left' : 'right';
+      const nodeSide = nextHigher.parent.left === nextHigher ? &apos;left&apos; : &apos;right&apos;;
       nextHigher.parent[nodeSide] = nextHigher.right;
-      // Don't forget to reset parents
+      // Don&apos;t forget to reset parents
       if (nextHigher.right) {
         nextHigher.right.parent = nextHigher.parent;
       }
@@ -178,14 +217,14 @@ export default class BinarySearchTree {
       // If it only has one child, then we just replace it with its own child.
       // If it has no children, we can just remove it. This condition is rolled
       // into the final else, since with no children, `node.right` is `null`.
-      const nodeSide = node.parent.left === node ? 'left' : 'right';
+      const nodeSide = node.parent.left === node ? &apos;left&apos; : &apos;right&apos;;
       if (node.left) {
         node.parent[nodeSide] = node.left;
-        // Don't forget to reset parents
+        // Don&apos;t forget to reset parents
         node.left.parent = node.parent;
       } else {
         node.parent[nodeSide] = node.right;
-        // Don't forget to reset parents
+        // Don&apos;t forget to reset parents
         if (node.right) {
           node.right.parent = node.parent;
         }
@@ -194,7 +233,7 @@ export default class BinarySearchTree {
     if (_rootParent) {
       this._root = _rootParent.left;
     }
-    return --this.size;
+    return --this.length;
   }
 
   _toArray(node = this._root) {
@@ -262,16 +301,16 @@ export default class BinarySearchTree {
     let sideToCheck;
     let descendant;
     if (findPredecessor) {
-      sideToCheck = 'left';
-      descendant = 'rightmostDescendant';
+      sideToCheck = &apos;left&apos;;
+      descendant = &apos;rightmostDescendant&apos;;
     } else {
-      sideToCheck = 'right';
-      descendant = 'leftmostDescendant';
+      sideToCheck = &apos;right&apos;;
+      descendant = &apos;leftmostDescendant&apos;;
     }
     if (foundNode[sideToCheck]) {
       return foundNode[sideToCheck][descendant].value;
     }
-    while (foundNode.parent && foundNode.parent[sideToCheck] === foundNode) {
+    while (foundNode.parent &amp;&amp; foundNode.parent[sideToCheck] === foundNode) {
       foundNode = foundNode.parent;
     }
     if (!foundNode.parent) {
@@ -280,3 +319,20 @@ export default class BinarySearchTree {
     return foundNode.parent.value;
   }
 }
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.1)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

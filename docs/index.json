@@ -1,0 +1,2754 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/ds/BinarySearchTree.js",
+    "content": "/**\n * A single node in the tree. Provides some useful computed properties.\n *\n * @property {*} value The value of the node\n * @property {?Node} parent The parent of the node\n * @property {?Node} left The left child of the node\n * @property {?Node} right The right child of the node\n */\nclass Node {\n  /**\n   * Create a node.\n   *\n   * @param {*} value The value of the node\n   * @param {?Node} parent The parent of the node\n   */\n  constructor(value, parent = null) {\n    this.value = value;\n    this.parent = parent;\n    this.left = null;\n    this.right = null;\n  }\n\n  /**\n   * The node that contains the lowest value in this node's subtree.\n   *\n   * @returns {Node}\n   */\n  get leftmostDescendant() {\n    return this.left ? this.left.leftmostDescendant : this;\n  }\n\n  /**\n   * The node that contains the highest value in this node's subtree.\n   *\n   * @returns {Node}\n   */\n  get rightmostDescendant() {\n    return this.right ? this.right.rightmostDescendant : this;\n  }\n}\n\n/**\n * A binary search tree is a container where each value is stored in a node, and\n * each node has two children: a left and a right. Values less than the value of\n * the node are put in the left child, and values greater than it are put in the\n * right child. In general, this results in O(log n) search, insertion, and\n * deletion, for only O(n) space.\n */\nexport default class BinarySearchTree {\n  /**\n   * @param {Array} [list] A list of initial values to insert into the tree.\n   * @param {Function} [cmp] A comparison function taking two arguments and\n   * returning a boolean. Defaults to `(a, b) => a < b`\n   */\n  constructor(list = [], cmp = (a, b) => a < b) {\n    this._root = null;\n    this._cmp = cmp;\n    /**\n     * @type {number}\n     */\n    this.length = 0;\n    list.forEach(item => this.insert(item));\n  }\n\n  _insert(value, parent = this._root) {\n    // Our tree has no nodes, so regardless of the value, it must be the _root.\n    if (!this._root) {\n      this._root = new Node(value);\n      return ++this.length;\n    }\n    // Compare the value to the current parent's value. If it is lower, then it\n    // should go on the left side.\n    if (this._cmp(value, parent.value)) {\n      // If the parent node doesn't have a left child, then we should put the\n      // value there.\n      if (parent.left === null) {\n        parent.left = new Node(value, parent);\n        return ++this.length;\n      }\n      // Otherwise, recurse, with the left value as the new parent.\n      return this._insert(value, parent.left);\n    } else if (parent.right === null) {\n      // If it is greater than or equal to the value, then it should go on the\n      // right side. Code is the same, but switch any 'left' with 'right'.\n      parent.right = new Node(value, parent);\n      return ++this.length;\n    }\n    return this._insert(value, parent.right);\n  }\n\n  /**\n   * Inserts a value into the tree.\n   *\n   * @param {*} value The value to insert\n   * @returns {number} The new size of the tree\n   */\n  insert(value) {\n    return this._insert(value);\n  }\n\n  /**\n   * Search for a value in the tree.\n   *\n   * @private\n   * @param {*} value Value for which to search\n   * @param {Node} node The current search _root\n   * @return {?Node} null if not found, otherwise the node\n   */\n  _search(value, node = this._root) {\n    // There are four possibilities:\n    // 1. `node` is `null`: The value we're looking for isn't in the tree.\n    // 2. `node.value` is `value`: We've found the value.\n    // In both of these cases, we can simply return `node` -- in case 1, this\n    // means it returns `null`, which is what we want if the value doesn't exist\n    // in the tree.\n    if (!node || node.value === value) {\n      return node;\n    }\n    // 3. `value` is less than `node.value`: Search again, this time looking at\n    //    only the values that are less than `node.value` (by looking at its\n    //    left subtree)\n    if (this._cmp(value, node.value)) {\n      return this._search(value, node.left);\n    }\n    // 4. `value` is greater than `node.value`: Search again, this time looking\n    //    at only the values that are greater than `node.value` (by looking at\n    //    its right subtree)\n    return this._search(value, node.right);\n  }\n\n  /**\n   * Checks if the given value is in the tree.\n   *\n   * @param {*} value The value to check for\n   * @returns {boolean} Whether or not the value is in the collection\n   */\n  contains(value) {\n    return Boolean(this._search(value));\n  }\n\n  /**\n   * Removes a value from the tree. If the value is in the tree multiple times,\n   * it will remove the first one found.\n   *\n   * @param {*} value The value to remove.\n   * @return {?number} The new length of the array (or null if no matching node\n   * found)\n   */\n  remove(value) {\n    // First, find the node.\n    const node = this._search(value);\n    // If it doesn't exist in the tree, we can exit.\n    if (!node) {\n      return null;\n    }\n    let _rootParent = null;\n    if (node === this._root) {\n      node.parent = { left: this._root };\n      _rootParent = node.parent;\n    }\n    // If it has both left and right children, we need to do some extra work.\n    // Find the next higher value (the right subtree's leftmost descendant),\n    // swap out the values, and remove the other node.\n    if (node.left && node.right) {\n      const nextHigher = node.right.leftmostDescendant;\n      node.value = nextHigher.value;\n      // If the nextHigher node is the right child of its parent, replace it\n      // with its own right children (if any). This can only happen if we had\n      // a chain of only right children (or the node we're deleting only had one\n      // right descendant)\n      const nodeSide = nextHigher.parent.left === nextHigher ? 'left' : 'right';\n      nextHigher.parent[nodeSide] = nextHigher.right;\n      // Don't forget to reset parents\n      if (nextHigher.right) {\n        nextHigher.right.parent = nextHigher.parent;\n      }\n    } else {\n      // If it only has one child, then we just replace it with its own child.\n      // If it has no children, we can just remove it. This condition is rolled\n      // into the final else, since with no children, `node.right` is `null`.\n      const nodeSide = node.parent.left === node ? 'left' : 'right';\n      if (node.left) {\n        node.parent[nodeSide] = node.left;\n        // Don't forget to reset parents\n        node.left.parent = node.parent;\n      } else {\n        node.parent[nodeSide] = node.right;\n        // Don't forget to reset parents\n        if (node.right) {\n          node.right.parent = node.parent;\n        }\n      }\n    }\n    if (_rootParent) {\n      this._root = _rootParent.left;\n    }\n    return --this.length;\n  }\n\n  _toArray(node = this._root) {\n    // An in-order traversal should (as you might expect) traverse the nodes in\n    // value order. Since the tree is sorted so that smaller values go to the\n    // left subtree, and larger values go to the right subtree, we want to visit\n    // the left tree first, then include the current node itself, then all the\n    // right subtree.\n    let arr = [];\n    if (node) {\n      if (node.left) {\n        arr = arr.concat(this._toArray(node.left));\n      }\n      arr = arr.concat(node.value);\n      if (node.right) {\n        arr = arr.concat(this._toArray(node.right));\n      }\n    }\n    return arr;\n  }\n\n  /**\n   * Converts the tree into an array using an in-order traversal of the tree.\n   *\n   * @returns {Array} The contents of the tree as a sorted array\n   */\n  toArray() {\n    return this._toArray();\n  }\n\n  /**\n   * Finds the immediate predecessor of the given value\n   *\n   * @param {*} value The value to find the predecessor for\n   * @returns {*} Predecessor value, or null if value not found or min\n   */\n  getPredecessor(value) {\n    return this._getNeighbor(value, true);\n  }\n\n  /**\n   * Finds the immediate successor of the given value\n   *\n   * @param {*} value The value to find the successor for\n   * @returns {*} Successor value, or null if value not found or max\n   */\n  getSuccessor(value) {\n    return this._getNeighbor(value, false);\n  }\n\n  /**\n   * Finds the immediate predecessor or successor of the given value\n   *\n   * @private\n   * @param {*} value The value to find the predecessor or successor for\n   * @param {boolean} findPredecessor Whether to find predecessor (true) or\n   * successor (false)\n   * @returns {*} The predecessor or successor\n   */\n  _getNeighbor(value, findPredecessor) {\n    let foundNode = this._search(value);\n    if (!foundNode) {\n      return null;\n    }\n    let sideToCheck;\n    let descendant;\n    if (findPredecessor) {\n      sideToCheck = 'left';\n      descendant = 'rightmostDescendant';\n    } else {\n      sideToCheck = 'right';\n      descendant = 'leftmostDescendant';\n    }\n    if (foundNode[sideToCheck]) {\n      return foundNode[sideToCheck][descendant].value;\n    }\n    while (foundNode.parent && foundNode.parent[sideToCheck] === foundNode) {\n      foundNode = foundNode.parent;\n    }\n    if (!foundNode.parent) {\n      return null;\n    }\n    return foundNode.parent.value;\n  }\n}\n",
+    "static": true,
+    "longname": "/home/skeate/Code/diesal/src/ds/BinarySearchTree.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "class",
+    "name": "Node",
+    "memberof": "src/ds/BinarySearchTree.js",
+    "static": true,
+    "longname": "src/ds/BinarySearchTree.js~Node",
+    "access": "public",
+    "export": false,
+    "importPath": "diesal/src/ds/BinarySearchTree.js",
+    "importStyle": null,
+    "description": "A single node in the tree. Provides some useful computed properties.",
+    "lineNumber": 9,
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value of the node"
+      },
+      {
+        "nullable": true,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "parent",
+        "description": "The parent of the node"
+      },
+      {
+        "nullable": true,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "left",
+        "description": "The left child of the node"
+      },
+      {
+        "nullable": true,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "right",
+        "description": "The right child of the node"
+      }
+    ],
+    "interface": false,
+    "ignore": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/ds/BinarySearchTree.js~Node",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~Node#constructor",
+    "access": "public",
+    "description": "Create a node.",
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value of the node"
+      },
+      {
+        "nullable": true,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "parent",
+        "description": "The parent of the node"
+      }
+    ]
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "name": "value",
+    "memberof": "src/ds/BinarySearchTree.js~Node",
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~Node#value",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "member",
+    "name": "parent",
+    "memberof": "src/ds/BinarySearchTree.js~Node",
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~Node#parent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "member",
+    "name": "left",
+    "memberof": "src/ds/BinarySearchTree.js~Node",
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~Node#left",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "member",
+    "name": "right",
+    "memberof": "src/ds/BinarySearchTree.js~Node",
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~Node#right",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "get",
+    "name": "leftmostDescendant",
+    "memberof": "src/ds/BinarySearchTree.js~Node",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~Node#leftmostDescendant",
+    "access": "public",
+    "description": "The node that contains the lowest value in this node's subtree.",
+    "lineNumber": 28,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Node}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Node"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "get",
+    "name": "rightmostDescendant",
+    "memberof": "src/ds/BinarySearchTree.js~Node",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~Node#rightmostDescendant",
+    "access": "public",
+    "description": "The node that contains the highest value in this node's subtree.",
+    "lineNumber": 37,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Node}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Node"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "class",
+    "name": "BinarySearchTree",
+    "memberof": "src/ds/BinarySearchTree.js",
+    "static": true,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "access": "public",
+    "export": true,
+    "importPath": "diesal/src/ds/BinarySearchTree.js",
+    "importStyle": "BinarySearchTree",
+    "description": "A binary search tree is a container where each value is stored in a node, and\neach node has two children: a left and a right. Values less than the value of\nthe node are put in the left child, and values greater than it are put in the\nright child. In general, this results in O(log n) search, insertion, and\ndeletion, for only O(n) space.",
+    "lineNumber": 49,
+    "interface": false
+  },
+  {
+    "__docId__": 58,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 55,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Array"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "list",
+        "description": "A list of initial values to insert into the tree."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "cmp",
+        "description": "A comparison function taking two arguments and\nreturning a boolean. Defaults to `(a, b) => a < b`"
+      }
+    ]
+  },
+  {
+    "__docId__": 59,
+    "kind": "member",
+    "name": "_root",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#_root",
+    "access": "private",
+    "description": null,
+    "lineNumber": 56,
+    "undocument": true,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "name": "_cmp",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#_cmp",
+    "access": "private",
+    "description": null,
+    "lineNumber": 57,
+    "undocument": true,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "member",
+    "name": "length",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#length",
+    "access": "public",
+    "description": "",
+    "lineNumber": 61,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "method",
+    "name": "_insert",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#_insert",
+    "access": "private",
+    "description": null,
+    "lineNumber": 65,
+    "undocument": true,
+    "ignore": true,
+    "params": [
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "parent",
+        "optional": true,
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "method",
+    "name": "insert",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#insert",
+    "access": "public",
+    "description": "Inserts a value into the tree.",
+    "lineNumber": 97,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} The new size of the tree"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to insert"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "The new size of the tree"
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "method",
+    "name": "_search",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#_search",
+    "access": "private",
+    "description": "Search for a value in the tree.",
+    "lineNumber": 109,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "Value for which to search"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "node",
+        "description": "The current search _root"
+      }
+    ],
+    "return": {
+      "nullable": true,
+      "types": [
+        "Node"
+      ],
+      "spread": false,
+      "description": "null if not found, otherwise the node"
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "method",
+    "name": "contains",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#contains",
+    "access": "public",
+    "description": "Checks if the given value is in the tree.",
+    "lineNumber": 137,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} Whether or not the value is in the collection"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to check for"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "Whether or not the value is in the collection"
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "method",
+    "name": "remove",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#remove",
+    "access": "public",
+    "description": "Removes a value from the tree. If the value is in the tree multiple times,\nit will remove the first one found.",
+    "lineNumber": 149,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to remove."
+      }
+    ],
+    "return": {
+      "nullable": true,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "The new length of the array (or null if no matching node\nfound)"
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "method",
+    "name": "_toArray",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#_toArray",
+    "access": "private",
+    "description": null,
+    "lineNumber": 200,
+    "undocument": true,
+    "ignore": true,
+    "params": [
+      {
+        "name": "node",
+        "optional": true,
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "toArray",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#toArray",
+    "access": "public",
+    "description": "Converts the tree into an array using an in-order traversal of the tree.",
+    "lineNumber": 224,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Array} The contents of the tree as a sorted array"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array"
+      ],
+      "spread": false,
+      "description": "The contents of the tree as a sorted array"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 71,
+    "kind": "method",
+    "name": "getPredecessor",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#getPredecessor",
+    "access": "public",
+    "description": "Finds the immediate predecessor of the given value",
+    "lineNumber": 234,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{*} Predecessor value, or null if value not found or min"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to find the predecessor for"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "Predecessor value, or null if value not found or min"
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "name": "getSuccessor",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#getSuccessor",
+    "access": "public",
+    "description": "Finds the immediate successor of the given value",
+    "lineNumber": 244,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{*} Successor value, or null if value not found or max"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to find the successor for"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "Successor value, or null if value not found or max"
+    }
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "_getNeighbor",
+    "memberof": "src/ds/BinarySearchTree.js~BinarySearchTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/BinarySearchTree.js~BinarySearchTree#_getNeighbor",
+    "access": "private",
+    "description": "Finds the immediate predecessor or successor of the given value",
+    "lineNumber": 257,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{*} The predecessor or successor"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to find the predecessor or successor for"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "findPredecessor",
+        "description": "Whether to find predecessor (true) or\nsuccessor (false)"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "The predecessor or successor"
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "file",
+    "name": "src/ds/Heap.js",
+    "content": "/**\n * Gets the index of the parent of the given index in the heap-array.\n *\n * @private\n * @param {number} index  The index of the child of which to find the parent.\n * @returns {number} the parent index\n */\nfunction getParent(index) {\n  return Math.floor((index - 1) / 2);\n}\n\n/**\n * Gets the indexes of the children of the node at the given index.\n *\n * @private\n * @param {number} index  The index of the parent of which to find the\n * children.\n * @returns {number[]} an array of the children indexes\n */\nfunction getChildren(index) {\n  return [2 * index + 1, 2 * index + 2];\n}\n\n/**\n * A Heap is a data structure that satisfies the *heap property*: if A is\n * a parent node of B, then the value of node A is ordered with respect to the\n * value of B, with the same ordering applying across all nodes. Heaps are an\n * implementation of a Priority Queue, providing fast (O(1)) access to the min,\n * and reasonable (O(logn) or better, depending on variant) performance for\n * insert and delete.\n *\n * This particular implementation is of a binary heap, where each node has 0-2\n * children.\n *\n * For more information:\n *\n * [Heaps][Heap]\n *\n * [Binary Heaps][BinHeap]\n *\n * Note that in all descriptions, where we use \"min\", it really depends on what\n * your comparison function is. The default is a min function.\n *\n * [Heap]: https://en.wikipedia.org/wiki/Heap_(data_structure)\n * [BinHeap]: https://en.wikipedia.org/wiki/Binary_heap\n */\nexport default class Heap {\n  /**\n   * Create a Heap.\n   *\n   * @param {*[]} [list] A list of initial entries into the heap\n   * @param {Function} [cmp] A function to compare elements in the heap\n   */\n  constructor(list = [], cmp = (a, b) => a < b) {\n    this._cmp = cmp;\n    this._heap = list;\n    for (let i = Math.floor(this._heap.length / 2) - 1; i >= 0; i--) {\n      this._heapify(i);\n    }\n  }\n\n  /**\n   * The number of elements in the heap\n   *\n   * @type {number}\n   */\n  get size() {\n    return this._heap.length;\n  }\n\n  /**\n   * Insert a new element into the heap, maintaining the heap property.\n   *\n   * @param {*} value The value to insert\n   * @returns {number} The new size of the heap\n   */\n  push(value) {\n    let index = this._heap.push(value) - 1;\n    let check = true;\n    while (check) {\n      const parent = getParent(index);\n      if (parent >= 0 && this._cmp(value, this._heap[parent])) {\n        this._swap(index, parent);\n        index = parent;\n      } else {\n        check = false;\n      }\n    }\n    return this.size;\n  }\n\n  /**\n   * Gets the min value and removes it from the heap, adjusting everything else\n   * in the heap to maintain heap property, then returns the value.\n   *\n   * @returns {*} The min value in the heap.\n   */\n  pop() {\n    // remove and store lowest value\n    const min = this._heap.shift();\n    if (typeof min === 'undefined') {\n      return null;\n    }\n    if (this._heap.length) {\n      // put the last element into the root position\n      this._heap.unshift(this._heap.pop());\n      this._heapify();\n    }\n    return min;\n  }\n\n  /**\n   * Checks if the value is inside the collection\n   *\n   * @param {*} value The value to find\n   * @returns {boolean} Whether or not the value was found in the collection\n   */\n  contains(value) {\n    return this._heap.indexOf(value) >= 0;\n  }\n\n  /**\n   * Iteratively goes through tree, ensuring heap property is maintained,\n   * correcting it if not.\n   *\n   * @private\n   * @param {number} i The index of what should be the largest node of a subtree\n   */\n  _heapify(i = 0) {\n    // if this breaks the heap property, fix it. rinse and repeat until heap\n    // property is true.\n    const len = this._heap.length;\n    let largest = i;\n    getChildren(i).forEach((child) => {\n      if (child < len && this._cmp(this._heap[child], this._heap[largest])) {\n        largest = child;\n      }\n    });\n    if (largest !== i) {\n      this._swap(largest, i);\n      this._heapify(largest);\n    }\n  }\n\n  /**\n   * Swaps two indexes in the heap.\n   *\n   * @private\n   * @param {number} a First element to swap\n   * @param {number} b Second element to swap\n   */\n  _swap(a, b) {\n    [this._heap[a], this._heap[b]] = [this._heap[b], this._heap[a]];\n  }\n  /**\n   * Gets the min value of the heap (if your cmp function is a less-than\n   * comparison).\n   *\n   * @returns {*} The min value\n   */\n  findMin() {\n    return this._heap[0];\n  }\n\n  /**\n   * Gets the max value of the heap (if your cmp function is a greater-than\n   * comparison). (Functionally, identical to findMin -- included for semantic\n   * reasons based on comparison function)\n   *\n   * @returns {*} The max value\n   */\n  findMax() {\n    return this._heap[0];\n  }\n}\n",
+    "static": true,
+    "longname": "/home/skeate/Code/diesal/src/ds/Heap.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 75,
+    "kind": "function",
+    "name": "getParent",
+    "memberof": "src/ds/Heap.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/ds/Heap.js~getParent",
+    "access": "private",
+    "export": false,
+    "importPath": "diesal/src/ds/Heap.js",
+    "importStyle": null,
+    "description": "Gets the index of the parent of the given index in the heap-array.",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} the parent index"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "index",
+        "description": "The index of the child of which to find the parent."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "the parent index"
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "function",
+    "name": "getChildren",
+    "memberof": "src/ds/Heap.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/ds/Heap.js~getChildren",
+    "access": "private",
+    "export": false,
+    "importPath": "diesal/src/ds/Heap.js",
+    "importStyle": null,
+    "description": "Gets the indexes of the children of the node at the given index.",
+    "lineNumber": 20,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number[]} an array of the children indexes"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "index",
+        "description": "The index of the parent of which to find the\nchildren."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number[]"
+      ],
+      "spread": false,
+      "description": "an array of the children indexes"
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "class",
+    "name": "Heap",
+    "memberof": "src/ds/Heap.js",
+    "static": true,
+    "longname": "src/ds/Heap.js~Heap",
+    "access": "public",
+    "export": true,
+    "importPath": "diesal/src/ds/Heap.js",
+    "importStyle": "Heap",
+    "description": "A Heap is a data structure that satisfies the *heap property*: if A is\na parent node of B, then the value of node A is ordered with respect to the\nvalue of B, with the same ordering applying across all nodes. Heaps are an\nimplementation of a Priority Queue, providing fast (O(1)) access to the min,\nand reasonable (O(logn) or better, depending on variant) performance for\ninsert and delete.\n\nThis particular implementation is of a binary heap, where each node has 0-2\nchildren.\n\nFor more information:\n\n[Heaps][Heap]\n\n[Binary Heaps][BinHeap]\n\nNote that in all descriptions, where we use \"min\", it really depends on what\nyour comparison function is. The default is a min function.\n\n[Heap]: https://en.wikipedia.org/wiki/Heap_(data_structure)\n[BinHeap]: https://en.wikipedia.org/wiki/Binary_heap",
+    "lineNumber": 47,
+    "interface": false
+  },
+  {
+    "__docId__": 78,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/ds/Heap.js~Heap",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#constructor",
+    "access": "public",
+    "description": "Create a Heap.",
+    "lineNumber": 54,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*[]"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "list",
+        "description": "A list of initial entries into the heap"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "cmp",
+        "description": "A function to compare elements in the heap"
+      }
+    ]
+  },
+  {
+    "__docId__": 79,
+    "kind": "member",
+    "name": "_cmp",
+    "memberof": "src/ds/Heap.js~Heap",
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#_cmp",
+    "access": "private",
+    "description": null,
+    "lineNumber": 55,
+    "undocument": true,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 80,
+    "kind": "member",
+    "name": "_heap",
+    "memberof": "src/ds/Heap.js~Heap",
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#_heap",
+    "access": "private",
+    "description": null,
+    "lineNumber": 56,
+    "undocument": true,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "get",
+    "name": "size",
+    "memberof": "src/ds/Heap.js~Heap",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#size",
+    "access": "public",
+    "description": "The number of elements in the heap",
+    "lineNumber": 67,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "method",
+    "name": "push",
+    "memberof": "src/ds/Heap.js~Heap",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#push",
+    "access": "public",
+    "description": "Insert a new element into the heap, maintaining the heap property.",
+    "lineNumber": 77,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} The new size of the heap"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to insert"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "The new size of the heap"
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "method",
+    "name": "pop",
+    "memberof": "src/ds/Heap.js~Heap",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#pop",
+    "access": "public",
+    "description": "Gets the min value and removes it from the heap, adjusting everything else\nin the heap to maintain heap property, then returns the value.",
+    "lineNumber": 98,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{*} The min value in the heap."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "The min value in the heap."
+    },
+    "params": []
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "contains",
+    "memberof": "src/ds/Heap.js~Heap",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#contains",
+    "access": "public",
+    "description": "Checks if the value is inside the collection",
+    "lineNumber": 118,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} Whether or not the value was found in the collection"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value to find"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "Whether or not the value was found in the collection"
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "_heapify",
+    "memberof": "src/ds/Heap.js~Heap",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#_heapify",
+    "access": "private",
+    "description": "Iteratively goes through tree, ensuring heap property is maintained,\ncorrecting it if not.",
+    "lineNumber": 129,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "i",
+        "description": "The index of what should be the largest node of a subtree"
+      }
+    ],
+    "ignore": true,
+    "return": null
+  },
+  {
+    "__docId__": 86,
+    "kind": "method",
+    "name": "_swap",
+    "memberof": "src/ds/Heap.js~Heap",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#_swap",
+    "access": "private",
+    "description": "Swaps two indexes in the heap.",
+    "lineNumber": 152,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "a",
+        "description": "First element to swap"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "b",
+        "description": "Second element to swap"
+      }
+    ],
+    "ignore": true,
+    "return": null
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "name": "findMin",
+    "memberof": "src/ds/Heap.js~Heap",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#findMin",
+    "access": "public",
+    "description": "Gets the min value of the heap (if your cmp function is a less-than\ncomparison).",
+    "lineNumber": 161,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{*} The min value"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "The min value"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 88,
+    "kind": "method",
+    "name": "findMax",
+    "memberof": "src/ds/Heap.js~Heap",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/Heap.js~Heap#findMax",
+    "access": "public",
+    "description": "Gets the max value of the heap (if your cmp function is a greater-than\ncomparison). (Functionally, identical to findMin -- included for semantic\nreasons based on comparison function)",
+    "lineNumber": 172,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{*} The max value"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "The max value"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 89,
+    "kind": "file",
+    "name": "src/ds/IntervalTree.js",
+    "content": "/**\n * A node in the interval tree.\n *\n * @property {number} low Start of the interval\n * @property {number} high End of the interval\n * @property {number} min The lowest endpoint of this node's interval or any of\n * its children.\n * @property {number} max The greatest endpoint of this node's interval or any\n * of its children.\n * @property {*} data The value of the interval\n * @property {IntervalTreeNode?} left Left child (lower intervals)\n * @property {IntervalTreeNode?} right Right child (higher intervals)\n * @property {IntervalTreeNode?} parent The parent of this node\n * @private\n */\nclass IntervalTreeNode {\n  constructor(low, high, data, parent) {\n    this.low = low;\n    this.high = high;\n    this.min = low;\n    this.max = high;\n    this.data = data;\n    this.left = null;\n    this.right = null;\n    this.parent = parent;\n  }\n}\n\n/**\n * An interval tree is a data structure that holds intervals. For example, if\n * you had events which took place over a period of time, you might store them\n * in an interval tree where the interval is their duration.\n *\n * It allows you to find all intervals which contain a specific point, or\n * overlap with a given interval.\n */\nexport default class IntervalTree {\n  /**\n   * Constructs an empty interval tree.\n   */\n  constructor() {\n    this._root = null;\n    /** @type {number} */\n    this.size = 0;\n  }\n\n  /**\n   * Actually insert a new interval into the tree. This has a few extra\n   * arguments that don't really need to be exposed in the public API, hence the\n   * separation.\n   *\n   * @private\n   * @param {number} begin Start of the interval\n   * @param {number} end End of the interval\n   * @param {*} value The value of the interval\n   * @param {IntervalTreeNode?} node The current place we are looking at to add\n   * the interval\n   * @param {IntervalTreeNode?} parent The parent of the place we are looking to\n   * add the interval\n   * @param {string} parentSide The side of the parent we're looking at\n   * @returns {IntervalTreeNode} The newly added node\n   */\n  _insert(begin, end, value, node, parent, parentSide) {\n    let newNode;\n    if (node === null) {\n      // The place we're looking at is available; let's put our node here.\n      newNode = new IntervalTreeNode(begin, end, value, parent);\n      if (parent === null) {\n        // No parent? Must be root.\n        this._root = newNode;\n      } else {\n        // Let the parent know about its new child\n        parent[parentSide] = newNode;\n      }\n    } else {\n      // No vacancies. Figure out which side we should be putting our interval,\n      // and then recurse.\n      const side = (begin < node.low || begin === node.low && end < node.high)\n        ? 'left'\n        : 'right';\n      newNode = this._insert(begin, end, value, node[side], node, side);\n      node.max = Math.max(node.max, newNode.max);\n      node.min = Math.min(node.min, newNode.min);\n    }\n    return newNode;\n  }\n\n  /**\n   * Insert a new value into the tree, for the given interval.\n   *\n   * @param {number} begin The start of the valid interval\n   * @param {number} end The end of the valid interval\n   * @param {*} value The value for the interval\n   */\n  insert(begin, end, value) {\n    this._insert(begin, end, value, this._root, this._root);\n    this.size++;\n  }\n\n  _lookup(point, node = this._root) {\n    const overlaps = [];\n    if (node === null || node.max < point) {\n      return overlaps;\n    }\n    overlaps.push(...this._lookup(point, node.left));\n    if (node.low <= point) {\n      if (node.high >= point) {\n        overlaps.push(node.data);\n      }\n      overlaps.push(...this._lookup(point, node.right));\n    }\n    return overlaps;\n  }\n\n  /**\n   * Find all intervals that cover a certain point.\n   *\n   * @param {number} point The sought point\n   * @returns {*[]} An array of all values that are valid at the given point.\n   */\n  lookup(point) {\n    return this._lookup(point);\n  }\n\n  _overlap(begin, end, node = this._root) {\n    const overlaps = [];\n    if (!(begin > node.high || node.low > end)) {\n      overlaps.push(node.data);\n    }\n    if (node.left && node.left.max >= begin) {\n      overlaps.push(...this._overlap(begin, end, node.left));\n    }\n    if (node.right && node.right.min <= end) {\n      overlaps.push(...this._overlap(begin, end, node.right));\n    }\n    return overlaps;\n  }\n\n  /**\n   * Find all intervals that overlap a certain interval.\n   *\n   * @param {number} begin The start of the valid interval\n   * @param {number} end The end of the valid interval\n   * @returns {*[]} An array of all values that overlap the given interval.\n   */\n  overlap(begin, end) {\n    return this._overlap(begin, end);\n  }\n}\n",
+    "static": true,
+    "longname": "/home/skeate/Code/diesal/src/ds/IntervalTree.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 90,
+    "kind": "class",
+    "name": "IntervalTreeNode",
+    "memberof": "src/ds/IntervalTree.js",
+    "static": true,
+    "longname": "src/ds/IntervalTree.js~IntervalTreeNode",
+    "access": "private",
+    "export": false,
+    "importPath": "diesal/src/ds/IntervalTree.js",
+    "importStyle": null,
+    "description": "A node in the interval tree.",
+    "lineNumber": 16,
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "low",
+        "description": "Start of the interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "high",
+        "description": "End of the interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "min",
+        "description": "The lowest endpoint of this node's interval or any of\nits children."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "max",
+        "description": "The greatest endpoint of this node's interval or any\nof its children."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "The value of the interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "IntervalTreeNode?"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "left",
+        "description": "Left child (lower intervals)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "IntervalTreeNode?"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "right",
+        "description": "Right child (higher intervals)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "IntervalTreeNode?"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "parent",
+        "description": "The parent of this node"
+      }
+    ],
+    "interface": false,
+    "ignore": true
+  },
+  {
+    "__docId__": 91,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/ds/IntervalTree.js~IntervalTreeNode",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTreeNode#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true
+  },
+  {
+    "__docId__": 92,
+    "kind": "member",
+    "name": "low",
+    "memberof": "src/ds/IntervalTree.js~IntervalTreeNode",
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTreeNode#low",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "member",
+    "name": "high",
+    "memberof": "src/ds/IntervalTree.js~IntervalTreeNode",
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTreeNode#high",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "member",
+    "name": "min",
+    "memberof": "src/ds/IntervalTree.js~IntervalTreeNode",
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTreeNode#min",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "member",
+    "name": "max",
+    "memberof": "src/ds/IntervalTree.js~IntervalTreeNode",
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTreeNode#max",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "member",
+    "name": "data",
+    "memberof": "src/ds/IntervalTree.js~IntervalTreeNode",
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTreeNode#data",
+    "access": "public",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "member",
+    "name": "left",
+    "memberof": "src/ds/IntervalTree.js~IntervalTreeNode",
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTreeNode#left",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 98,
+    "kind": "member",
+    "name": "right",
+    "memberof": "src/ds/IntervalTree.js~IntervalTreeNode",
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTreeNode#right",
+    "access": "public",
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "member",
+    "name": "parent",
+    "memberof": "src/ds/IntervalTree.js~IntervalTreeNode",
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTreeNode#parent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "class",
+    "name": "IntervalTree",
+    "memberof": "src/ds/IntervalTree.js",
+    "static": true,
+    "longname": "src/ds/IntervalTree.js~IntervalTree",
+    "access": "public",
+    "export": true,
+    "importPath": "diesal/src/ds/IntervalTree.js",
+    "importStyle": "IntervalTree",
+    "description": "An interval tree is a data structure that holds intervals. For example, if\nyou had events which took place over a period of time, you might store them\nin an interval tree where the interval is their duration.\n\nIt allows you to find all intervals which contain a specific point, or\noverlap with a given interval.",
+    "lineNumber": 37,
+    "interface": false
+  },
+  {
+    "__docId__": 101,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/ds/IntervalTree.js~IntervalTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTree#constructor",
+    "access": "public",
+    "description": "Constructs an empty interval tree.",
+    "lineNumber": 41
+  },
+  {
+    "__docId__": 102,
+    "kind": "member",
+    "name": "_root",
+    "memberof": "src/ds/IntervalTree.js~IntervalTree",
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTree#_root",
+    "access": "private",
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "ignore": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 103,
+    "kind": "member",
+    "name": "size",
+    "memberof": "src/ds/IntervalTree.js~IntervalTree",
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTree#size",
+    "access": "public",
+    "description": null,
+    "lineNumber": 44,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 104,
+    "kind": "method",
+    "name": "_insert",
+    "memberof": "src/ds/IntervalTree.js~IntervalTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTree#_insert",
+    "access": "private",
+    "description": "Actually insert a new interval into the tree. This has a few extra\narguments that don't really need to be exposed in the public API, hence the\nseparation.",
+    "lineNumber": 63,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{IntervalTreeNode} The newly added node"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "begin",
+        "description": "Start of the interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "end",
+        "description": "End of the interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value of the interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "IntervalTreeNode?"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "node",
+        "description": "The current place we are looking at to add\nthe interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "IntervalTreeNode?"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "parent",
+        "description": "The parent of the place we are looking to\nadd the interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "parentSide",
+        "description": "The side of the parent we're looking at"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "IntervalTreeNode"
+      ],
+      "spread": false,
+      "description": "The newly added node"
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 106,
+    "kind": "method",
+    "name": "insert",
+    "memberof": "src/ds/IntervalTree.js~IntervalTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTree#insert",
+    "access": "public",
+    "description": "Insert a new value into the tree, for the given interval.",
+    "lineNumber": 95,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "begin",
+        "description": "The start of the valid interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "end",
+        "description": "The end of the valid interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "The value for the interval"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 107,
+    "kind": "method",
+    "name": "_lookup",
+    "memberof": "src/ds/IntervalTree.js~IntervalTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTree#_lookup",
+    "access": "private",
+    "description": null,
+    "lineNumber": 100,
+    "undocument": true,
+    "ignore": true,
+    "params": [
+      {
+        "name": "point",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "node",
+        "optional": true,
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 108,
+    "kind": "method",
+    "name": "lookup",
+    "memberof": "src/ds/IntervalTree.js~IntervalTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTree#lookup",
+    "access": "public",
+    "description": "Find all intervals that cover a certain point.",
+    "lineNumber": 121,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{*[]} An array of all values that are valid at the given point."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "point",
+        "description": "The sought point"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*[]"
+      ],
+      "spread": false,
+      "description": "An array of all values that are valid at the given point."
+    }
+  },
+  {
+    "__docId__": 109,
+    "kind": "method",
+    "name": "_overlap",
+    "memberof": "src/ds/IntervalTree.js~IntervalTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTree#_overlap",
+    "access": "private",
+    "description": null,
+    "lineNumber": 125,
+    "undocument": true,
+    "ignore": true,
+    "params": [
+      {
+        "name": "begin",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "end",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "node",
+        "optional": true,
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 110,
+    "kind": "method",
+    "name": "overlap",
+    "memberof": "src/ds/IntervalTree.js~IntervalTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/ds/IntervalTree.js~IntervalTree#overlap",
+    "access": "public",
+    "description": "Find all intervals that overlap a certain interval.",
+    "lineNumber": 146,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{*[]} An array of all values that overlap the given interval."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "begin",
+        "description": "The start of the valid interval"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "end",
+        "description": "The end of the valid interval"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*[]"
+      ],
+      "spread": false,
+      "description": "An array of all values that overlap the given interval."
+    }
+  },
+  {
+    "kind": "index",
+    "content": "[![npm][npm-badge]][npm]\n[![Build Status][travis-badge]][travis]\n[![Code Climate][codeclimate-badge]][codeclimate]\n[![Test Coverage][cv-badge]][cv]\n[![devDependency Status][david-badge]][david]\n[![Greenkeeper badge][greenkeeper-badge]][greenkeeper]\n[![Inline docs][inch-ci-badge]][inch-ci]\n\n[![gitter][gitter-badge]][gitter]\n\n# Diesal\n\n\nDiesal is a library of ES20xx modules implementing common data structures and\nalgorithms. The goal is to wind up with clean, easy to understand, well-tested,\nwell-documented code that can stand as an exemplar. \n\n## Clean & Easy to Understand\n\nNo tricks, no hacks. Nothing that belongs in code golf. Sensible variable names.\nCode should be minified before going into production; there's no sense in\ninflicting that upon yourself. Code should be self-explanatory, and where it\nmight have to get a bit confusing, there should be ample comments explaining, in\ndetail, what is going on. There is also linting validation as part of the CI.\n\n## Well-Tested & Well-Documented\n\n`master` branch will always be at [100% code coverage][cv].\n[Full API documentation][docs] generated regularly as part of the release\nprocess.\n\n## Tree Shakeable\n\nDiesal is not packaged into a single, huge library. Instead, it's published to\nnpm with the source intact, so you can import only the parts you need, if you're\nusing a build tool that supports tree shaking (e.g. webpack).\n\n# Running Tests/Coverage\n\n`npm test` will run tests with Mocha, providing coverage info via Istanbul.\n\n# License\n\nISC\n\n[npm]: https://www.npmjs.com/package/diesal\n[npm-badge]: https://img.shields.io/npm/v/diesal.svg\n[travis]: https://travis-ci.org/skeate/diesal\n[travis-badge]: https://img.shields.io/travis/skeate/diesal.svg\n[codeclimate]: https://codeclimate.com/github/skeate/diesal\n[codeclimate-badge]: https://img.shields.io/codeclimate/github/skeate/diesal.svg\n[cv]: https://codeclimate.com/github/skeate/diesal/coverage\n[cv-badge]: https://img.shields.io/codeclimate/coverage/github/skeate/diesal.svg\n[david]: https://david-dm.org/skeate/diesal#info=devDependencies\n[david-badge]: https://img.shields.io/david/dev/skeate/diesal.svg\n[gitter]: https://gitter.im/skeate/diesal\n[gitter-badge]: https://badges.gitter.im/Join%20Chat.svg\n[docs]: http://skeate.github.io/diesal\n[greenkeeper]: http://greenkeeper.io/\n[greenkeeper-badge]: https://badges.greenkeeper.io/skeate/diesal.svg\n[inch-ci-badge]: http://inch-ci.org/github/skeate/diesal.svg?branch=develop&style=shields\n[inch-ci]: http://inch-ci.org/github/skeate/diesal\n",
+    "longname": "/home/skeate/Code/diesal/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"diesal\",\n  \"version\": \"0.3.2\",\n  \"description\": \"Data structures and algorithms in ES2015 modules\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"prepublishOnly\": \"npm run build\",\n    \"build\": \"babel -d lib/ src/\",\n    \"update-docs\": \"esdoc\",\n    \"test-once\": \"jest\",\n    \"test-watch\": \"jest --watchAll\",\n    \"coverage\": \"jest --coverage\",\n    \"lint\": \"eslint src && eslint test\",\n    \"test\": \"npm run lint && npm run coverage\"\n  },\n  \"keywords\": [\n    \"data structures\",\n    \"algorithms\",\n    \"ecmascript\",\n    \"modules\"\n  ],\n  \"author\": \"Jonathan Skeate\",\n  \"license\": \"ISC\",\n  \"repository\": \"http://github.com/skeate/diesal\",\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.24.1\",\n    \"babel-core\": \"^6.25.0\",\n    \"babel-plugin-istanbul\": \"^4.1.4\",\n    \"babel-preset-env\": \"^1.6.0\",\n    \"babel-register\": \"^6.24.1\",\n    \"codeclimate-test-reporter\": \"^0.5.0\",\n    \"esdoc\": \"^1.0.1\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"^4.2.0\",\n    \"eslint-config-airbnb\": \"^15.1.0\",\n    \"eslint-plugin-import\": \"^2.7.0\",\n    \"eslint-plugin-jsx-a11y\": \"^5.1.1\",\n    \"eslint-plugin-react\": \"^7.1.0\",\n    \"jest\": \"^20.0.4\"\n  },\n  \"jest\": {\n    \"coverageDirectory\": \"coverage\"\n  },\n  \"esdoc\": {\n    \"source\": \"./src\",\n    \"destination\": \"./docs\",\n    \"excludes\": [\"\\\\.spec\\\\.js$\"],\n    \"plugins\": [\n      {\n        \"name\": \"esdoc-standard-plugin\",\n        \"option\": {\n          \"accessor\": { \"access\": [\"public\", \"protected\"] },\n          \"test\": {\n            \"source\": \"./src\",\n            \"interfaces\": [\"describe\", \"it\"],\n            \"includes\": [\"spec.js$\"]\n          }\n        }\n      }\n    ]\n  },\n  \"eslintConfig\": {\n    \"extends\": [\n      \"airbnb\"\n    ],\n    \"overrides\": {\n      \"files\": [\n        \"**/*.spec.js\"\n      ],\n      \"env\": {\n        \"jest\": true\n      }\n    },\n    \"rules\": {\n      \"no-mixed-operators\": \"off\",\n      \"no-underscore-dangle\": \"off\",\n      \"no-plusplus\": \"off\",\n      \"no-unused-vars\": [\n        \"warn\",\n        {\n          \"vars\": \"local\",\n          \"args\": \"none\"\n        }\n      ],\n      \"no-param-reassign\": [\n        \"error\",\n        {\n          \"props\": false\n        }\n      ]\n    }\n  },\n  \"babel\": {\n    \"presets\": [\n      \"env\"\n    ],\n    \"env\": {\n      \"test\": {\n        \"plugins\": [\n          \"istanbul\"\n        ]\n      }\n    }\n  }\n}\n",
+    "longname": "/home/skeate/Code/diesal/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "__docId__": 111,
+    "kind": "testFile",
+    "name": "src/ds/__tests__/BinarySearchTree.spec.js",
+    "content": "import BinarySearchTree from '../BinarySearchTree';\n\n/** @test {BinarySearchTree} */\ndescribe('DS - BinarySearchTree', () => {\n  /** @test {BinarySearchTree#constructor} */\n  it('should be able to be instantiated', () => {\n    expect(() => new BinarySearchTree()).not.toThrow();\n    expect(() => new BinarySearchTree([1, 2, 3])).not.toThrow();\n  });\n\n  /** @test {BinarySearchTree#insert} */\n  it('should insert values', () => {\n    const a = new BinarySearchTree([1, 2, 3]);\n    expect(a.length).toEqual(3);\n    a.insert(0);\n    expect(a.length).toEqual(4);\n    a.insert(-4);\n    expect(a.length).toEqual(5);\n  });\n\n  /** @test {BinarySearchTree#toArray} */\n  it('should convert into a sorted array', () => {\n    const a = new BinarySearchTree([1, 5, 7, 4, 3, 7]);\n    expect(a.toArray()).toEqual([1, 3, 4, 5, 7, 7]);\n  });\n\n  /** @test {BinarySearchTree#remove} */\n  it('should remove nodes', () => {\n    /* This should generate a tree like\n     *      5\n     *    /   \\\n     *   3     7\n     *  / \\   / \\\n     * 1   4 6   8\n     */\n    let a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);\n    expect(a.toArray()).toEqual([1, 3, 4, 5, 6, 7, 8]);\n    // no children\n    a.remove(8);\n    expect(a.toArray()).toEqual([1, 3, 4, 5, 6, 7]);\n    // left child only\n    a.remove(7);\n    expect(a.toArray()).toEqual([1, 3, 4, 5, 6]);\n    // both children\n    a.remove(3);\n    expect(a.toArray()).toEqual([1, 4, 5, 6]);\n    // need to remove some others to test right-only...\n    a.remove(1);\n    expect(a.toArray()).toEqual([4, 5, 6]);\n    a.remove(4);\n    expect(a.toArray()).toEqual([5, 6]);\n    // right only\n    a.remove(5);\n    expect(a.toArray()).toEqual([6]);\n    a.remove(6);\n    expect(a.toArray()).toEqual([]);\n    // check removal of non-existant element\n    a.remove(6);\n    expect(a.toArray()).toEqual([]);\n    // needed to test a few fringe cases\n    a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 6.5, 8]);\n    a.remove(5);\n    expect(a.toArray()).toEqual([1, 3, 4, 6, 6.5, 7, 8]);\n  });\n\n  /** @test {BinarySearchTree#contains} */\n  it('should check for values being in the tree', () => {\n    const a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);\n    expect(a.contains(6)).toEqual(true);\n    expect(a.contains(2)).toEqual(false);\n  });\n\n  /** @test {BinarySearchTree#getPredecessor} */\n  it('should find predecessor values', () => {\n    const a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);\n    expect(a.getPredecessor(1)).toBeNull();\n    expect(a.getPredecessor(2)).toBeNull();\n    expect(a.getPredecessor(3)).toEqual(1);\n    expect(a.getPredecessor(4)).toEqual(3);\n    expect(a.getPredecessor(5)).toEqual(4);\n    expect(a.getPredecessor(6)).toEqual(5);\n    expect(a.getPredecessor(7)).toEqual(6);\n    expect(a.getPredecessor(8)).toEqual(7);\n  });\n\n  /** @test {BinarySearchTree#getSuccessor} */\n  it('should find successor values', () => {\n    const a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 8]);\n    expect(a.getSuccessor(8)).toBeNull();\n    expect(a.getSuccessor(2)).toBeNull();\n    expect(a.getSuccessor(1)).toEqual(3);\n    expect(a.getSuccessor(3)).toEqual(4);\n    expect(a.getSuccessor(4)).toEqual(5);\n    expect(a.getSuccessor(5)).toEqual(6);\n    expect(a.getSuccessor(6)).toEqual(7);\n    expect(a.getSuccessor(7)).toEqual(8);\n  });\n\n  /** @test {BinarySearchTree#constructor} */\n  it('should take a comparison function to determine sort order', () => {\n    const t = new BinarySearchTree([5, 3, 1, 7, 6, 9], (a, b) => a > b);\n    expect(t.toArray()).toEqual([9, 7, 6, 5, 3, 1]);\n  });\n});\n",
+    "static": true,
+    "longname": "/home/skeate/Code/diesal/src/ds/__tests__/BinarySearchTree.spec.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 112,
+    "kind": "test",
+    "name": "describe0",
+    "testId": 0,
+    "memberof": "src/ds/__tests__/BinarySearchTree.spec.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "src/ds/__tests__/BinarySearchTree.spec.js~describe0",
+    "access": null,
+    "description": "DS - BinarySearchTree",
+    "lineNumber": 4,
+    "testTargets": [
+      "BinarySearchTree"
+    ]
+  },
+  {
+    "__docId__": 113,
+    "kind": "test",
+    "name": "it1",
+    "testId": 1,
+    "memberof": "src/ds/__tests__/BinarySearchTree.spec.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/BinarySearchTree.spec.js~describe0.it1",
+    "access": null,
+    "description": "should be able to be instantiated",
+    "lineNumber": 6,
+    "testTargets": [
+      "BinarySearchTree#constructor"
+    ]
+  },
+  {
+    "__docId__": 114,
+    "kind": "test",
+    "name": "it2",
+    "testId": 2,
+    "memberof": "src/ds/__tests__/BinarySearchTree.spec.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/BinarySearchTree.spec.js~describe0.it2",
+    "access": null,
+    "description": "should insert values",
+    "lineNumber": 12,
+    "testTargets": [
+      "BinarySearchTree#insert"
+    ]
+  },
+  {
+    "__docId__": 115,
+    "kind": "test",
+    "name": "it3",
+    "testId": 3,
+    "memberof": "src/ds/__tests__/BinarySearchTree.spec.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/BinarySearchTree.spec.js~describe0.it3",
+    "access": null,
+    "description": "should convert into a sorted array",
+    "lineNumber": 22,
+    "testTargets": [
+      "BinarySearchTree#toArray"
+    ]
+  },
+  {
+    "__docId__": 116,
+    "kind": "test",
+    "name": "it4",
+    "testId": 4,
+    "memberof": "src/ds/__tests__/BinarySearchTree.spec.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/BinarySearchTree.spec.js~describe0.it4",
+    "access": null,
+    "description": "should remove nodes",
+    "lineNumber": 28,
+    "testTargets": [
+      "BinarySearchTree#remove"
+    ]
+  },
+  {
+    "__docId__": 117,
+    "kind": "test",
+    "name": "it5",
+    "testId": 5,
+    "memberof": "src/ds/__tests__/BinarySearchTree.spec.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/BinarySearchTree.spec.js~describe0.it5",
+    "access": null,
+    "description": "should check for values being in the tree",
+    "lineNumber": 67,
+    "testTargets": [
+      "BinarySearchTree#contains"
+    ]
+  },
+  {
+    "__docId__": 118,
+    "kind": "test",
+    "name": "it6",
+    "testId": 6,
+    "memberof": "src/ds/__tests__/BinarySearchTree.spec.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/BinarySearchTree.spec.js~describe0.it6",
+    "access": null,
+    "description": "should find predecessor values",
+    "lineNumber": 74,
+    "testTargets": [
+      "BinarySearchTree#getPredecessor"
+    ]
+  },
+  {
+    "__docId__": 119,
+    "kind": "test",
+    "name": "it7",
+    "testId": 7,
+    "memberof": "src/ds/__tests__/BinarySearchTree.spec.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/BinarySearchTree.spec.js~describe0.it7",
+    "access": null,
+    "description": "should find successor values",
+    "lineNumber": 87,
+    "testTargets": [
+      "BinarySearchTree#getSuccessor"
+    ]
+  },
+  {
+    "__docId__": 120,
+    "kind": "test",
+    "name": "it8",
+    "testId": 8,
+    "memberof": "src/ds/__tests__/BinarySearchTree.spec.js~describe0",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/BinarySearchTree.spec.js~describe0.it8",
+    "access": null,
+    "description": "should take a comparison function to determine sort order",
+    "lineNumber": 100,
+    "testTargets": [
+      "BinarySearchTree#constructor"
+    ]
+  },
+  {
+    "__docId__": 121,
+    "kind": "testFile",
+    "name": "src/ds/__tests__/Heap.spec.js",
+    "content": "import Heap from '../Heap';\n\n/** @test {Heap} */\ndescribe('DS - Heap', () => {\n  /** @test {Heap#constructor} */\n  it('should be able to be instantiated', () => {\n    expect(() => new Heap()).not.toThrow();\n    expect(() => new Heap([1, 2, 3])).not.toThrow();\n  });\n\n  /** @test {Heap#size} */\n  it('should have a size property', () => {\n    const h = new Heap([1, 2, 3]);\n    expect(h.size).toEqual(3);\n  });\n\n  /** @test {Heap#push} */\n  it('should allow insertion of new elements', () => {\n    const h = new Heap([1, 2, 3]);\n    expect(h.push(7)).toEqual(4);\n    expect(h.push(0)).toEqual(5);\n    expect(h.push(4)).toEqual(6);\n    expect(h.push(99)).toEqual(7);\n  });\n\n  /** @test {Heap#contains} */\n  it('should check for existence of values', () => {\n    const heap = new Heap([5, 3, 1, 7, 6, 9]);\n    expect(heap.contains(6)).toEqual(true);\n    expect(heap.contains(2)).toEqual(false);\n  });\n\n  /**\n   * @test {Heap#findMin}\n   * @test {Heap#findMax}\n   */\n  it('should find the min', () => {\n    const heap = new Heap([5, 3, 1, 7, 6, 9]);\n    expect(heap.findMin()).toEqual(1);\n    expect(heap.findMax()).toEqual(1);\n  });\n\n  /** @test {Heap#pop} */\n  it('should extract values, in order', () => {\n    const heap = new Heap([5, 3, 1, 7, 6, 9]);\n    expect(heap.pop()).toEqual(1);\n    expect(heap.pop()).toEqual(3);\n    expect(heap.pop()).toEqual(5);\n    expect(heap.pop()).toEqual(6);\n    expect(heap.pop()).toEqual(7);\n    expect(heap.pop()).toEqual(9);\n    expect(heap.pop()).toBeNull();\n  });\n\n  /** @test {Heap#constructor} */\n  it('should take a comparison function to determine sort order', () => {\n    const heap = new Heap([5, 3, 1, 7, 6, 9], (a, b) => a > b);\n    expect(heap.pop()).toEqual(9);\n    expect(heap.pop()).toEqual(7);\n    expect(heap.pop()).toEqual(6);\n    expect(heap.pop()).toEqual(5);\n    expect(heap.pop()).toEqual(3);\n    expect(heap.pop()).toEqual(1);\n    expect(heap.pop()).toBeNull();\n  });\n});\n",
+    "static": true,
+    "longname": "/home/skeate/Code/diesal/src/ds/__tests__/Heap.spec.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 122,
+    "kind": "test",
+    "name": "describe9",
+    "testId": 9,
+    "memberof": "src/ds/__tests__/Heap.spec.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "src/ds/__tests__/Heap.spec.js~describe9",
+    "access": null,
+    "description": "DS - Heap",
+    "lineNumber": 4,
+    "testTargets": [
+      "Heap"
+    ]
+  },
+  {
+    "__docId__": 123,
+    "kind": "test",
+    "name": "it10",
+    "testId": 10,
+    "memberof": "src/ds/__tests__/Heap.spec.js~describe9",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/Heap.spec.js~describe9.it10",
+    "access": null,
+    "description": "should be able to be instantiated",
+    "lineNumber": 6,
+    "testTargets": [
+      "Heap#constructor"
+    ]
+  },
+  {
+    "__docId__": 124,
+    "kind": "test",
+    "name": "it11",
+    "testId": 11,
+    "memberof": "src/ds/__tests__/Heap.spec.js~describe9",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/Heap.spec.js~describe9.it11",
+    "access": null,
+    "description": "should have a size property",
+    "lineNumber": 12,
+    "testTargets": [
+      "Heap#size"
+    ]
+  },
+  {
+    "__docId__": 125,
+    "kind": "test",
+    "name": "it12",
+    "testId": 12,
+    "memberof": "src/ds/__tests__/Heap.spec.js~describe9",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/Heap.spec.js~describe9.it12",
+    "access": null,
+    "description": "should allow insertion of new elements",
+    "lineNumber": 18,
+    "testTargets": [
+      "Heap#push"
+    ]
+  },
+  {
+    "__docId__": 126,
+    "kind": "test",
+    "name": "it13",
+    "testId": 13,
+    "memberof": "src/ds/__tests__/Heap.spec.js~describe9",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/Heap.spec.js~describe9.it13",
+    "access": null,
+    "description": "should check for existence of values",
+    "lineNumber": 27,
+    "testTargets": [
+      "Heap#contains"
+    ]
+  },
+  {
+    "__docId__": 127,
+    "kind": "test",
+    "name": "it14",
+    "testId": 14,
+    "memberof": "src/ds/__tests__/Heap.spec.js~describe9",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/Heap.spec.js~describe9.it14",
+    "access": null,
+    "description": "should find the min",
+    "lineNumber": 37,
+    "testTargets": [
+      "Heap#findMin",
+      "Heap#findMax"
+    ]
+  },
+  {
+    "__docId__": 128,
+    "kind": "test",
+    "name": "it15",
+    "testId": 15,
+    "memberof": "src/ds/__tests__/Heap.spec.js~describe9",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/Heap.spec.js~describe9.it15",
+    "access": null,
+    "description": "should extract values, in order",
+    "lineNumber": 44,
+    "testTargets": [
+      "Heap#pop"
+    ]
+  },
+  {
+    "__docId__": 129,
+    "kind": "test",
+    "name": "it16",
+    "testId": 16,
+    "memberof": "src/ds/__tests__/Heap.spec.js~describe9",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/Heap.spec.js~describe9.it16",
+    "access": null,
+    "description": "should take a comparison function to determine sort order",
+    "lineNumber": 56,
+    "testTargets": [
+      "Heap#constructor"
+    ]
+  },
+  {
+    "__docId__": 130,
+    "kind": "testFile",
+    "name": "src/ds/__tests__/IntervalTree.spec.js",
+    "content": "import IntervalTree from '../IntervalTree';\n\n/** @test {IntervalTree} */\ndescribe('DS - IntervalTree', () => {\n  /** @test {IntervalTree#constructor} */\n  it('should be able to be instantiated', () => {\n    expect(() => new IntervalTree()).not.toThrow();\n  });\n\n  /** @test {IntervalTree#size} */\n  it('should have a size property', () => {\n    const h = new IntervalTree();\n    expect(h.size).toBe(0);\n  });\n\n  /** @test {IntervalTree#insert} */\n  it('should allow insertion of new intervals', () => {\n    const intervalTree = new IntervalTree();\n    intervalTree.insert(0, 3, 'a');\n    intervalTree.insert(1, 4, 'b');\n    intervalTree.insert(2, 5, 'c');\n    expect(intervalTree.size).toEqual(3);\n  });\n\n  /** @test {IntervalTree#lookup} */\n  it('should find matching intervals', () => {\n    const intervalTree = new IntervalTree();\n    intervalTree.insert(0, 3, 'a');\n    intervalTree.insert(1, 4, 'b');\n    intervalTree.insert(2, 5, 'c');\n    expect(intervalTree.lookup(1)).toEqual(['a', 'b']);\n    expect(intervalTree.lookup(4)).toEqual(['b', 'c']);\n    expect(intervalTree.lookup(5)).toEqual(['c']);\n    expect(intervalTree.lookup(8)).toEqual([]);\n    intervalTree.insert(0, 10, 'd');\n    expect(intervalTree.lookup(8)).toEqual(['d']);\n  });\n\n  /** @test {IntervalTree#overlap} */\n  it('should find overlapping intervals', () => {\n    const intervalTree = new IntervalTree();\n    intervalTree.insert(2, 4, 'a');\n    intervalTree.insert(2, 5, 'b');\n    intervalTree.insert(4, 6, 'c');\n    expect(intervalTree.overlap(0, 1)).toEqual([]);\n    expect(intervalTree.overlap(1, 2)).toEqual(['a', 'b']);\n    expect(intervalTree.overlap(2, 3)).toEqual(['a', 'b']);\n    expect(intervalTree.overlap(3, 4)).toEqual(['a', 'b', 'c']);\n    expect(intervalTree.overlap(4, 5)).toEqual(['a', 'b', 'c']);\n    expect(intervalTree.overlap(5, 6)).toEqual(['b', 'c']);\n    expect(intervalTree.overlap(6, 7)).toEqual(['c']);\n    expect(intervalTree.overlap(7, 8)).toEqual([]);\n    expect(intervalTree.overlap(2, 6)).toEqual(['a', 'b', 'c']);\n    expect(intervalTree.overlap(0, 8)).toEqual(['a', 'b', 'c']);\n\n    const intervalTreeB = new IntervalTree();\n    intervalTreeB.insert(2, 4, 'a');\n    intervalTreeB.insert(2, 3, 'b');\n    expect(intervalTreeB.overlap(0, 2)).toEqual(['a', 'b']);\n\n    const intervalTreeC = new IntervalTree();\n    intervalTreeC.insert(2, 5, 'a');\n    intervalTreeC.insert(2, 3, 'b');\n    intervalTreeC.insert(4, 6, 'c');\n    expect(intervalTreeC.overlap(0, 5)).toEqual(['a', 'b', 'c']);\n    expect(intervalTreeC.overlap(3, 5)).toEqual(['a', 'b', 'c']);\n\n    const intervalTreeD = new IntervalTree();\n    intervalTreeD.insert(0, 4, 'a');\n    intervalTreeD.insert(3, 4, 'b');\n    intervalTreeD.insert(1, 2, 'c');\n    expect(intervalTreeD.overlap(0, 2)).toEqual(['a', 'c']);\n  });\n});\n",
+    "static": true,
+    "longname": "/home/skeate/Code/diesal/src/ds/__tests__/IntervalTree.spec.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 131,
+    "kind": "test",
+    "name": "describe17",
+    "testId": 17,
+    "memberof": "src/ds/__tests__/IntervalTree.spec.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "src/ds/__tests__/IntervalTree.spec.js~describe17",
+    "access": null,
+    "description": "DS - IntervalTree",
+    "lineNumber": 4,
+    "testTargets": [
+      "IntervalTree"
+    ]
+  },
+  {
+    "__docId__": 132,
+    "kind": "test",
+    "name": "it18",
+    "testId": 18,
+    "memberof": "src/ds/__tests__/IntervalTree.spec.js~describe17",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/IntervalTree.spec.js~describe17.it18",
+    "access": null,
+    "description": "should be able to be instantiated",
+    "lineNumber": 6,
+    "testTargets": [
+      "IntervalTree#constructor"
+    ]
+  },
+  {
+    "__docId__": 133,
+    "kind": "test",
+    "name": "it19",
+    "testId": 19,
+    "memberof": "src/ds/__tests__/IntervalTree.spec.js~describe17",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/IntervalTree.spec.js~describe17.it19",
+    "access": null,
+    "description": "should have a size property",
+    "lineNumber": 11,
+    "testTargets": [
+      "IntervalTree#size"
+    ]
+  },
+  {
+    "__docId__": 134,
+    "kind": "test",
+    "name": "it20",
+    "testId": 20,
+    "memberof": "src/ds/__tests__/IntervalTree.spec.js~describe17",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/IntervalTree.spec.js~describe17.it20",
+    "access": null,
+    "description": "should allow insertion of new intervals",
+    "lineNumber": 17,
+    "testTargets": [
+      "IntervalTree#insert"
+    ]
+  },
+  {
+    "__docId__": 135,
+    "kind": "test",
+    "name": "it21",
+    "testId": 21,
+    "memberof": "src/ds/__tests__/IntervalTree.spec.js~describe17",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/IntervalTree.spec.js~describe17.it21",
+    "access": null,
+    "description": "should find matching intervals",
+    "lineNumber": 26,
+    "testTargets": [
+      "IntervalTree#lookup"
+    ]
+  },
+  {
+    "__docId__": 136,
+    "kind": "test",
+    "name": "it22",
+    "testId": 22,
+    "memberof": "src/ds/__tests__/IntervalTree.spec.js~describe17",
+    "testDepth": 1,
+    "static": true,
+    "longname": "src/ds/__tests__/IntervalTree.spec.js~describe17.it22",
+    "access": null,
+    "description": "should find overlapping intervals",
+    "lineNumber": 40,
+    "testTargets": [
+      "IntervalTree#overlap"
+    ]
+  }
+]
