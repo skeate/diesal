@@ -1,16 +1,16 @@
 {
   "name": "diesal",
   "version": "0.3.2",
-  "description": "Data structures and algorithms in ES2015 modules",
+  "description": "Data structures and algorithms, written in Typescript",
   "main": "index.js",
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "babel -d lib/ src/",
-    "update-docs": "esdoc",
+    "build": "tsc",
+    "update-docs": "typedoc",
     "test-once": "jest",
     "test-watch": "jest --watchAll",
     "coverage": "jest --coverage",
-    "lint": "eslint src && eslint test",
+    "lint": "tslint src",
     "test": "npm run lint && npm run coverage"
   },
   "keywords": [
@@ -23,20 +23,14 @@
   "license": "ISC",
   "repository": "http://github.com/skeate/diesal",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-plugin-istanbul": "^4.1.4",
-    "babel-preset-env": "^1.6.0",
-    "babel-register": "^6.24.1",
+    "@types/jest": "^21.1.6",
     "codeclimate-test-reporter": "^0.5.0",
-    "esdoc": "^1.0.1",
-    "esdoc-standard-plugin": "^1.0.0",
-    "eslint": "^4.2.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "ts-jest": "^21.2.2",
+    "tslint": "^5.8.0",
+    "typedoc": "^0.9.0",
+    "typescript": "^2.6.1",
+    "typescript-eslint-parser": "^9.0.0"
   },
   "jest": {
     "coverageDirectory": "coverage",
@@ -44,67 +38,14 @@
       "json",
       "lcov",
       "text-summary"
-    ]
-  },
-  "esdoc": {
-    "source": "./src",
-    "destination": "./docs",
-    "excludes": ["\\.spec\\.js$"],
-    "plugins": [
-      {
-        "name": "esdoc-standard-plugin",
-        "option": {
-          "accessor": { "access": ["public", "protected"] },
-          "test": {
-            "source": "./src",
-            "interfaces": ["describe", "it"],
-            "includes": ["spec.js$"]
-          }
-        }
-      }
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "airbnb"
     ],
-    "overrides": {
-      "files": [
-        "**/*.spec.js"
-      ],
-      "env": {
-        "jest": true
-      }
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "rules": {
-      "no-mixed-operators": "off",
-      "no-underscore-dangle": "off",
-      "no-plusplus": "off",
-      "no-unused-vars": [
-        "warn",
-        {
-          "vars": "local",
-          "args": "none"
-        }
-      ],
-      "no-param-reassign": [
-        "error",
-        {
-          "props": false
-        }
-      ]
-    }
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ],
-    "env": {
-      "test": {
-        "plugins": [
-          "istanbul"
-        ]
-      }
-    }
+    "testRegex": "/__tests__/.*\\.ts",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
   }
 }
