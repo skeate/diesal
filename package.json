@@ -39,7 +39,7 @@
     "eslint-plugin-mocha": "^4.11.0",
     "eslint-plugin-react": "^6.10.3",
     "mocha": "^3.4.2",
-    "nyc": "^10.3.2"
+    "nyc": "^11.8.0"
   },
   "eslintConfig": {
     "extends": [
