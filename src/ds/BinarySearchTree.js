@@ -6,7 +6,7 @@
  * @property {?Node} left The left child of the node
  * @property {?Node} right The right child of the node
  */
-class Node {
+export class Node {
   /**
    * Create a node.
    *
