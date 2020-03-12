@@ -63,4 +63,11 @@ describe('DS - IntervalTree', () => {
     intervalTreeD.insert(1, 2, 'c');
     intervalTreeD.overlap(0, 2).should.deep.equal(['a', 'c']);
   });
+
+  it('should handle very large trees', () => {
+    const intervalTree = new IntervalTree();
+    for (let i = 0; i < 50000; i++) {
+      intervalTree.insert(i, i + i, i);
+    }
+  });
 });
