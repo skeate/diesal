@@ -2,8 +2,9 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./types",
+    "downlevelIteration": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["DOM", "ESNext"],
+    "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "module": "commonjs",
     "outDir": "./dist",
     "strict": true,

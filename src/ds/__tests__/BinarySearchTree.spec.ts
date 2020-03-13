@@ -53,7 +53,7 @@ describe('DS - BinarySearchTree', () => {
     a = a.remove(5);
     expect([...a]).toEqual([6]);
     a = a.remove(6);
-    expect(a).toBeUndefined();
+    expect(a.value).toBeUndefined();
     // needed to test a few fringe cases
     a = new BinarySearchTree([5, 3, 7, 1, 4, 6, 6.5, 8]);
     a = a.remove(5);
