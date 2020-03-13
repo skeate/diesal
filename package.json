@@ -2,7 +2,7 @@
   "name": "diesal",
   "version": "0.3.2",
   "description": "Data structures and algorithms, written in Typescript",
-  "main": "index.js",
+  "main": "./dist/",
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "tsc",
@@ -10,7 +10,7 @@
     "test-once": "jest",
     "test-watch": "jest --watchAll",
     "coverage": "jest --coverage",
-    "lint": "tslint src",
+    "lint": "eslint src",
     "test": "npm run lint && npm run coverage"
   },
   "keywords": [
@@ -24,13 +24,14 @@
   "repository": "http://github.com/skeate/diesal",
   "devDependencies": {
     "@types/jest": "^21.1.6",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
     "codeclimate-test-reporter": "^0.5.0",
+    "eslint": "^6.8.0",
     "jest": "^20.0.4",
     "ts-jest": "^21.2.2",
-    "tslint": "^5.8.0",
-    "typedoc": "^0.9.0",
-    "typescript": "^2.6.1",
-    "typescript-eslint-parser": "^9.0.0"
+    "typedoc": "^0.16.11",
+    "typescript": "^3.8.3"
   },
   "jest": {
     "coverageDirectory": "coverage",
@@ -42,7 +43,7 @@
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "testRegex": "/__tests__/.*\\.ts",
+    "testRegex": "/src/.*/__tests__/.*\\.ts",
     "moduleFileExtensions": [
       "ts",
       "js"
