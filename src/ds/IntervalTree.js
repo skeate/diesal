@@ -61,27 +61,51 @@ export default class IntervalTree {
    * @returns {IntervalTreeNode} The newly added node
    */
   _insert(begin, end, value, node, parent, parentSide) {
-    let newNode;
-    if (node === null) {
-      // The place we're looking at is available; let's put our node here.
-      newNode = new IntervalTreeNode(begin, end, value, parent);
-      if (parent === null) {
-        // No parent? Must be root.
-        this._root = newNode;
-      } else {
-        // Let the parent know about its new child
-        parent[parentSide] = newNode;
-      }
-    } else {
+    // The natural implementation of this is recursive; however, this prevents
+    // particularly large trees from working due to callstack constraints.
+    // Instead, we use an iterative algorithm, and keep track of the chain of
+    // ancestors so we can update their `max` values.
+    const nodeStack = [];
+    let foundParent = parent;
+    let foundSide = parentSide;
+    if (node !== null) {
       // No vacancies. Figure out which side we should be putting our interval,
-      // and then recurse.
-      const side = (begin < node.low || begin === node.low && end < node.high)
-        ? 'left'
-        : 'right';
-      newNode = this._insert(begin, end, value, node[side], node, side);
-      node.max = Math.max(node.max, newNode.max);
-      node.min = Math.min(node.min, newNode.min);
+      // and then dive into that node.
+      let curNode = node;
+      while (curNode) {
+        nodeStack.push(curNode);
+        foundSide
+          = (begin < curNode.low || begin === curNode.low && end < curNode.high)
+          ? 'left'
+          : 'right';
+        foundParent = curNode;
+        curNode = curNode[foundSide];
+      }
     }
+    // The place we're looking at is available; let's put our node here.
+    const newNode = new IntervalTreeNode(begin, end, value, parent);
+    if (foundParent === null) {
+      // No parent? Must be root.
+      this._root = newNode;
+    } else {
+      // Let the parent know about its new child
+      foundParent[foundSide] = newNode;
+    }
+    let childNode = newNode;
+    // Update the max values.
+    while (nodeStack.length) {
+      const parentNode = nodeStack.pop();
+      const prevMax = parentNode.max;
+      const prevMin = parentNode.min;
+      parentNode.max = Math.max(parentNode.max, childNode.max);
+      parentNode.min = Math.min(parentNode.min, childNode.min);
+      if (parentNode.max === prevMax && parentNode.min === prevMin) {
+        // we won't update any further nodes, so we can stop the loop early
+        break;
+      }
+      childNode = parentNode;
+    }
+    
     return newNode;
   }
 
