@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * A node in the interval tree.
  *
@@ -34,7 +36,7 @@ class IntervalTreeNode {
  * It allows you to find all intervals which contain a specific point, or
  * overlap with a given interval.
  */
-export default class IntervalTree {
+export class IntervalTree {
   /**
    * Constructs an empty interval tree.
    */

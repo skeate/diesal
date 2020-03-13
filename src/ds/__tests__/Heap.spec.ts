@@ -1,4 +1,4 @@
-import Heap from '../Heap';
+import { Heap } from '../Heap';
 
 /** @test {Heap} */
 describe('DS - Heap', () => {

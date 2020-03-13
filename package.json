@@ -29,9 +29,13 @@
     "codeclimate-test-reporter": "^0.5.0",
     "eslint": "^6.8.0",
     "jest": "^20.0.4",
+    "prettier": "^1.19.1",
     "ts-jest": "^21.2.2",
     "typedoc": "^0.16.11",
     "typescript": "^3.8.3"
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "jest": {
     "coverageDirectory": "coverage",

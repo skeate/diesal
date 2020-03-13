@@ -35,7 +35,7 @@ function getChildren(index: number): [number, number] {
  * [Heap]: https://en.wikipedia.org/wiki/Heap_(data_structure)
  * [BinHeap]: https://en.wikipedia.org/wiki/Binary_heap
  */
-export default class Heap<T> {
+export class Heap<T> {
   private heap: T[];
 
   constructor(list: T[] = [], private cmp: (a: T, b: T) => boolean = (a, b) => a < b) {

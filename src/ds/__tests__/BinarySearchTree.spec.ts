@@ -1,4 +1,4 @@
-import BinarySearchTree from '../BinarySearchTree';
+import { BinarySearchTree } from '../BinarySearchTree';
 
 /** @test {BinarySearchTree} */
 describe('DS - BinarySearchTree', () => {

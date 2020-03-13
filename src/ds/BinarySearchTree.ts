@@ -1,6 +1,6 @@
-import { assert } from "../utils";
+import { assert } from '../utils';
 
-import { BinaryTree, HasParent } from "./BinaryTree";
+import { BinaryTree, HasParent } from './BinaryTree';
 
 export type Comparator<T> = (a: T, b: T) => boolean;
 
@@ -11,7 +11,7 @@ export type Comparator<T> = (a: T, b: T) => boolean;
  * tree whose depth is the same as its size, meaning worse performance than a
  * simple list.
  */
-export default class BinarySearchTree<T> extends BinaryTree<T> {
+export class BinarySearchTree<T> extends BinaryTree<T> {
   parent?: BinarySearchTree<T>;
   left?: HasParent<BinarySearchTree<T>>;
   right?: HasParent<BinarySearchTree<T>>;
@@ -107,7 +107,7 @@ export default class BinarySearchTree<T> extends BinaryTree<T> {
       // If the successor node is the right child of its parent, replace it
       // with its own right children (if any). This can only happen if the
       // successor is the direct child of the node being removed.
-      const nodeSide = successorParent.left === successor ? "left" : "right";
+      const nodeSide = successorParent.left === successor ? 'left' : 'right';
       successorParent[nodeSide] = successor.right;
       if (successor.right) {
         successor.right.parent = successorParent;
@@ -117,7 +117,7 @@ export default class BinarySearchTree<T> extends BinaryTree<T> {
       // If it has no children, we can just remove it. This condition is rolled
       // into the final else, since with no children, `node.right` is `null`.
       const nodeParent = node.parent as BinarySearchTree<T>;
-      const nodeSide = nodeParent.left === node ? "left" : "right";
+      const nodeSide = nodeParent.left === node ? 'left' : 'right';
       if (node.left) {
         nodeParent[nodeSide] = node.left;
         // Don't forget to reset parents
@@ -161,14 +161,14 @@ export default class BinarySearchTree<T> extends BinaryTree<T> {
     if (!foundNode) {
       return undefined;
     }
-    let sideToCheck: "left" | "right";
-    let descendant: "leftmostDescendant" | "rightmostDescendant";
+    let sideToCheck: 'left' | 'right';
+    let descendant: 'leftmostDescendant' | 'rightmostDescendant';
     if (findPredecessor) {
-      sideToCheck = "left";
-      descendant = "rightmostDescendant";
+      sideToCheck = 'left';
+      descendant = 'rightmostDescendant';
     } else {
-      sideToCheck = "right";
-      descendant = "leftmostDescendant";
+      sideToCheck = 'right';
+      descendant = 'leftmostDescendant';
     }
     if (foundNode[sideToCheck]) {
       return (foundNode[sideToCheck] as BinarySearchTree<T>)[descendant].value;
