@@ -2,14 +2,14 @@
  * Gets the index of the parent of the given index in the heap-array.
  */
 function getParent(index: number): number {
-  return Math.floor((index - 1) / 2);
+  return Math.floor((index - 1) / 2)
 }
 
 /**
  * Gets the indexes of the children of the node at the given index.
  */
 function getChildren(index: number): [number, number] {
-  return [2 * index + 1, 2 * index + 2];
+  return [2 * index + 1, 2 * index + 2]
 }
 
 /**
@@ -36,12 +36,15 @@ function getChildren(index: number): [number, number] {
  * [BinHeap]: https://en.wikipedia.org/wiki/Binary_heap
  */
 export class Heap<T> {
-  private heap: T[];
+  private heap: T[]
 
-  constructor(list: T[] = [], private cmp: (a: T, b: T) => boolean = (a, b) => a < b) {
-    this.heap = list;
+  constructor(
+    list: T[] = [],
+    private cmp: (a: T, b: T) => boolean = (a, b) => a < b,
+  ) {
+    this.heap = list
     for (let i = Math.floor(this.heap.length / 2) - 1; i >= 0; i--) {
-      this.heapify(i);
+      this.heapify(i)
     }
   }
 
@@ -51,25 +54,25 @@ export class Heap<T> {
    * @type {number}
    */
   get size(): number {
-    return this.heap.length;
+    return this.heap.length
   }
 
   /**
    * Insert a new element into the heap, maintaining the heap property.
    */
   push(value: T): number {
-    let index = this.heap.push(value) - 1;
-    let check = true;
+    let index = this.heap.push(value) - 1
+    let check = true
     while (check) {
-      const parent = getParent(index);
+      const parent = getParent(index)
       if (parent >= 0 && this.cmp(value, this.heap[parent])) {
-        this.swap(index, parent);
-        index = parent;
+        this.swap(index, parent)
+        index = parent
       } else {
-        check = false;
+        check = false
       }
     }
-    return this.size;
+    return this.size
   }
 
   /**
@@ -78,23 +81,23 @@ export class Heap<T> {
    */
   pop(): T | null {
     // remove and store lowest value
-    const min = this.heap.shift();
+    const min = this.heap.shift()
     if (typeof min === 'undefined') {
-      return null;
+      return null
     }
-    const tail = this.heap.pop();
+    const tail = this.heap.pop()
     if (tail) {
-      this.heap.unshift(tail);
-      this.heapify();
+      this.heap.unshift(tail)
+      this.heapify()
     }
-    return min;
+    return min
   }
 
   /**
    * Checks if the value is inside the collection
    */
   contains(value: T): boolean {
-    return this.heap.indexOf(value) >= 0;
+    return this.heap.indexOf(value) >= 0
   }
 
   /**
@@ -104,16 +107,16 @@ export class Heap<T> {
   private heapify(i = 0): void {
     // if this breaks the heap property, fix it. rinse and repeat until heap
     // property is true.
-    const len = this.heap.length;
-    let largest = i;
-    getChildren(i).forEach((child) => {
+    const len = this.heap.length
+    let largest = i
+    getChildren(i).forEach(child => {
       if (child < len && this.cmp(this.heap[child], this.heap[largest])) {
-        largest = child;
+        largest = child
       }
-    });
+    })
     if (largest !== i) {
-      this.swap(largest, i);
-      this.heapify(largest);
+      this.swap(largest, i)
+      this.heapify(largest)
     }
   }
 
@@ -121,7 +124,7 @@ export class Heap<T> {
    * Swaps two indexes in the heap.
    */
   private swap(a: number, b: number): void {
-    [this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]];
+    ;[this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]]
   }
 
   /**
@@ -129,7 +132,7 @@ export class Heap<T> {
    * comparison).
    */
   findMin(): T | undefined {
-    return this.heap[0];
+    return this.heap[0]
   }
 
   /**
@@ -137,7 +140,7 @@ export class Heap<T> {
    * comparison). (Functionally, identical to findMin -- included for semantic
    * reasons based on comparison function)
    */
-  findMax(): T | undefined{
-    return this.heap[0];
+  findMax(): T | undefined {
+    return this.heap[0]
   }
 }

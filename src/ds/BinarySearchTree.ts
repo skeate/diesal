@@ -1,8 +1,8 @@
-import { assert } from '../utils';
+import { assert } from '../utils'
 
-import { BinaryTree, HasParent } from './BinaryTree';
+import { BinaryTree, HasParent } from './BinaryTree'
 
-export type Comparator<T> = (a: T, b: T) => boolean;
+export type Comparator<T> = (a: T, b: T) => boolean
 
 /**
  * A binary search tree is a tree where each node has (at most) two children and
@@ -12,34 +12,34 @@ export type Comparator<T> = (a: T, b: T) => boolean;
  * simple list.
  */
 export class BinarySearchTree<T> extends BinaryTree<T> {
-  parent?: BinarySearchTree<T>;
-  left?: HasParent<BinarySearchTree<T>>;
-  right?: HasParent<BinarySearchTree<T>>;
+  parent?: BinarySearchTree<T>
+  left?: HasParent<BinarySearchTree<T>>
+  right?: HasParent<BinarySearchTree<T>>
 
   constructor(list: T[] = [], private cmp: Comparator<T> = (a, b) => a < b) {
-    super();
+    super()
     for (const el of list) {
-      this.insert(el);
+      this.insert(el)
     }
   }
 
   insert(value: T): this {
     if (this.value === undefined) {
-      this.value = value;
+      this.value = value
     } else if (this.cmp(value, this.value)) {
       if (this.left) {
-        this.left.insert(value);
+        this.left.insert(value)
       } else {
-        this.left = new BinarySearchTree([value], this.cmp).withParent(this);
+        this.left = new BinarySearchTree([value], this.cmp).withParent(this)
       }
     } else {
       if (this.right) {
-        this.right.insert(value);
+        this.right.insert(value)
       } else {
-        this.right = new BinarySearchTree([value], this.cmp).withParent(this);
+        this.right = new BinarySearchTree([value], this.cmp).withParent(this)
       }
     }
-    return this;
+    return this
   }
 
   /**
@@ -47,17 +47,17 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
    */
   search(value: T): BinarySearchTree<T> | undefined {
     if (this.value === value) {
-      return this;
+      return this
     }
     if (this.value) {
-      const onLeftSide = this.cmp(value, this.value);
+      const onLeftSide = this.cmp(value, this.value)
       if (onLeftSide && this.left) {
-        return this.left.search(value);
+        return this.left.search(value)
       } else if (!onLeftSide && this.right) {
-        return this.right.search(value);
+        return this.right.search(value)
       }
     }
-    return undefined;
+    return undefined
   }
 
   /**
@@ -67,7 +67,7 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
    * @returns {boolean} Whether or not the value is in the collection
    */
   contains(value: T): boolean {
-    return Boolean(this.search(value));
+    return Boolean(this.search(value))
   }
 
   /**
@@ -76,20 +76,20 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
    */
   remove(value: T): BinarySearchTree<T> {
     // First, find the node.
-    const node = this.search(value);
+    const node = this.search(value)
     // If it doesn't exist in the tree, we can exit.
     if (!node) {
-      return this;
+      return this
     }
     // If the node to be removed is the root node, we need a temporary parent as
     // a placeholder for the impending node shuffle.
-    let rootParent = null;
+    let rootParent = null
     if (node === this && !this.parent) {
-      this.parent = new BinarySearchTree();
-      this.parent.left = this.withParent(this.parent);
-      rootParent = this.parent;
+      this.parent = new BinarySearchTree()
+      this.parent.left = this.withParent(this.parent)
+      rootParent = this.parent
     }
-    assert(node.parent !== undefined);
+    assert(node.parent !== undefined)
     // If it has both left and right children, we need to do some extra work.
     // Find the next higher value (the right subtree's leftmost descendant),
     // swap out the values, and remove the other node.
@@ -101,88 +101,88 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
     //     \
     //    (C)
     if (node.left && node.right) {
-      const successor = node.right.leftmostDescendant;
-      node.value = successor.value;
-      const successorParent = successor.parent;
+      const successor = node.right.leftmostDescendant
+      node.value = successor.value
+      const successorParent = successor.parent
       // If the successor node is the right child of its parent, replace it
       // with its own right children (if any). This can only happen if the
       // successor is the direct child of the node being removed.
-      const nodeSide = successorParent.left === successor ? 'left' : 'right';
-      successorParent[nodeSide] = successor.right;
+      const nodeSide = successorParent.left === successor ? 'left' : 'right'
+      successorParent[nodeSide] = successor.right
       if (successor.right) {
-        successor.right.parent = successorParent;
+        successor.right.parent = successorParent
       }
     } else {
       // If it only has one child, then we just replace it with its own child.
       // If it has no children, we can just remove it. This condition is rolled
       // into the final else, since with no children, `node.right` is `null`.
-      const nodeParent = node.parent as BinarySearchTree<T>;
-      const nodeSide = nodeParent.left === node ? 'left' : 'right';
+      const nodeParent = node.parent as BinarySearchTree<T>
+      const nodeSide = nodeParent.left === node ? 'left' : 'right'
       if (node.left) {
-        nodeParent[nodeSide] = node.left;
+        nodeParent[nodeSide] = node.left
         // Don't forget to reset parents
-        node.left.parent = node.parent;
+        node.left.parent = node.parent
       } else {
-        nodeParent[nodeSide] = node.right;
+        nodeParent[nodeSide] = node.right
         // Don't forget to reset parents
         if (node.right) {
-          node.right.parent = node.parent;
+          node.right.parent = node.parent
         }
       }
     }
     if (rootParent) {
       if (rootParent.left) {
-        return rootParent.left.withoutParent();
+        return rootParent.left.withoutParent()
       }
-      return rootParent;
+      return rootParent
     }
-    return this;
+    return this
   }
 
   /**
    * Finds the immediate predecessor of the given value
    */
   getPredecessor(value: T): T | undefined {
-    return this.getNeighbor(value, true);
+    return this.getNeighbor(value, true)
   }
 
   /**
    * Finds the immediate successor of the given value
    */
   getSuccessor(value: T): T | undefined {
-    return this.getNeighbor(value, false);
+    return this.getNeighbor(value, false)
   }
 
   /**
    * Finds the immediate predecessor or successor of the given value
    */
   private getNeighbor(value: T, findPredecessor: boolean): T | undefined {
-    let foundNode = this.search(value);
+    let foundNode = this.search(value)
     if (!foundNode) {
-      return undefined;
+      return undefined
     }
-    let sideToCheck: 'left' | 'right';
-    let descendant: 'leftmostDescendant' | 'rightmostDescendant';
+    let sideToCheck: 'left' | 'right'
+    let descendant: 'leftmostDescendant' | 'rightmostDescendant'
     if (findPredecessor) {
-      sideToCheck = 'left';
-      descendant = 'rightmostDescendant';
+      sideToCheck = 'left'
+      descendant = 'rightmostDescendant'
     } else {
-      sideToCheck = 'right';
-      descendant = 'leftmostDescendant';
+      sideToCheck = 'right'
+      descendant = 'leftmostDescendant'
     }
     if (foundNode[sideToCheck]) {
-      return (foundNode[sideToCheck] as BinarySearchTree<T>)[descendant].value;
+      return (foundNode[sideToCheck] as BinarySearchTree<T>)[descendant].value
     }
     while (
       foundNode &&
       foundNode.parent &&
       foundNode.parent[sideToCheck] === foundNode
     ) {
-      foundNode = foundNode.parent;
+      foundNode = foundNode.parent
     }
     if (!foundNode.parent) {
-      return undefined;
+      return undefined
     }
-    return foundNode.parent.value;
+    return foundNode.parent.value
   }
 }

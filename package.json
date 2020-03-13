@@ -35,7 +35,9 @@
     "typescript": "^3.8.3"
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "all"
   },
   "jest": {
     "coverageDirectory": "coverage",

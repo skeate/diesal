@@ -17,14 +17,14 @@
  */
 class IntervalTreeNode {
   constructor(low, high, data, parent) {
-    this.low = low;
-    this.high = high;
-    this.min = low;
-    this.max = high;
-    this.data = data;
-    this.left = null;
-    this.right = null;
-    this.parent = parent;
+    this.low = low
+    this.high = high
+    this.min = low
+    this.max = high
+    this.data = data
+    this.left = null
+    this.right = null
+    this.parent = parent
   }
 }
 
@@ -41,9 +41,9 @@ export class IntervalTree {
    * Constructs an empty interval tree.
    */
   constructor() {
-    this._root = null;
+    this._root = null
     /** @type {number} */
-    this.size = 0;
+    this.size = 0
   }
 
   /**
@@ -67,48 +67,48 @@ export class IntervalTree {
     // particularly large trees from working due to callstack constraints.
     // Instead, we use an iterative algorithm, and keep track of the chain of
     // ancestors so we can update their `max` values.
-    const nodeStack = [];
-    let foundParent = parent;
-    let foundSide = parentSide;
+    const nodeStack = []
+    let foundParent = parent
+    let foundSide = parentSide
     if (node !== null) {
       // No vacancies. Figure out which side we should be putting our interval,
       // and then dive into that node.
-      let curNode = node;
+      let curNode = node
       while (curNode) {
-        nodeStack.push(curNode);
-        foundSide
-          = (begin < curNode.low || begin === curNode.low && end < curNode.high)
-          ? 'left'
-          : 'right';
-        foundParent = curNode;
-        curNode = curNode[foundSide];
+        nodeStack.push(curNode)
+        foundSide =
+          begin < curNode.low || (begin === curNode.low && end < curNode.high)
+            ? 'left'
+            : 'right'
+        foundParent = curNode
+        curNode = curNode[foundSide]
       }
     }
     // The place we're looking at is available; let's put our node here.
-    const newNode = new IntervalTreeNode(begin, end, value, parent);
+    const newNode = new IntervalTreeNode(begin, end, value, parent)
     if (foundParent === null) {
       // No parent? Must be root.
-      this._root = newNode;
+      this._root = newNode
     } else {
       // Let the parent know about its new child
-      foundParent[foundSide] = newNode;
+      foundParent[foundSide] = newNode
     }
-    let childNode = newNode;
+    let childNode = newNode
     // Update the max values.
     while (nodeStack.length) {
-      const parentNode = nodeStack.pop();
-      const prevMax = parentNode.max;
-      const prevMin = parentNode.min;
-      parentNode.max = Math.max(parentNode.max, childNode.max);
-      parentNode.min = Math.min(parentNode.min, childNode.min);
+      const parentNode = nodeStack.pop()
+      const prevMax = parentNode.max
+      const prevMin = parentNode.min
+      parentNode.max = Math.max(parentNode.max, childNode.max)
+      parentNode.min = Math.min(parentNode.min, childNode.min)
       if (parentNode.max === prevMax && parentNode.min === prevMin) {
         // we won't update any further nodes, so we can stop the loop early
-        break;
+        break
       }
-      childNode = parentNode;
+      childNode = parentNode
     }
-    
-    return newNode;
+
+    return newNode
   }
 
   /**
@@ -119,23 +119,23 @@ export class IntervalTree {
    * @param {*} value The value for the interval
    */
   insert(begin, end, value) {
-    this._insert(begin, end, value, this._root, this._root);
-    this.size++;
+    this._insert(begin, end, value, this._root, this._root)
+    this.size++
   }
 
   _lookup(point, node = this._root) {
-    const overlaps = [];
+    const overlaps = []
     if (node === null || node.max < point) {
-      return overlaps;
+      return overlaps
     }
-    overlaps.push(...this._lookup(point, node.left));
+    overlaps.push(...this._lookup(point, node.left))
     if (node.low <= point) {
       if (node.high >= point) {
-        overlaps.push(node.data);
+        overlaps.push(node.data)
       }
-      overlaps.push(...this._lookup(point, node.right));
+      overlaps.push(...this._lookup(point, node.right))
     }
-    return overlaps;
+    return overlaps
   }
 
   /**
@@ -145,21 +145,21 @@ export class IntervalTree {
    * @returns {*[]} An array of all values that are valid at the given point.
    */
   lookup(point) {
-    return this._lookup(point);
+    return this._lookup(point)
   }
 
   _overlap(begin, end, node = this._root) {
-    const overlaps = [];
+    const overlaps = []
     if (!(begin > node.high || node.low > end)) {
-      overlaps.push(node.data);
+      overlaps.push(node.data)
     }
     if (node.left && node.left.max >= begin) {
-      overlaps.push(...this._overlap(begin, end, node.left));
+      overlaps.push(...this._overlap(begin, end, node.left))
     }
     if (node.right && node.right.min <= end) {
-      overlaps.push(...this._overlap(begin, end, node.right));
+      overlaps.push(...this._overlap(begin, end, node.right))
     }
-    return overlaps;
+    return overlaps
   }
 
   /**
@@ -170,6 +170,6 @@ export class IntervalTree {
    * @returns {*[]} An array of all values that overlap the given interval.
    */
   overlap(begin, end) {
-    return this._overlap(begin, end);
+    return this._overlap(begin, end)
   }
 }
