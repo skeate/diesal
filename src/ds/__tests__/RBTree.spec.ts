@@ -4,6 +4,7 @@ import { inorder } from '../../al/treeTraversals'
 import { RBTree } from '../RBTree'
 
 import { SortedTreeTests } from './SharedTests'
+import {assert} from '../../utils'
 
 expect.extend({
   toMaintainInvariants(tree: RBTree<unknown>): jest.CustomMatcherResult {
@@ -97,6 +98,7 @@ describe('BinarySearchTree', () => {
      * 1   4 6   8
      */
     let a = RBTree.fromArray([5, 3, 7, 1, 4, 6, 8])
+    assert(a, 'a must be defined')
     expect([...inorder(a)]).toEqual([1, 3, 4, 5, 6, 7, 8])
     // no children
     a = a.remove(8)
