@@ -1,6 +1,6 @@
 {
   "name": "diesal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Data structures and algorithms, written in Typescript",
   "main": "./dist/index.js",
   "types": "./types/index.d.ts",
