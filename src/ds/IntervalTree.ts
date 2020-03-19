@@ -22,12 +22,12 @@ export class IntervalTree<T> {
   /**
    * Constructs an empty interval tree.
    */
-  constructor(protected eq: Comparator<T> = (a, b) => a === b) {
+  constructor(protected eq: Comparator<T> = (a, b): boolean => a === b) {
     this._size = 0
     this.tree = undefined
   }
 
-  get size() {
+  get size(): number {
     return this._size
   }
 

@@ -9,7 +9,7 @@ function getOrder<T>(
   return reversed ? [tree.right, tree.left] : [tree.left, tree.right]
 }
 
-export function* inorder<T>(tree: BinaryTree<T>, reversed: boolean = false): TGen<T> {
+export function* inorder<T>(tree: BinaryTree<T>, reversed = false): TGen<T> {
   if (!tree.value) return undefined
   const [first, last] = getOrder(tree, reversed)
   if (first) yield* inorder(first, reversed)
@@ -17,7 +17,7 @@ export function* inorder<T>(tree: BinaryTree<T>, reversed: boolean = false): TGe
   if (last) yield* inorder(last, reversed)
 }
 
-export function* preorder<T>(tree: BinaryTree<T>, reversed: boolean = false): TGen<T> {
+export function* preorder<T>(tree: BinaryTree<T>, reversed = false): TGen<T> {
   if (!tree.value) return undefined
   const [first, last] = getOrder(tree, reversed)
   yield tree.value
@@ -27,7 +27,7 @@ export function* preorder<T>(tree: BinaryTree<T>, reversed: boolean = false): TG
 
 export function* postorder<T>(
   tree: BinaryTree<T>,
-  reversed: boolean = false,
+  reversed = false,
 ): TGen<T> {
   if (!tree.value) return undefined
   const [first, last] = getOrder(tree, reversed)

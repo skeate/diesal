@@ -45,12 +45,12 @@ export class BinaryTree<T> {
     this.right = subtree.withParent(this)
   }
 
-  get isLeftChild() {
-    return this.parent && this.parent.left === this
+  get isLeftChild(): boolean {
+    return !!this.parent && this.parent.left === this
   }
 
-  get isRightChild() {
-    return this.parent && this.parent.right === this
+  get isRightChild(): boolean {
+    return !!this.parent && this.parent.right === this
   }
 
   get leftmostDescendant(): BinaryTree<T> {
@@ -65,7 +65,7 @@ export class BinaryTree<T> {
     return `${this.value}`
   }
 
-  prettyPrint(indent: string = ''): string {
+  prettyPrint(indent = ''): string {
     let str = `${indent.substr(0, indent.length - 1)}${
       this.parent ? (this.isRightChild ? '├' : '└') : ''
     }─┬─ ${this.prettyPrintValue()}\n`
@@ -82,7 +82,7 @@ export class BinaryTree<T> {
     return str
   }
 
-  toString() {
+  toString(): string {
     return this.prettyPrint()
   }
 }

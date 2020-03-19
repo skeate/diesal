@@ -40,7 +40,7 @@ export class Heap<T> {
 
   constructor(
     list: T[] = [],
-    private cmp: (a: T, b: T) => boolean = (a, b) => a < b,
+    private cmp: (a: T, b: T) => boolean = (a, b): boolean => a < b,
   ) {
     this.heap = list
     for (let i = Math.floor(this.heap.length / 2) - 1; i >= 0; i--) {
@@ -124,7 +124,7 @@ export class Heap<T> {
    * Swaps two indexes in the heap.
    */
   private swap(a: number, b: number): void {
-    ;[this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]]
+    ;[this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]] // eslint-disable-line
   }
 
   /**

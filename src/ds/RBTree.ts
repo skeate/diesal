@@ -27,12 +27,16 @@ export class RBTree<T> extends BinarySearchTree<T> {
 
   protected isRed: boolean
 
-  constructor(value: T, protected cmp: Comparator<T> = (a, b) => a < b, protected eq: Comparator<T> = (a, b) => a === b) {
+  constructor(
+    value: T,
+    protected cmp: Comparator<T> = (a, b): boolean => a < b,
+    protected eq: Comparator<T> = (a, b): boolean => a === b,
+  ) {
     super(value, cmp)
     this.isRed = false
   }
 
-  get color() {
+  get color(): 'red' | 'black' {
     if (this.isRed) return 'red'
     return 'black'
   }
@@ -103,7 +107,7 @@ export class RBTree<T> extends BinarySearchTree<T> {
             curNode = curNode.parent
             this.rotateLeft(curNode)
             if (curNode.left === nodeInPlace) nodeInPlace = curNode
-            curNode = curNode.left!
+            curNode = curNode.left! // eslint-disable-line
           }
           assert(curNode.parent)
           assert(curNode.parent.parent)
@@ -126,7 +130,7 @@ export class RBTree<T> extends BinarySearchTree<T> {
             curNode = curNode.parent
             this.rotateRight(curNode)
             if (curNode.right === nodeInPlace) nodeInPlace = curNode
-            curNode = curNode.right!
+            curNode = curNode.right! // eslint-disable-line
           }
           assert(curNode.parent)
           assert(curNode.parent.parent)
@@ -186,7 +190,7 @@ export class RBTree<T> extends BinarySearchTree<T> {
           w.isRed = false
           curParent.isRed = true
           this.rotateLeft(curParent)
-          curParent = curParent.left!
+          curParent = curParent.left! // eslint-disable-line
           w = curParent.right
         }
         assert(w)
@@ -215,7 +219,7 @@ export class RBTree<T> extends BinarySearchTree<T> {
           w.isRed = false
           curParent.isRed = true
           this.rotateRight(curParent)
-          curParent = curParent.right!
+          curParent = curParent.right! // eslint-disable-line
           w = curParent.left
         }
         assert(w, 'w must be defined')
@@ -241,7 +245,7 @@ export class RBTree<T> extends BinarySearchTree<T> {
       }
     }
     if (curParent) {
-      let curNode = curParent[curSide]
+      const curNode = curParent[curSide]
       if (curNode) curNode.isRed = false
     } else {
       this.isRed = false

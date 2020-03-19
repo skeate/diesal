@@ -10,7 +10,7 @@
     "test-once": "jest",
     "test-watch": "jest --watchAll",
     "coverage": "jest --coverage",
-    "lint": "eslint src",
+    "lint": "eslint src/**/*.ts",
     "test": "npm run lint && npm run coverage"
   },
   "keywords": [
