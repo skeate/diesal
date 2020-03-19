@@ -16,16 +16,17 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
   left?: HasParent<BinarySearchTree<T>>
   right?: HasParent<BinarySearchTree<T>>
 
-  constructor(value: T, protected cmp: Comparator<T> = (a, b) => a < b) {
+  constructor(value: T, protected cmp: Comparator<T> = (a, b) => a < b, protected eq: Comparator<T> = (a, b) => a === b) {
     super(value)
   }
 
   static fromArray<T>(
     arr: T[],
     cmp?: Comparator<T>,
+    eq?: Comparator<T>,
   ): BinarySearchTree<T> | undefined {
     if (arr.length === 0) return undefined
-    const root = new BinarySearchTree(arr[0], cmp)
+    const root = new BinarySearchTree(arr[0], cmp, eq)
     for (let i = 1; i < arr.length; i++) {
       root.insert(arr[i])
     }
@@ -47,7 +48,7 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
 
   insert(value: T): this {
     const [node, side] = this.findParentAndSideFor(value)
-    node[side] = new BinarySearchTree(value, this.cmp).withParent(node)
+    node[side] = new BinarySearchTree(value, this.cmp, this.eq).withParent(node)
     return this
   }
 
@@ -57,7 +58,7 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
   search(value: T): BinarySearchTree<T> | undefined {
     let curNode: BinarySearchTree<T> | undefined = this
     while (curNode && typeof curNode.value !== 'undefined') {
-      if (curNode.value === value) return curNode
+      if (this.eq(curNode.value, value)) return curNode
       if (this.cmp(value, curNode.value)) curNode = curNode.left
       else curNode = curNode.right
     }
@@ -89,7 +90,7 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
     // a placeholder for the impending node shuffle.
     let rootParent = null
     if (node === this && !this.parent) {
-      this.parent = new BinarySearchTree(this.value)
+      this.parent = new BinarySearchTree(this.value, this.cmp, this.eq)
       this.parent.left = this.withParent(this.parent)
       rootParent = this.parent
     }

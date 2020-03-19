@@ -1,31 +1,11 @@
-// @ts-nocheck
+import { Comparator } from './BinarySearchTree'
+import { RBTree } from './RBTree'
 
-/**
- * A node in the interval tree.
- *
- * @property {number} low Start of the interval
- * @property {number} high End of the interval
- * @property {number} min The lowest endpoint of this node's interval or any of
- * its children.
- * @property {number} max The greatest endpoint of this node's interval or any
- * of its children.
- * @property {*} data The value of the interval
- * @property {IntervalTreeNode?} left Left child (lower intervals)
- * @property {IntervalTreeNode?} right Right child (higher intervals)
- * @property {IntervalTreeNode?} parent The parent of this node
- * @private
- */
-class IntervalTreeNode {
-  constructor(low, high, data, parent) {
-    this.low = low
-    this.high = high
-    this.min = low
-    this.max = high
-    this.data = data
-    this.left = null
-    this.right = null
-    this.parent = parent
-  }
+type Interval<T> = {
+  low: number
+  high: number
+  max: number
+  value: T
 }
 
 /**
@@ -36,140 +16,86 @@ class IntervalTreeNode {
  * It allows you to find all intervals which contain a specific point, or
  * overlap with a given interval.
  */
-export class IntervalTree {
+export class IntervalTree<T> {
+  private _size: number
+  private tree?: RBTree<Interval<T>>
   /**
    * Constructs an empty interval tree.
    */
-  constructor() {
-    this._root = null
-    /** @type {number} */
-    this.size = 0
+  constructor(protected eq: Comparator<T> = (a, b) => a === b) {
+    this._size = 0
+    this.tree = undefined
   }
 
-  /**
-   * Actually insert a new interval into the tree. This has a few extra
-   * arguments that don't really need to be exposed in the public API, hence the
-   * separation.
-   *
-   * @private
-   * @param {number} begin Start of the interval
-   * @param {number} end End of the interval
-   * @param {*} value The value of the interval
-   * @param {IntervalTreeNode?} node The current place we are looking at to add
-   * the interval
-   * @param {IntervalTreeNode?} parent The parent of the place we are looking to
-   * add the interval
-   * @param {string} parentSide The side of the parent we're looking at
-   * @returns {IntervalTreeNode} The newly added node
-   */
-  _insert(begin, end, value, node, parent, parentSide) {
-    // The natural implementation of this is recursive; however, this prevents
-    // particularly large trees from working due to callstack constraints.
-    // Instead, we use an iterative algorithm, and keep track of the chain of
-    // ancestors so we can update their `max` values.
-    const nodeStack = []
-    let foundParent = parent
-    let foundSide = parentSide
-    if (node !== null) {
-      // No vacancies. Figure out which side we should be putting our interval,
-      // and then dive into that node.
-      let curNode = node
-      while (curNode) {
-        nodeStack.push(curNode)
-        foundSide =
-          begin < curNode.low || (begin === curNode.low && end < curNode.high)
-            ? 'left'
-            : 'right'
-        foundParent = curNode
-        curNode = curNode[foundSide]
-      }
-    }
-    // The place we're looking at is available; let's put our node here.
-    const newNode = new IntervalTreeNode(begin, end, value, parent)
-    if (foundParent === null) {
-      // No parent? Must be root.
-      this._root = newNode
+  get size() {
+    return this._size
+  }
+
+  insert(low: number, high: number, value: T): this {
+    const interval = { low, high, value, max: high }
+    if (!this.tree) {
+      this.tree = new RBTree(
+        interval,
+        (a, b) => a.low < b.low,
+        (a, b) =>
+          a.low === b.low && a.high === b.high && this.eq(a.value, b.value),
+      )
     } else {
-      // Let the parent know about its new child
-      foundParent[foundSide] = newNode
-    }
-    let childNode = newNode
-    // Update the max values.
-    while (nodeStack.length) {
-      const parentNode = nodeStack.pop()
-      const prevMax = parentNode.max
-      const prevMin = parentNode.min
-      parentNode.max = Math.max(parentNode.max, childNode.max)
-      parentNode.min = Math.min(parentNode.min, childNode.min)
-      if (parentNode.max === prevMax && parentNode.min === prevMin) {
-        // we won't update any further nodes, so we can stop the loop early
-        break
-      }
-      childNode = parentNode
-    }
+      let node = this.tree.insertAndReturnNode(interval)
+      node.value.max = Math.max(
+        node.value.high,
+        node.left?.value.max || node.value.high,
+        node.right?.value.max || node.value.high,
+      )
 
-    return newNode
+      while (node.parent && node.parent.value.max < node.value.max) {
+        const newMax = node.value.max
+        node = node.parent
+        node.value.max = newMax
+      }
+    }
+    this._size++
+    return this
   }
 
-  /**
-   * Insert a new value into the tree, for the given interval.
-   *
-   * @param {number} begin The start of the valid interval
-   * @param {number} end The end of the valid interval
-   * @param {*} value The value for the interval
-   */
-  insert(begin, end, value) {
-    this._insert(begin, end, value, this._root, this._root)
-    this.size++
+  remove(low: number, high: number, value: T): this {
+    if (this.tree) {
+      this.tree.remove({ low, high, value, max: high })
+    }
+    return this
   }
 
-  _lookup(point, node = this._root) {
-    const overlaps = []
-    if (node === null || node.max < point) {
-      return overlaps
-    }
-    overlaps.push(...this._lookup(point, node.left))
-    if (node.low <= point) {
-      if (node.high >= point) {
-        overlaps.push(node.data)
+  lookup(position: number): T[] {
+    if (!this.tree) return []
+
+    const overlaps: T[] = []
+    const stack = [this.tree]
+    while (stack.length) {
+      const node = stack.pop()
+      if (!node) continue
+      if (node.value.low <= position && node.value.high >= position) {
+        overlaps.push(node.value.value)
       }
-      overlaps.push(...this._lookup(point, node.right))
+      if (node.left && node.left.value.max >= position) stack.push(node.left)
+      if (node.right && node.right.value.max >= position) stack.push(node.right)
     }
     return overlaps
   }
 
-  /**
-   * Find all intervals that cover a certain point.
-   *
-   * @param {number} point The sought point
-   * @returns {*[]} An array of all values that are valid at the given point.
-   */
-  lookup(point) {
-    return this._lookup(point)
-  }
+  overlap(low: number, high: number): T[] {
+    if (!this.tree) return []
 
-  _overlap(begin, end, node = this._root) {
-    const overlaps = []
-    if (!(begin > node.high || node.low > end)) {
-      overlaps.push(node.data)
-    }
-    if (node.left && node.left.max >= begin) {
-      overlaps.push(...this._overlap(begin, end, node.left))
-    }
-    if (node.right && node.right.min <= end) {
-      overlaps.push(...this._overlap(begin, end, node.right))
+    const overlaps: T[] = []
+    const stack = [this.tree]
+    while (stack.length) {
+      const node = stack.pop()
+      if (!node) continue
+      if (low <= node.value.high && high >= node.value.low) {
+        overlaps.push(node.value.value)
+      }
+      if (node.left && node.left.value.max >= low) stack.push(node.left)
+      if (node.right && node.right.value.max >= low) stack.push(node.right)
     }
     return overlaps
-  }
-
-  /**
-   * Find all intervals that overlap a certain interval.
-   *
-   * @param {number} begin The start of the valid interval
-   * @param {number} end The end of the valid interval
-   * @returns {*[]} An array of all values that overlap the given interval.
-   */
-  overlap(begin, end) {
-    return this._overlap(begin, end)
   }
 }

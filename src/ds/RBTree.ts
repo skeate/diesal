@@ -27,7 +27,7 @@ export class RBTree<T> extends BinarySearchTree<T> {
 
   protected isRed: boolean
 
-  constructor(value: T, protected cmp: Comparator<T> = (a, b) => a < b) {
+  constructor(value: T, protected cmp: Comparator<T> = (a, b) => a < b, protected eq: Comparator<T> = (a, b) => a === b) {
     super(value, cmp)
     this.isRed = false
   }
