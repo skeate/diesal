@@ -1,53 +1,24 @@
-type TGen<T> = Generator<T, undefined, undefined>
-
-function getOrder<T>(
-  tree: BinaryTree<T>,
-  reversed: boolean,
-): [BinaryTree<T> | undefined, BinaryTree<T> | undefined] {
-  return reversed ? [tree.right, tree.left] : [tree.left, tree.right]
-}
-
-function* inorder<T>(tree: BinaryTree<T>, reversed: boolean = false): TGen<T> {
-  if (!tree.value) return undefined
-  const [first, last] = getOrder(tree, reversed)
-  if (first) yield* inorder(first, reversed)
-  yield tree.value
-  if (last) yield* inorder(last, reversed)
-}
-
-function* preorder<T>(tree: BinaryTree<T>, reversed: boolean = false): TGen<T> {
-  if (!tree.value) return undefined
-  const [first, last] = getOrder(tree, reversed)
-  yield tree.value
-  if (first) yield* preorder(first, reversed)
-  if (last) yield* preorder(last, reversed)
-}
-
-function* postorder<T>(
-  tree: BinaryTree<T>,
-  reversed: boolean = false,
-): TGen<T> {
-  if (!tree.value) return undefined
-  const [first, last] = getOrder(tree, reversed)
-  if (first) yield* postorder(first, reversed)
-  if (last) yield* postorder(last, reversed)
-  yield tree.value
-}
-
 export type HasParent<Tree> = Tree & {
   parent: Tree
   leftmostDescendant: HasParent<Tree>
   rightmostDescendant: HasParent<Tree>
 }
 
+export type HasLeft<Tree> = Tree & {
+  left: Tree
+}
+export type HasRight<Tree> = Tree & {
+  right: Tree
+}
+
 export type IsRoot<Tree> = Tree & { parent: undefined }
 
-export class BinaryTree<T> implements Iterable<T> {
+export class BinaryTree<T> {
   parent?: BinaryTree<T>
   left?: HasParent<BinaryTree<T>>
   right?: HasParent<BinaryTree<T>>
 
-  constructor(public value?: T) {}
+  constructor(public value: T) {}
 
   get size(): number {
     let size = 1
@@ -74,6 +45,14 @@ export class BinaryTree<T> implements Iterable<T> {
     this.right = subtree.withParent(this)
   }
 
+  get isLeftChild() {
+    return this.parent && this.parent.left === this
+  }
+
+  get isRightChild() {
+    return this.parent && this.parent.right === this
+  }
+
   get leftmostDescendant(): BinaryTree<T> {
     return this.left ? this.left.leftmostDescendant : this
   }
@@ -82,32 +61,28 @@ export class BinaryTree<T> implements Iterable<T> {
     return this.right ? this.right.rightmostDescendant : this
   }
 
-  // Traversals
-  [Symbol.iterator](): TGen<T> {
-    return inorder(this)
+  prettyPrintValue(): string {
+    return `${this.value}`
   }
 
-  readonly inorder: Iterable<T> = {
-    [Symbol.iterator]: (): TGen<T> => inorder(this),
+  prettyPrint(indent: string = ''): string {
+    let str = `${indent.substr(0, indent.length - 1)}${
+      this.parent ? (this.isRightChild ? '├' : '└') : ''
+    }─┬─ ${this.prettyPrintValue()}\n`
+    if (this.right) {
+      str += this.right.prettyPrint(indent + ' │')
+    } else {
+      str += `${indent} ├─── ×\n`
+    }
+    if (this.left) {
+      str += this.left.prettyPrint(indent + '  ')
+    } else {
+      str += `${indent} └─── ×\n`
+    }
+    return str
   }
 
-  readonly inorderReversed: Iterable<T> = {
-    [Symbol.iterator]: (): TGen<T> => inorder(this, true),
-  }
-
-  readonly preorder: Iterable<T> = {
-    [Symbol.iterator]: (): TGen<T> => preorder(this),
-  }
-
-  readonly preorderReversed: Iterable<T> = {
-    [Symbol.iterator]: (): TGen<T> => preorder(this, true),
-  }
-
-  readonly postorder: Iterable<T> = {
-    [Symbol.iterator]: (): TGen<T> => postorder(this),
-  }
-
-  readonly postorderReversed: Iterable<T> = {
-    [Symbol.iterator]: (): TGen<T> => postorder(this, true),
+  toString() {
+    return this.prettyPrint()
   }
 }

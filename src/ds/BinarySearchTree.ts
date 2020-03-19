@@ -16,29 +16,38 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
   left?: HasParent<BinarySearchTree<T>>
   right?: HasParent<BinarySearchTree<T>>
 
-  constructor(list: T[] = [], private cmp: Comparator<T> = (a, b) => a < b) {
-    super()
-    for (const el of list) {
-      this.insert(el)
+  constructor(value: T, protected cmp: Comparator<T> = (a, b) => a < b) {
+    super(value)
+  }
+
+  static fromArray<T>(
+    arr: T[],
+    cmp?: Comparator<T>,
+  ): BinarySearchTree<T> | undefined {
+    if (arr.length === 0) return undefined
+    const root = new BinarySearchTree(arr[0], cmp)
+    for (let i = 1; i < arr.length; i++) {
+      root.insert(arr[i])
+    }
+    return root;
+  }
+
+  findParentAndSideFor(value: T): [BinarySearchTree<T>, 'left' | 'right'] {
+    let curNode: BinarySearchTree<T> = this
+    while (true) {
+      if (this.cmp(value, curNode.value)) {
+        if (curNode.left) curNode = curNode.left
+        else return [curNode, 'left']
+      } else {
+        if (curNode.right) curNode = curNode.right
+        else return [curNode, 'right']
+      }
     }
   }
 
   insert(value: T): this {
-    if (this.value === undefined) {
-      this.value = value
-    } else if (this.cmp(value, this.value)) {
-      if (this.left) {
-        this.left.insert(value)
-      } else {
-        this.left = new BinarySearchTree([value], this.cmp).withParent(this)
-      }
-    } else {
-      if (this.right) {
-        this.right.insert(value)
-      } else {
-        this.right = new BinarySearchTree([value], this.cmp).withParent(this)
-      }
-    }
+    const [node, side] = this.findParentAndSideFor(value)
+    node[side] = new BinarySearchTree(value, this.cmp).withParent(node)
     return this
   }
 
@@ -46,16 +55,11 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
    * Search for a value in the tree.
    */
   search(value: T): BinarySearchTree<T> | undefined {
-    if (this.value === value) {
-      return this
-    }
-    if (this.value) {
-      const onLeftSide = this.cmp(value, this.value)
-      if (onLeftSide && this.left) {
-        return this.left.search(value)
-      } else if (!onLeftSide && this.right) {
-        return this.right.search(value)
-      }
+    let curNode: BinarySearchTree<T> | undefined = this
+    while (curNode && typeof curNode.value !== 'undefined') {
+      if (curNode.value === value) return curNode
+      if (this.cmp(value, curNode.value)) curNode = curNode.left
+      else curNode = curNode.right
     }
     return undefined
   }
@@ -74,7 +78,7 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
    * Removes a value from the tree. If the value is in the tree multiple times,
    * it will remove the first one found.
    */
-  remove(value: T): BinarySearchTree<T> {
+  remove(value: T): BinarySearchTree<T> | undefined {
     // First, find the node.
     const node = this.search(value)
     // If it doesn't exist in the tree, we can exit.
@@ -85,7 +89,7 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
     // a placeholder for the impending node shuffle.
     let rootParent = null
     if (node === this && !this.parent) {
-      this.parent = new BinarySearchTree()
+      this.parent = new BinarySearchTree(this.value)
       this.parent.left = this.withParent(this.parent)
       rootParent = this.parent
     }
@@ -116,7 +120,7 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
       // If it only has one child, then we just replace it with its own child.
       // If it has no children, we can just remove it. This condition is rolled
       // into the final else, since with no children, `node.right` is `null`.
-      const nodeParent = node.parent as BinarySearchTree<T>
+      const nodeParent = node.parent
       const nodeSide = nodeParent.left === node ? 'left' : 'right'
       if (node.left) {
         nodeParent[nodeSide] = node.left
@@ -134,7 +138,7 @@ export class BinarySearchTree<T> extends BinaryTree<T> {
       if (rootParent.left) {
         return rootParent.left.withoutParent()
       }
-      return rootParent
+      return undefined
     }
     return this
   }
