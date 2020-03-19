@@ -30,7 +30,6 @@ export class RBTree<T> extends BinarySearchTree<T> {
   constructor(value: T, protected cmp: Comparator<T> = (a, b) => a < b) {
     super(value, cmp)
     this.isRed = false
-    // console.log('constructing ', value)
   }
 
   get color() {
@@ -53,9 +52,6 @@ export class RBTree<T> extends BinarySearchTree<T> {
   }
 
   private rotateLeft(node: RBTree<T>): void {
-    // console.log(`rotating ${node.value} left`)
-    // console.log('before')
-    // console.log(this.toString())
     assert(node.right)
     // Shuffle around values to account for moving node
     const parentValue = node.value
@@ -71,14 +67,9 @@ export class RBTree<T> extends BinarySearchTree<T> {
     child.value = parentValue
     node.isRed = child.isRed
     child.isRed = parentRed
-    // console.log('after')
-    // console.log(this.toString())
   }
 
   private rotateRight(node: RBTree<T>): void {
-    // console.log(`rotating ${node.value} right`)
-    // console.log('before')
-    // console.log(this.toString())
     assert(node.left)
     const parentValue = node.value
     const parentRed = node.isRed
@@ -93,84 +84,80 @@ export class RBTree<T> extends BinarySearchTree<T> {
     child.value = parentValue
     node.isRed = child.isRed
     child.isRed = parentRed
-    // console.log('after')
-    // console.log(this.toString())
   }
 
-  private insertFixup(newNode: RBTree<T>): void {
+  private insertFixup(newNode: RBTree<T>): RBTree<T> {
     let curNode: RBTree<T> = newNode
-    // console.log('fixing up around ', newNode.value)
+    let nodeInPlace: RBTree<T> = newNode
 
     while (curNode.parent?.parent && curNode.parent.isRed) {
-      // console.log('current node:', curNode.prettyPrintValue())
       if (curNode.parent.isLeftChild) {
-        // console.log('left parent')
         const uncle = curNode.parent.parent.right
         if (uncle?.isRed) {
-          // console.log('case 1 (uncle is red)')
           curNode.parent.isRed = false
           uncle.isRed = false
           curNode.parent.parent.isRed = true
           curNode = curNode.parent.parent
         } else {
           if (curNode.isRightChild) {
-            // console.log('case 2 (uncle is black, right child)')
             curNode = curNode.parent
             this.rotateLeft(curNode)
+            if (curNode.left === nodeInPlace) nodeInPlace = curNode
             curNode = curNode.left!
           }
-          // console.log('case 3 (uncle is black, left child)')
           assert(curNode.parent)
           assert(curNode.parent.parent)
           curNode.parent.isRed = false
           curNode.parent.parent.isRed = true
           this.rotateRight(curNode.parent.parent)
+          if (curNode.parent.right === nodeInPlace) {
+            nodeInPlace = curNode.parent
+          }
         }
       } else {
-        // console.log('right parent')
         const uncle = curNode.parent.parent.left
         if (uncle?.isRed) {
-          // console.log('case 1 (uncle is red)')
           curNode.parent.isRed = false
           uncle.isRed = false
           curNode.parent.parent.isRed = true
           curNode = curNode.parent.parent
         } else {
           if (curNode.isLeftChild) {
-            // console.log('case 2 (uncle is black, left child)')
             curNode = curNode.parent
             this.rotateRight(curNode)
+            if (curNode.right === nodeInPlace) nodeInPlace = curNode
             curNode = curNode.right!
           }
-          // console.log('case 3 (uncle is black, right child)')
           assert(curNode.parent)
           assert(curNode.parent.parent)
           curNode.parent.isRed = false
           curNode.parent.parent.isRed = true
           this.rotateLeft(curNode.parent.parent)
+          if (curNode.parent.left === nodeInPlace) {
+            nodeInPlace = curNode.parent
+          }
         }
       }
     }
     this.isRed = false
+    return nodeInPlace
   }
 
   insert(value: T): this {
-    // console.log('inserting ', value)
+    this.insertAndReturnNode(value)
+    return this
+  }
+
+  insertAndReturnNode(value: T): RBTree<T> {
     const [node, side] = this.findParentAndSideFor(value)
     assert(node instanceof RBTree, 'Mixed tree types')
     const newNode = new RBTree(value, this.cmp).withParent(node)
     newNode.isRed = true
     node[side] = newNode
-    // console.log('pending insertFixup')
-    // console.log(this.prettyPrint())
-    this.insertFixup(newNode)
-    // console.log('done inserting')
-    // console.log(this.prettyPrint())
-    return this
+    return this.insertFixup(newNode)
   }
 
   protected transplant(a: RBTree<T>, b: undefined | RBTree<T>): void {
-    // console.log(`transplanting ${a.value} ${b?.value}`)
     if (!a.parent) {
       if (b) {
         this.isRed = b.isRed
@@ -192,16 +179,10 @@ export class RBTree<T> extends BinarySearchTree<T> {
   ): void {
     let curParent: RBTree<T> | undefined = parent
     let curSide = side
-    // let curNode = parent[side]
-    // console.log(`fixing up around ${parent?.prettyPrintValue()}'s ${side}`)
-    // console.log('root\'s left:', this.left?.prettyPrintValue())
     while (curParent && !curParent[curSide]?.isRed) {
-      // console.log(this.prettyPrint())
       if (curSide === 'left') {
-        // console.log('left child')
         let w = curParent.right
         if (w?.isRed) {
-          // console.log('case 1')
           w.isRed = false
           curParent.isRed = true
           this.rotateLeft(curParent)
@@ -210,19 +191,16 @@ export class RBTree<T> extends BinarySearchTree<T> {
         }
         assert(w)
         if (!w.left?.isRed && !w.right?.isRed) {
-          // console.log('case 2')
           w.isRed = true
           curSide = curParent?.isLeftChild ? 'left' : 'right'
           curParent = curParent.parent
         } else {
           if (!w.right?.isRed) {
-            // console.log('case 3')
             if (w.left) w.left.isRed = false
             w.isRed = true
             this.rotateRight(w)
             w = curParent.right
           }
-          // console.log('case 4')
           assert(w)
           w.isRed = curParent.isRed
           curParent.isRed = false
@@ -232,34 +210,26 @@ export class RBTree<T> extends BinarySearchTree<T> {
           this.isRed = false
         }
       } else {
-        // console.log('right child')
         let w = curParent.left
-        // console.log('w is', w?.prettyPrintValue())
         if (w?.isRed) {
-          // console.log('case 1')
           w.isRed = false
           curParent.isRed = true
           this.rotateRight(curParent)
           curParent = curParent.right!
           w = curParent.left
-          // console.log(this.prettyPrint())
-          // console.log('w is', w?.prettyPrintValue())
         }
         assert(w, 'w must be defined')
         if (!w.right?.isRed && !w.left?.isRed) {
-          // console.log('case 2')
           w.isRed = true
           curSide = curParent.isLeftChild ? 'left' : 'right'
           curParent = curParent.parent
         } else {
           if (!w.left?.isRed) {
-            // console.log('case 3')
             if (w.right) w.right.isRed = false
             w.isRed = true
             this.rotateLeft(w)
             w = curParent.left
           }
-          // console.log('case 4')
           assert(w)
           w.isRed = curParent.isRed
           curParent.isRed = false
@@ -279,10 +249,8 @@ export class RBTree<T> extends BinarySearchTree<T> {
   }
 
   remove(value: T): RBTree<T> | undefined {
-    // console.log('removing', value)
     const node = this.search(value)
     if (!node || !(node instanceof RBTree)) return this
-    // console.log('node found')
     const nodel = node.left
     const noder = node.right
     const nodeir = node.isRed
@@ -291,63 +259,47 @@ export class RBTree<T> extends BinarySearchTree<T> {
     let xP: RBTree<T> | undefined
     let xS: 'left' | 'right' = 'left'
     if (!nodel) {
-      // console.log('node has no left child')
       xP = node === this ? undefined : node
       xS = 'right'
       if (!noder && !node.parent) {
-        // console.log('removed last element in tree')
         return undefined
       }
       if (!noder) {
-        // console.log('node has no right child')
         xP = node.parent
         xS = node.isLeftChild ? 'left' : 'right'
       }
       this.transplant(node, noder)
     } else if (!noder) {
-      // console.log('node has left child')
       xP = node === this ? undefined : node
       xS = 'left'
       this.transplant(node, nodel)
     } else {
-      // console.log('node has both children')
       curNode = noder.leftmostDescendant
-      // console.log('swapping with', curNode.prettyPrintValue())
       curNodeOriginallyRed = curNode.isRed
       xP = curNode
       xS = 'right'
       if (curNode.parent === node) {
-        // console.log('direct child')
         const x = xP[xS]
         if (x) x.parent = curNode
       } else {
-        // console.log('indirect child')
-        // console.log(curNode.parent)
         this.transplant(curNode, curNode.right)
         xP = curNode.parent
         xS = 'left'
         curNode.right = noder.withParent(curNode)
-        // console.log(node.value, curNode.value, xP![xS])
-        // console.log(this.prettyPrint())
       }
       this.transplant(node, curNode)
       if (node === this) {
-        // console.log('found node is root')
         this.left = nodel.withParent(this)
         if (curNode.right) this.right = curNode.right.withParent(this)
         this.isRed = nodeir
         if (xP === curNode) {
-          // console.log('swapped with child')
           xP = this
         }
       } else {
-        // console.log('found node is not root')
         curNode.left = nodel.withParent(curNode)
         curNode.isRed = nodeir
       }
     }
-    // console.log('before fixup')
-    // console.log(this.prettyPrint())
     if (!curNodeOriginallyRed) {
       this.deleteFixup(xP, xS)
     }

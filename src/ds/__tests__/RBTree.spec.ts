@@ -123,6 +123,17 @@ describe('BinarySearchTree', () => {
     expect([...inorder(a)]).toEqual([1, 3, 4, 6, 6.5, 7, 8])
   })
 
+  it('should be able to give the node inserted', () => {
+    fc.assert(
+      fc.property(fc.set(fc.integer(-100, 100), 2, 20), nums => {
+        const numToInsert = nums[0]
+        const tree = RBTree.fromArray(nums.slice(1))
+        const node = tree.insertAndReturnNode(numToInsert)
+        expect(node.value).toEqual(numToInsert)
+      }),
+    )
+  })
+
   it('should maintain the invariants through arbitrary inserts/deletes', () => {
     type Model = number[]
     type Real = RBTree<number>
