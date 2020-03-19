@@ -62,7 +62,7 @@
 					<a href="_ds_intervaltree_.intervaltree.html">IntervalTree</a>
 				</li>
 			</ul>
-			<h1>Class IntervalTree</h1>
+			<h1>Class IntervalTree&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -79,6 +79,14 @@
 					<p>It allows you to find all intervals which contain a specific point, or
 					overlap with a given interval.</p>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
@@ -98,15 +106,27 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_ds_intervaltree_.intervaltree.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_ds_intervaltree_.intervaltree.html#_size" class="tsd-kind-icon">_size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_ds_intervaltree_.intervaltree.html#eq" class="tsd-kind-icon">eq</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_ds_intervaltree_.intervaltree.html#tree" class="tsd-kind-icon">tree</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_ds_intervaltree_.intervaltree.html#size" class="tsd-kind-icon">size</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_ds_intervaltree_.intervaltree.html#_insert" class="tsd-kind-icon">_insert</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ds_intervaltree_.intervaltree.html#_lookup" class="tsd-kind-icon">_lookup</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ds_intervaltree_.intervaltree.html#_overlap" class="tsd-kind-icon">_overlap</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ds_intervaltree_.intervaltree.html#insert" class="tsd-kind-icon">insert</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ds_intervaltree_.intervaltree.html#lookup" class="tsd-kind-icon">lookup</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ds_intervaltree_.intervaltree.html#overlap" class="tsd-kind-icon">overlap</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ds_intervaltree_.intervaltree.html#remove" class="tsd-kind-icon">remove</a></li>
 							</ul>
 						</section>
 					</div>
@@ -118,13 +138,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Interval<wbr>Tree<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ds_intervaltree_.intervaltree.html" class="tsd-signature-type">IntervalTree</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Interval<wbr>Tree<span class="tsd-signature-symbol">(</span>eq<span class="tsd-signature-symbol">?: </span><a href="../modules/_ds_binarysearchtree_.html#comparator" class="tsd-signature-type">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ds_intervaltree_.intervaltree.html" class="tsd-signature-type">IntervalTree</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/IntervalTree.ts#L39">ds/IntervalTree.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/IntervalTree.ts#L21">ds/IntervalTree.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -132,174 +152,98 @@
 									<p>Constructs an empty interval tree.</p>
 								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> eq: <a href="../modules/_ds_binarysearchtree_.html#comparator" class="tsd-signature-type">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = (a, b): boolean &#x3D;&gt; a &#x3D;&#x3D;&#x3D; b</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_ds_intervaltree_.intervaltree.html" class="tsd-signature-type">IntervalTree</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_size" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _size</h3>
+					<div class="tsd-signature tsd-kind-icon">_size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/IntervalTree.ts#L20">ds/IntervalTree.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="eq" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> eq</h3>
+					<div class="tsd-signature tsd-kind-icon">eq<span class="tsd-signature-symbol">:</span> <a href="../modules/_ds_binarysearchtree_.html#comparator" class="tsd-signature-type">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/IntervalTree.ts#L25">ds/IntervalTree.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="tree" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagOptional">Optional</span> tree</h3>
+					<div class="tsd-signature tsd-kind-icon">tree<span class="tsd-signature-symbol">:</span> <a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_ds_intervaltree_.html#interval" class="tsd-signature-type">Interval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/IntervalTree.ts#L21">ds/IntervalTree.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="size" class="tsd-anchor"></a>
+					<h3>size</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/IntervalTree.ts#L30">ds/IntervalTree.ts:30</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="_insert" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _insert</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">_insert<span class="tsd-signature-symbol">(</span>begin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, node<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parentSide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ds_intervaltree_.intervaltreenode.html" class="tsd-signature-type">IntervalTreeNode</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/IntervalTree.ts#L65">ds/IntervalTree.ts:65</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Actually insert a new interval into the tree. This has a few extra
-										arguments that don&#39;t really need to be exposed in the public API, hence the
-									separation.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>begin: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Start of the interval</p>
-									</div>
-								</li>
-								<li>
-									<h5>end: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>End of the interval</p>
-									</div>
-								</li>
-								<li>
-									<h5>value: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value of the interval</p>
-									</div>
-								</li>
-								<li>
-									<h5>node: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The current place we are looking at to add
-										the interval</p>
-									</div>
-								</li>
-								<li>
-									<h5>parent: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The parent of the place we are looking to
-										add the interval</p>
-									</div>
-								</li>
-								<li>
-									<h5>parentSide: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The side of the parent we&#39;re looking at</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_ds_intervaltree_.intervaltreenode.html" class="tsd-signature-type">IntervalTreeNode</a></h4>
-							<p>The newly added node</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="_lookup" class="tsd-anchor"></a>
-					<h3>_lookup</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">_lookup<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, node<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/IntervalTree.ts#L126">ds/IntervalTree.ts:126</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>point: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> node: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = this._root</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="_overlap" class="tsd-anchor"></a>
-					<h3>_overlap</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">_overlap<span class="tsd-signature-symbol">(</span>begin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, node<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/IntervalTree.ts#L151">ds/IntervalTree.ts:151</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>begin: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>end: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> node: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = this._root</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="insert" class="tsd-anchor"></a>
 					<h3>insert</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">insert<span class="tsd-signature-symbol">(</span>begin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">insert<span class="tsd-signature-symbol">(</span>low<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, high<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/IntervalTree.ts#L121">ds/IntervalTree.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/IntervalTree.ts#L34">ds/IntervalTree.ts:34</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Insert a new value into the tree, for the given interval.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>begin: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The start of the valid interval</p>
-									</div>
+									<h5>low: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5>end: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The end of the valid interval</p>
-									</div>
+									<h5>high: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5>value: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value for the interval</p>
-									</div>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -307,31 +251,22 @@
 					<a name="lookup" class="tsd-anchor"></a>
 					<h3>lookup</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">lookup<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">lookup<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/IntervalTree.ts#L147">ds/IntervalTree.ts:147</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/IntervalTree.ts#L68">ds/IntervalTree.ts:68</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Find all intervals that cover a certain point.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>point: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The sought point</p>
-									</div>
+									<h5>position: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>An array of all values that are valid at the given point.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -339,37 +274,54 @@
 					<a name="overlap" class="tsd-anchor"></a>
 					<h3>overlap</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">overlap<span class="tsd-signature-symbol">(</span>begin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">overlap<span class="tsd-signature-symbol">(</span>low<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, high<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/IntervalTree.ts#L172">ds/IntervalTree.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/IntervalTree.ts#L85">ds/IntervalTree.ts:85</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Find all intervals that overlap a certain interval.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>begin: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The start of the valid interval</p>
-									</div>
+									<h5>low: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5>end: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The end of the valid interval</p>
-									</div>
+									<h5>high: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>An array of all values that overlap the given interval.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="remove" class="tsd-anchor"></a>
+					<h3>remove</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>low<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, high<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/IntervalTree.ts#L61">ds/IntervalTree.ts:61</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>low: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>high: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -411,20 +363,23 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_ds_intervaltree_.intervaltree.html" class="tsd-kind-icon">Interval<wbr>Tree</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="_ds_intervaltree_.intervaltree.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_ds_intervaltree_.intervaltree.html#_insert" class="tsd-kind-icon">_insert</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_ds_intervaltree_.intervaltree.html#_size" class="tsd-kind-icon">_size</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_ds_intervaltree_.intervaltree.html#_lookup" class="tsd-kind-icon">_lookup</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_ds_intervaltree_.intervaltree.html#eq" class="tsd-kind-icon">eq</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_ds_intervaltree_.intervaltree.html#_overlap" class="tsd-kind-icon">_overlap</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_ds_intervaltree_.intervaltree.html#tree" class="tsd-kind-icon">tree</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_ds_intervaltree_.intervaltree.html#size" class="tsd-kind-icon">size</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_ds_intervaltree_.intervaltree.html#insert" class="tsd-kind-icon">insert</a>
@@ -435,12 +390,15 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_ds_intervaltree_.intervaltree.html#overlap" class="tsd-kind-icon">overlap</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ds_intervaltree_.intervaltree.html#remove" class="tsd-kind-icon">remove</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-private tsd-is-not-exported">
-						<a href="_ds_intervaltree_.intervaltreenode.html" class="tsd-kind-icon">Interval<wbr>Tree<wbr>Node</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+						<a href="../modules/_ds_intervaltree_.html#interval" class="tsd-kind-icon">Interval</a>
 					</li>
 				</ul>
 			</nav>

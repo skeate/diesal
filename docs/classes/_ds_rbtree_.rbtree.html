@@ -125,6 +125,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="_ds_rbtree_.rbtree.html#cmp" class="tsd-kind-icon">cmp</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="_ds_rbtree_.rbtree.html#eq" class="tsd-kind-icon">eq</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_ds_rbtree_.rbtree.html#isred" class="tsd-kind-icon">is<wbr>Red</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_ds_rbtree_.rbtree.html#left" class="tsd-kind-icon">left</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_ds_rbtree_.rbtree.html#parent" class="tsd-kind-icon">parent</a></li>
@@ -152,6 +153,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_ds_rbtree_.rbtree.html#getpredecessor" class="tsd-kind-icon">get<wbr>Predecessor</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_ds_rbtree_.rbtree.html#getsuccessor" class="tsd-kind-icon">get<wbr>Successor</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_ds_rbtree_.rbtree.html#insert" class="tsd-kind-icon">insert</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_ds_rbtree_.rbtree.html#insertandreturnnode" class="tsd-kind-icon">insert<wbr>And<wbr>Return<wbr>Node</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_ds_rbtree_.rbtree.html#insertfixup" class="tsd-kind-icon">insert<wbr>Fixup</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_ds_rbtree_.rbtree.html#prettyprint" class="tsd-kind-icon">pretty<wbr>Print</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_ds_rbtree_.rbtree.html#prettyprintvalue" class="tsd-kind-icon">pretty<wbr>Print<wbr>Value</a></li>
@@ -177,14 +179,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new RBTree<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, cmp<span class="tsd-signature-symbol">?: </span><a href="../modules/_ds_binarysearchtree_.html#comparator" class="tsd-signature-type">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a></li>
+						<li class="tsd-signature tsd-kind-icon">new RBTree<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, cmp<span class="tsd-signature-symbol">?: </span><a href="../modules/_ds_binarysearchtree_.html#comparator" class="tsd-signature-type">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, eq<span class="tsd-signature-symbol">?: </span><a href="../modules/_ds_binarysearchtree_.html#comparator" class="tsd-signature-type">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L28">ds/RBTree.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L28">ds/RBTree.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -193,7 +195,10 @@
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> cmp: <a href="../modules/_ds_binarysearchtree_.html#comparator" class="tsd-signature-type">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = (a, b) &#x3D;&gt; a &lt; b</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> cmp: <a href="../modules/_ds_binarysearchtree_.html#comparator" class="tsd-signature-type">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = (a, b): boolean &#x3D;&gt; a &lt; b</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> eq: <a href="../modules/_ds_binarysearchtree_.html#comparator" class="tsd-signature-type">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = (a, b): boolean &#x3D;&gt; a &#x3D;&#x3D;&#x3D; b</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a></h4>
@@ -210,7 +215,18 @@
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#cmp">cmp</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L30">ds/RBTree.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L32">ds/RBTree.ts:32</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+					<a name="eq" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> eq</h3>
+					<div class="tsd-signature tsd-kind-icon">eq<span class="tsd-signature-symbol">:</span> <a href="../modules/_ds_binarysearchtree_.html#comparator" class="tsd-signature-type">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Overrides <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#eq">eq</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L33">ds/RBTree.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +236,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Red<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L28">ds/RBTree.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L28">ds/RBTree.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -231,7 +247,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#left">left</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L25">ds/RBTree.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L25">ds/RBTree.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -242,7 +258,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#parent">parent</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L24">ds/RBTree.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L24">ds/RBTree.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +269,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#right">right</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L26">ds/RBTree.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L26">ds/RBTree.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -264,7 +280,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#value">value</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L21">ds/BinaryTree.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L21">ds/BinaryTree.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -281,7 +297,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L36">ds/RBTree.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L39">ds/RBTree.ts:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">"red"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"black"</span></h4>
@@ -292,17 +308,17 @@
 					<a name="isleftchild" class="tsd-anchor"></a>
 					<h3>is<wbr>Left<wbr>Child</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isLeftChild<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isLeftChild<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#isleftchild">isLeftChild</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L48">ds/BinaryTree.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L48">ds/BinaryTree.ts:48</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -310,17 +326,17 @@
 					<a name="isrightchild" class="tsd-anchor"></a>
 					<h3>is<wbr>Right<wbr>Child</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isRightChild<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isRightChild<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#isrightchild">isRightChild</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L52">ds/BinaryTree.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L52">ds/BinaryTree.ts:52</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -335,7 +351,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#leftmostdescendant">leftmostDescendant</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L56">ds/BinaryTree.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L56">ds/BinaryTree.ts:56</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_ds_binarytree_.binarytree.html" class="tsd-signature-type">BinaryTree</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -353,7 +369,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#rightmostdescendant">rightmostDescendant</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L60">ds/BinaryTree.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L60">ds/BinaryTree.ts:60</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_ds_binarytree_.binarytree.html" class="tsd-signature-type">BinaryTree</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -371,7 +387,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#size">size</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L23">ds/BinaryTree.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L23">ds/BinaryTree.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -392,7 +408,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#contains">contains</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinarySearchTree.ts#L73">ds/BinarySearchTree.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinarySearchTree.ts#L78">ds/BinarySearchTree.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -424,7 +440,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L189">ds/RBTree.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L180">ds/RBTree.ts:180</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -451,7 +467,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#findparentandsidefor">findParentAndSideFor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinarySearchTree.ts#L35">ds/BinarySearchTree.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinarySearchTree.ts#L40">ds/BinarySearchTree.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -475,7 +491,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#getpredecessor">getPredecessor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinarySearchTree.ts#L149">ds/BinarySearchTree.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinarySearchTree.ts#L154">ds/BinarySearchTree.ts:154</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -504,7 +520,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#getsuccessor">getSuccessor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinarySearchTree.ts#L156">ds/BinarySearchTree.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinarySearchTree.ts#L161">ds/BinarySearchTree.ts:161</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -533,7 +549,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#insert">insert</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L157">ds/RBTree.ts:157</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L150">ds/RBTree.ts:150</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -546,17 +562,40 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="insertfixup" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> insert<wbr>Fixup</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">insert<wbr>Fixup<span class="tsd-signature-symbol">(</span>newNode<span class="tsd-signature-symbol">: </span><a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="insertandreturnnode" class="tsd-anchor"></a>
+					<h3>insert<wbr>And<wbr>Return<wbr>Node</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">insert<wbr>And<wbr>Return<wbr>Node<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L100">ds/RBTree.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L155">ds/RBTree.ts:155</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="insertfixup" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> insert<wbr>Fixup</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">insert<wbr>Fixup<span class="tsd-signature-symbol">(</span>newNode<span class="tsd-signature-symbol">: </span><a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L93">ds/RBTree.ts:93</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -565,7 +604,7 @@
 									<h5>newNode: <a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_ds_rbtree_.rbtree.html" class="tsd-signature-type">RBTree</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -580,7 +619,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#prettyprint">prettyPrint</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L68">ds/BinaryTree.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L68">ds/BinaryTree.ts:68</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -604,7 +643,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#prettyprintvalue">prettyPrintValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L50">ds/RBTree.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L53">ds/RBTree.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -622,7 +661,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#remove">remove</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L281">ds/RBTree.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L255">ds/RBTree.ts:255</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -645,7 +684,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L55">ds/RBTree.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L58">ds/RBTree.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -668,7 +707,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L78">ds/RBTree.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L76">ds/RBTree.ts:76</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -692,7 +731,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#search">search</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinarySearchTree.ts#L57">ds/BinarySearchTree.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinarySearchTree.ts#L62">ds/BinarySearchTree.ts:62</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -721,7 +760,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#setleft">setLeft</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L40">ds/BinaryTree.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L40">ds/BinaryTree.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -745,7 +784,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#setright">setRight</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L44">ds/BinaryTree.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L44">ds/BinaryTree.ts:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -769,7 +808,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L85">ds/BinaryTree.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L85">ds/BinaryTree.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -786,7 +825,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L172">ds/RBTree.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L164">ds/RBTree.ts:164</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -813,7 +852,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#withparent">withParent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L30">ds/BinaryTree.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L30">ds/BinaryTree.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -843,7 +882,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_ds_binarytree_.binarytree.html">BinaryTree</a>.<a href="_ds_binarytree_.binarytree.html#withoutparent">withoutParent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/BinaryTree.ts#L35">ds/BinaryTree.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/BinaryTree.ts#L35">ds/BinaryTree.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../modules/_ds_binarytree_.html#isroot" class="tsd-signature-type">IsRoot</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -861,7 +900,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_ds_binarysearchtree_.binarysearchtree.html">BinarySearchTree</a>.<a href="_ds_binarysearchtree_.binarysearchtree.html#fromarray">fromArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/skeate/diesal/blob/a63bbe7/src/ds/RBTree.ts#L41">ds/RBTree.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/skeate/diesal/blob/fb34188/src/ds/RBTree.ts#L44">ds/RBTree.ts:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -930,6 +969,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
 								<a href="_ds_rbtree_.rbtree.html#cmp" class="tsd-kind-icon">cmp</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+								<a href="_ds_rbtree_.rbtree.html#eq" class="tsd-kind-icon">eq</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_ds_rbtree_.rbtree.html#isred" class="tsd-kind-icon">is<wbr>Red</a>
 							</li>
@@ -980,6 +1022,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_ds_rbtree_.rbtree.html#insert" class="tsd-kind-icon">insert</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_ds_rbtree_.rbtree.html#insertandreturnnode" class="tsd-kind-icon">insert<wbr>And<wbr>Return<wbr>Node</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_ds_rbtree_.rbtree.html#insertfixup" class="tsd-kind-icon">insert<wbr>Fixup</a>
