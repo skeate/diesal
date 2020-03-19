@@ -2,8 +2,8 @@
   "name": "diesal",
   "version": "1.0.0",
   "description": "Data structures and algorithms, written in Typescript",
-  "main": "./dist/",
-  "types": "./types/",
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "tsc",
