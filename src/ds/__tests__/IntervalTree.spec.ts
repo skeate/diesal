@@ -1,19 +1,16 @@
+import * as fc from 'fast-check'
 import { IntervalTree } from '../IntervalTree'
 
-/** @test {IntervalTree} */
 describe('DS - IntervalTree', () => {
-  /** @test {IntervalTree#constructor} */
   it('should be able to be instantiated', () => {
     expect(() => new IntervalTree()).not.toThrow()
   })
 
-  /** @test {IntervalTree#size} */
   it('should have a size property', () => {
     const h = new IntervalTree()
     expect(h.size).toBe(0)
   })
 
-  /** @test {IntervalTree#insert} */
   it('should allow insertion of new intervals', () => {
     const intervalTree = new IntervalTree()
     intervalTree.insert(0, 3, 'a')
@@ -22,9 +19,9 @@ describe('DS - IntervalTree', () => {
     expect(intervalTree.size).toEqual(3)
   })
 
-  /** @test {IntervalTree#lookup} */
   it('should find matching intervals', () => {
     const intervalTree = new IntervalTree()
+    expect(intervalTree.lookup(1)).toEqual([])
     intervalTree.insert(0, 3, 'a')
     intervalTree.insert(1, 4, 'b')
     intervalTree.insert(2, 5, 'c')
@@ -36,9 +33,9 @@ describe('DS - IntervalTree', () => {
     expect(intervalTree.lookup(8)).toEqual(['d'])
   })
 
-  /** @test {IntervalTree#overlap} */
   it('should find overlapping intervals', () => {
     const intervalTree = new IntervalTree()
+    expect(intervalTree.overlap(0, 1)).toEqual([])
     intervalTree.insert(2, 4, 'a')
     intervalTree.insert(2, 5, 'b')
     intervalTree.insert(4, 6, 'c')
@@ -70,6 +67,35 @@ describe('DS - IntervalTree', () => {
     intervalTreeD.insert(3, 4, 'b')
     intervalTreeD.insert(1, 2, 'c')
     expect(intervalTreeD.overlap(0, 2).sort()).toEqual(['a', 'c'])
+  })
+
+  it('should work for randomly generated trees', () => {
+    fc.assert(
+      fc.property(
+        fc.tuple(
+          fc.integer(-100, 100),
+          fc.array(
+            fc
+              .tuple(fc.integer(-100, 100), fc.integer(-100, 100))
+              .map(t => (t[0] < t[1] ? t : [t[1], t[0]])),
+            5,
+            100,
+          ),
+        ),
+        ([needle, tups]) => {
+          const tree = new IntervalTree()
+          tups.forEach(tup => {
+            tree.insert(tup[0], tup[1], tup)
+          })
+          const sorter = (a: number[], b: number[]) =>
+            a[0] - b[0] || a[1] - b[1]
+          const matchingTups = tups
+            .filter(t => needle >= t[0] && needle <= t[1])
+            .sort(sorter)
+          expect(tree.lookup(needle).sort(sorter)).toEqual(matchingTups)
+        },
+      ),
+    )
   })
 
   it('should handle very large trees', () => {

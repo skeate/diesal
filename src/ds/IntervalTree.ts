@@ -8,6 +8,14 @@ type Interval<T> = {
   value: T
 }
 
+function recalculateMax<T>(node: RBTree<Interval<T>>): number {
+  let max = node.value.high
+  if (node.left) max = Math.max(max, node.left.value.max)
+  if (node.right) max = Math.max(max, node.right.value.max)
+  node.value.max = max
+  return max
+}
+
 /**
  * An interval tree is a data structure that holds intervals. For example, if
  * you had events which took place over a period of time, you might store them
@@ -32,7 +40,12 @@ export class IntervalTree<T> {
   }
 
   insert(low: number, high: number, value: T): this {
-    const interval = { low, high, value, max: high }
+    const interval = {
+      low,
+      high,
+      value,
+      max: high,
+    }
     if (!this.tree) {
       this.tree = new RBTree(
         interval,
@@ -42,16 +55,12 @@ export class IntervalTree<T> {
       )
     } else {
       let node = this.tree.insertAndReturnNode(interval)
-      node.value.max = Math.max(
-        node.value.high,
-        node.left?.value.max || node.value.high,
-        node.right?.value.max || node.value.high,
-      )
-
-      while (node.parent && node.parent.value.max < node.value.max) {
-        const newMax = node.value.max
+      if (node.left) recalculateMax(node.left)
+      if (node.right) recalculateMax(node.right)
+      recalculateMax(node)
+      while (node.parent) {
+        recalculateMax(node.parent)
         node = node.parent
-        node.value.max = newMax
       }
     }
     this._size++
@@ -77,7 +86,13 @@ export class IntervalTree<T> {
         overlaps.push(node.value.value)
       }
       if (node.left && node.left.value.max >= position) stack.push(node.left)
-      if (node.right && node.right.value.max >= position) stack.push(node.right)
+      if (
+        node.right &&
+        node.value.low <= position &&
+        node.right.value.max >= position
+      ) {
+        stack.push(node.right)
+      }
     }
     return overlaps
   }
